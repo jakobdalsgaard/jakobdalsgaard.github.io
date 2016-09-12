@@ -6,7 +6,7 @@ Ingredienser:
 
 
 * 3 æbler
-* &frac12; dL sukker
+* 1 dL sukker
 * &frac12; tsk kanel
 * 180g sukker
 * 100g smør
@@ -14,7 +14,7 @@ Ingredienser:
 
 Ovnen tændes på 200&deg;C.
 
-Æblerne skrælles og skæres i både; &frac12; dL sukker og &frac12; tsk kanel blandes, halvdelen af denne blanding vendes med æblebådene.
+Æblerne skrælles og skæres i både; 1 dL sukker og &frac12; tsk kanel blandes, halvdelen af denne blanding vendes med æblebådene.
 
 Tærteform på ca. 26cm i diameter smøres.
 
