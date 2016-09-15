@@ -22,4 +22,4 @@ rør det i dejen sammen med mælken. Fordel dejen i tre brødforme eller &eacute
 Kagen bages i ca. 50 minutter ved 170&deg;C.
 
 
-Tags: mad kage opskrift
+Tags: mad, kage, opskrift

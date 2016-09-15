@@ -24,4 +24,4 @@ Pisk æg og sukker sammen. Smørret smeltes og tilsættes sammen med mel. Rør d
 
 Bagetiden er ca. 30 minutter ved 200&deg;C på nederste rille.
 
-Tags: mad opskrift
+Tags: mad, opskrift, kage
