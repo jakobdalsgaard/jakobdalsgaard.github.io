@@ -22,6 +22,6 @@ Tærteform på ca. 26cm i diameter smøres.
 Pisk æg og sukker sammen. Smørret smeltes og tilsættes sammen med mel. Rør dejen sammen og hæld den i formen.
 Æblebådene sættes i dejen, og den resterende sukker med kanel drysses over.
 
-Bagetiden er ca. 40 minutter ved 200&deg;C på nederste rille.
+Bagetiden er ca. 30 minutter ved 200&deg;C på nederste rille.
 
 Tags: mad opskrift

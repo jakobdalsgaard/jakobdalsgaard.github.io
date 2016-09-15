@@ -2,8 +2,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Jakob Dalsgaards blog</title><link>http://blog.dalsgaard.net/</link>
 <description>Anything...</description><language>en</language>
-<lastBuildDate>Thu, 15 Sep 2016 21:58:28 +0200</lastBuildDate>
-<pubDate>Thu, 15 Sep 2016 21:58:28 +0200</pubDate>
+<lastBuildDate>Thu, 15 Sep 2016 23:32:14 +0200</lastBuildDate>
+<pubDate>Thu, 15 Sep 2016 23:32:14 +0200</pubDate>
 <atom:link href="http://blog.dalsgaard.net//feed.rss" rel="self" type="application/rss+xml" />
 <item><title>
 Æbletærte, super-nem
@@ -32,15 +32,15 @@
 <p>Pisk æg og sukker sammen. Smørret smeltes og tilsættes sammen med mel. Rør dejen sammen og hæld den i formen.
 Æblebådene sættes i dejen, og den resterende sukker med kanel drysses over.</p>
 
-<p>Bagetiden er ca. 40 minutter ved 200&deg;C på nederste rille.</p>
+<p>Bagetiden er ca. 30 minutter ved 200&deg;C på nederste rille.</p>
 
 <p>Tags: <a href='tag_mad opskrift.html'>mad opskrift</a></p>
 
 <!-- text end -->
 <p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://blog.dalsgaard.net//aebletaerte-super-nem.html&text=&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;&via=jakobdalsgaard'>Comments? Tweet</a> 
-<a href='https://twitter.com/search?q=http://blog.dalsgaard.net//aebletaerte-super-nem.html'><span id='count-618'></span></a>&nbsp;</p>
+<a href='https://twitter.com/search?q=http://blog.dalsgaard.net//aebletaerte-super-nem.html'><span id='count-12769'></span></a>&nbsp;</p>
 <script type="text/javascript">$.ajax({type: "GET", url: "https://cdn.api.twitter.com/1/urls/count.json?url=http://blog.dalsgaard.net//aebletaerte-super-nem.html",
-            dataType: "jsonp", success: function(data){ $("#count-618").html("(" + data.count + ")"); }}); </script>
+            dataType: "jsonp", success: function(data){ $("#count-12769").html("(" + data.count + ")"); }}); </script>
 ]]></description><link>http://blog.dalsgaard.net//aebletaerte-super-nem.html</link>
 <guid>http://blog.dalsgaard.net//./aebletaerte-super-nem.html</guid>
 <dc:creator>Jakob Dalsgaard</dc:creator>
