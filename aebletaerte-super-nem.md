@@ -6,6 +6,7 @@ Ingredienser:
 
 
 * 3 æbler
+* 2 æg
 * 1 dL sukker
 * &frac12; tsk kanel
 * 180g sukker
