@@ -2,8 +2,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Jakob Dalsgaards blog</title><link>http://blog.dalsgaard.net/</link>
 <description>Anything...</description><language>en</language>
-<lastBuildDate>Fri, 16 Sep 2016 00:52:30 +0200</lastBuildDate>
-<pubDate>Fri, 16 Sep 2016 00:52:30 +0200</pubDate>
+<lastBuildDate>Fri, 16 Sep 2016 09:14:37 +0200</lastBuildDate>
+<pubDate>Fri, 16 Sep 2016 09:14:37 +0200</pubDate>
 <atom:link href="http://blog.dalsgaard.net//feed.rss" rel="self" type="application/rss+xml" />
 <item><title>
 Chokoladekage i form
@@ -34,11 +34,13 @@ Kagen bages i ca. 50 minutter ved 170&deg;C.</p>
 
 <p>Tags: <a href='tag_mad.html'>mad</a>, <a href='tag_kage.html'>kage</a>, <a href='tag_opskrift.html'>opskrift</a></p>
 
+
 <!-- text end -->
-<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://blog.dalsgaard.net//chokoladekage-i-form.html&text=&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;&via=jakobdalsgaard'>Comments? Tweet</a> 
-<a href='https://twitter.com/search?q=http://blog.dalsgaard.net//chokoladekage-i-form.html'><span id='count-21116'></span></a>&nbsp;</p>
-<script type="text/javascript">$.ajax({type: "GET", url: "https://cdn.api.twitter.com/1/urls/count.json?url=http://blog.dalsgaard.net//chokoladekage-i-form.html",
-            dataType: "jsonp", success: function(data){ $("#count-21116").html("(" + data.count + ")"); }}); </script>
+<p id='twitter'><a href="http://blog.dalsgaard.net//chokoladekage-i-form.html#disqus_thread">Comments?</a> &nbsp;
+<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//chokoladekage-i-form.html"
+ data-via="jakobdalsgaard"
+>Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</p>
 ]]></description><link>http://blog.dalsgaard.net//chokoladekage-i-form.html</link>
 <guid>http://blog.dalsgaard.net//./chokoladekage-i-form.html</guid>
 <dc:creator>Jakob Dalsgaard</dc:creator>
@@ -74,11 +76,13 @@ Kagen bages i ca. 50 minutter ved 170&deg;C.</p>
 
 <p>Tags: <a href='tag_mad.html'>mad</a>, <a href='tag_opskrift.html'>opskrift</a>, <a href='tag_kage.html'>kage</a></p>
 
+
 <!-- text end -->
-<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://blog.dalsgaard.net//aebletaerte-super-nem.html&text=&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;&via=jakobdalsgaard'>Comments? Tweet</a> 
-<a href='https://twitter.com/search?q=http://blog.dalsgaard.net//aebletaerte-super-nem.html'><span id='count-26534'></span></a>&nbsp;</p>
-<script type="text/javascript">$.ajax({type: "GET", url: "https://cdn.api.twitter.com/1/urls/count.json?url=http://blog.dalsgaard.net//aebletaerte-super-nem.html",
-            dataType: "jsonp", success: function(data){ $("#count-26534").html("(" + data.count + ")"); }}); </script>
+<p id='twitter'><a href="http://blog.dalsgaard.net//aebletaerte-super-nem.html#disqus_thread">Comments?</a> &nbsp;
+<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//aebletaerte-super-nem.html"
+ data-via="jakobdalsgaard"
+>Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</p>
 ]]></description><link>http://blog.dalsgaard.net//aebletaerte-super-nem.html</link>
 <guid>http://blog.dalsgaard.net//./aebletaerte-super-nem.html</guid>
 <dc:creator>Jakob Dalsgaard</dc:creator>
