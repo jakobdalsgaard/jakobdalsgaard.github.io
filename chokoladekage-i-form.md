@@ -10,7 +10,7 @@ Ingredienser:
 * 350g sukker
 * 4 æg
 * 500g hvedemel
-* 4&frac12; tsk bagepulber
+* 4&frac12; tsk bagepulver
 * 1 dL kakao
 * 3 tsk vaniljesukker
 * 3 dL mælk
