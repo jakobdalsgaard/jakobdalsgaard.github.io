@@ -57,7 +57,7 @@ tilføjes, og gryden koger i _minimum_ 3 timer. Lad den gerne stå til dagen eft
 * 1 tsk revet muskatnød
 
 Tag en stor gryde, smelt smørret ved lav varme, rør melet i -- det bliver en stor klump.
-Ved lidt højere varmer: hæld langsomt mælken i under omrøring. Det bliver en tyk sovs.
+Ved lidt højere varme: hæld langsomt mælken i under omrøring. Det bliver en tyk sovs.
 Tilsæt salt og muskatnød og lad sovsen koge svagt i ca. 10 minutter. Sæt til at køle.
 
 
