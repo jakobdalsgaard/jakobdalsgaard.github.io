@@ -1,6 +1,7 @@
 Mega meget lasagne
 
 Lasagne nok til 12 brødforme... just saying... Husk smør til formene, de skal være smurte!
+Opskriften er temmelig meget en kopi af FXcuisines fantastiske [Lasagna from Scratch](http://fxcuisine.com/Default.asp?language=2&Display=152&resolution=high).
 
 ## Lasagneplader
 
@@ -33,15 +34,17 @@ Ingredienser
 * 1L kyllingefond
 * 3dL hvidvin
 * &frac12;L fløde
-* 200g smør
+* 100g smør
+* 1 dL olivenolie
 
 Gulerødder skrælles, skæres i tynde strimler, ca. 2-3mm x 2-3mm, derpå i små tern. Bladselleri skæres ligeledes
 i små tern. Sættes til side. Bacon skæres i små tern af nogenlunde samme størrelse. Tag gerne to pander og en
 stor gryde. Panderne bruges til at forberede en lang række af ingredienserne på førend de smides i gryden.
 
-Der forberedes kun små portioner ad gangen på panderne. Smør først, dernæst gulerødder, løg og bladselleri. Lad
-det svitse og blive lidt blødt, skub det lidt til side og rist en smule af okse/kalve kødet. Ikke for meget, det
-skal ikke koge i egen saft, men få en karamelliseret overflade. Derpå en smule bacon og en smule kyllingelever.
+Der forberedes kun små portioner ad gangen på panderne. Smør og olie først, varmes godt op, løg smides på panden, og
+vandet fordampes væk, lad løgene blive klare, ikke brune. Dernæst gulerødder og bladselleri. Lad
+det svitse og blive lidt blødt, skub det lidt til side og rist en smule bacon/pancetta. Ikke for meget, det
+skal ikke koge i egen saft, men få en karamelliseret overflade. Derpå en smule okse/kalvekød og lidt kyllingelever.
 Det ristes nogenlunde tørt. Panden koges af med lidt hvidvin, der koger lidt ind. Derpå en smule kyllingefond,
 der koger lidt ind. Derpå fløde, der koger lidt ind. Denne proces laves med små portioner, der smides i gryden.
 
