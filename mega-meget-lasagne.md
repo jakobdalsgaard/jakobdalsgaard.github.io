@@ -2,7 +2,7 @@ Mega meget lasagne
 
 Lasagne nok til 12 brødforme... just saying... Husk smør til formene, de skal være smurte!
 
-# Lasagneplader
+## Lasagneplader
 
 Ingredienser
 
@@ -20,7 +20,7 @@ kan man hælde lidt koldt vand i. _Lidt_.
 Pladerne kan med fordel laves i forvejen, rulles ud til tykkelsen 8 på din Marcato Atlas lasagnemaskine,
 koges 10 sekunder i spilkogende vand og hænges til tørre.
 
-# Rag&uacute; Bolognese (Kødsovs....)
+## Rag&uacute; Bolognese (Kødsovs....)
 
 Ingredienser
 
@@ -48,7 +48,7 @@ der koger lidt ind. Derpå fløde, der koger lidt ind. Denne proces laves med sm
 Når al kød og alle grøntsager således er processeret, da bringes grydens indhold til kogepunktet. 5 dåser flåede tomater
 tilføjes, og gryden koger i _minimum_ 3 timer. Lad den gerne stå til dagen efter!
 
-# Sauce B&eacute;chamel
+## Sauce B&eacute;chamel
 
 * 4L sødmælk
 * 5dL hvedemel
@@ -61,7 +61,7 @@ Ved lidt højere varmer: hæld langsomt mælken i under omrøring. Det bliver en
 Tilsæt salt og muskatnød og lad sovsen koge svagt i ca. 10 minutter. Sæt til at køle.
 
 
-# Opbygning af lasagnen
+## Opbygning af lasagnen
 
 Ingredienser:
 
