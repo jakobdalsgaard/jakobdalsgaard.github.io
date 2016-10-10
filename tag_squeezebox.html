@@ -31,11 +31,10 @@ that beast on a 64-bit Debian 8.6 requires a bit of configuration.</p>
 
 <p>First; make your platform support x86 (32-bit) binaries:</p>
 
-<p>~~~~
-sudo dpkg --add-architecture i386
+<pre><code>sudo dpkg --add-architecture i386
 sudo apt-get update
 sudo apt-get install libgcc1:i386
-~~~~</p>
+</code></pre>
 
 <p>Now, download the MusicIP software, version 1.8 from the Spicefly Sugarcube homepage:</p>
 
@@ -43,9 +42,8 @@ sudo apt-get install libgcc1:i386
 
 <p>I then created a user for the MusicIP software, to keep things separated:</p>
 
-<p>~~~~~
-sudo user-add -m --system musicip
-~~~~~</p>
+<pre><code>sudo user-add -m --system musicip
+</code></pre>
 
 <p>Now, in the software bundle for Linux, there is an init script called <code>mmserver</code> -- 
 just copy that one to <code>/etc/init.d</code> make it owned by root, and change the username therein
@@ -53,9 +51,8 @@ to <code>musicip</code> and the music home to <code>/home/musicip/MusicMagicMixe
 
 <p>You can now start the MusicMagicMixer with:</p>
 
-<p>~~~~
-/etc/init.d/mmserver start
-~~~~</p>
+<pre><code>/etc/init.d/mmserver start
+</code></pre>
 
 <p>It prints a wee bit on the terminal, but all is good. On all interfaces MusicMagicMixer is
 now responding to port 10002. You can point your browser to it, and you'll have a fine

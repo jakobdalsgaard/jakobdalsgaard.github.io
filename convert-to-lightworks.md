@@ -11,4 +11,4 @@ To do so, I've created a script, should work on all unices, available here: [con
 -- and also a .bat file for Windows lusers, available here: [convert-to-lightworks.bat](http://convert-to-lightworks-bat.dalsgaard.net/).
 They should both support just dropping files onto them from a file manager.
 
-Tags: computer, video
+Tags: computer, video, software

@@ -32,11 +32,10 @@ that beast on a 64-bit Debian 8.6 requires a bit of configuration.</p>
 
 <p>First; make your platform support x86 (32-bit) binaries:</p>
 
-<p>~~~~
-sudo dpkg --add-architecture i386
+<pre><code>sudo dpkg --add-architecture i386
 sudo apt-get update
 sudo apt-get install libgcc1:i386
-~~~~</p>
+</code></pre>
 
 <p>Now, download the MusicIP software, version 1.8 from the Spicefly Sugarcube homepage:</p>
 
@@ -44,9 +43,8 @@ sudo apt-get install libgcc1:i386
 
 <p>I then created a user for the MusicIP software, to keep things separated:</p>
 
-<p>~~~~~
-sudo user-add -m --system musicip
-~~~~~</p>
+<pre><code>sudo user-add -m --system musicip
+</code></pre>
 
 <p>Now, in the software bundle for Linux, there is an init script called <code>mmserver</code> -- 
 just copy that one to <code>/etc/init.d</code> make it owned by root, and change the username therein
@@ -54,9 +52,8 @@ to <code>musicip</code> and the music home to <code>/home/musicip/MusicMagicMixe
 
 <p>You can now start the MusicMagicMixer with:</p>
 
-<p>~~~~
-/etc/init.d/mmserver start
-~~~~</p>
+<pre><code>/etc/init.d/mmserver start
+</code></pre>
 
 <p>It prints a wee bit on the terminal, but all is good. On all interfaces MusicMagicMixer is
 now responding to port 10002. You can point your browser to it, and you'll have a fine
@@ -149,32 +146,6 @@ Kagen bages i ca. 50 minutter ved 170&deg;C.</p>
 <!-- text end -->
 <p id='twitter'><a href="http://blog.dalsgaard.net//chokoladekage-i-form.html#disqus_thread">Comments?</a> &nbsp;
 <a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//chokoladekage-i-form.html"
- data-via="jakobdalsgaard"
->Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-</p>
-<h3><a class="ablack" href="convert-to-lightworks.html">
-Convert to Lightworks
-</a></h3>
-<div class="subtitle">September 23, 2016 &mdash; 
-Jakob Dalsgaard</div>
-<!-- text begin -->
-
-<p>The <a href="https://www.lwks.com/">Lightworks</a> application is a very nice <a href="https://en.wikipedia.org/wiki/Non-linear_editing_system">non-linear video editing system</a> -
-and, when 720p is sufficient, free of charge! However, it's a bit picky on import
-formats. I've found the easiest approach to this is installing <a href="https://ffmmpeg.org/download.html">FFMpeg</a>
-and batch converting everything you want to import to mpegts, FullHD, 46kHz stereo.</p>
-
-<p><img src="media/lightworks-redshark.png" alt="Lightworks red shark" title="" /></p>
-
-<p>To do so, I've created a script, should work on all unices, available here: <a href="http://convert-to-lightworks.dalsgaard.net/">convert-to-lightworks</a> 
--- and also a .bat file for Windows lusers, available here: <a href="http://convert-to-lightworks-bat.dalsgaard.net/">convert-to-lightworks.bat</a>.
-They should both support just dropping files onto them from a file manager.</p>
-
-<p>Tags: <a href='tag_computer.html'>computer</a>, <a href='tag_video.html'>video</a></p>
-
-<!-- text end -->
-<p id='twitter'><a href="http://blog.dalsgaard.net//convert-to-lightworks.html#disqus_thread">Comments?</a> &nbsp;
-<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//convert-to-lightworks.html"
  data-via="jakobdalsgaard"
 >Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 </p>
@@ -275,6 +246,32 @@ plade over.</p>
 <!-- text end -->
 <p id='twitter'><a href="http://blog.dalsgaard.net//mega-meget-lasagne.html#disqus_thread">Comments?</a> &nbsp;
 <a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//mega-meget-lasagne.html"
+ data-via="jakobdalsgaard"
+>Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</p>
+<h3><a class="ablack" href="convert-to-lightworks.html">
+Convert to Lightworks
+</a></h3>
+<div class="subtitle">October 10, 2016 &mdash; 
+Jakob Dalsgaard</div>
+<!-- text begin -->
+
+<p>The <a href="https://www.lwks.com/">Lightworks</a> application is a very nice <a href="https://en.wikipedia.org/wiki/Non-linear_editing_system">non-linear video editing system</a> -
+and, when 720p is sufficient, free of charge! However, it's a bit picky on import
+formats. I've found the easiest approach to this is installing <a href="https://ffmmpeg.org/download.html">FFMpeg</a>
+and batch converting everything you want to import to mpegts, FullHD, 46kHz stereo.</p>
+
+<p><img src="media/lightworks-redshark.png" alt="Lightworks red shark" title="" /></p>
+
+<p>To do so, I've created a script, should work on all unices, available here: <a href="http://convert-to-lightworks.dalsgaard.net/">convert-to-lightworks</a> 
+-- and also a .bat file for Windows lusers, available here: <a href="http://convert-to-lightworks-bat.dalsgaard.net/">convert-to-lightworks.bat</a>.
+They should both support just dropping files onto them from a file manager.</p>
+
+<p>Tags: <a href='tag_computer.html'>computer</a>, <a href='tag_video.html'>video</a>, <a href='tag_software.html'>software</a></p>
+
+<!-- text end -->
+<p id='twitter'><a href="http://blog.dalsgaard.net//convert-to-lightworks.html#disqus_thread">Comments?</a> &nbsp;
+<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//convert-to-lightworks.html"
  data-via="jakobdalsgaard"
 >Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 </p>
