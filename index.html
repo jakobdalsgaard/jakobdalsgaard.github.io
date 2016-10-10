@@ -9,7 +9,7 @@
 <meta name='twitter:card' content='summary' />
 <meta name='twitter:site' content='@jakobdalsgaard' />
 <meta name='twitter:title' content='Jakob Dalsgaards blog' />
-<meta name='twitter:description' content=" Convert to Lightworks  September 23, 2016 &mdash;  Jakob Dalsgaard   The Lightworks application is a very nice non-linear video editing system - and, when 720p is sufficient, free of charge! However, it's a bit picky on import formats. I've found th" />
+<meta name='twitter:description' content=" Installing MusicIP Mixer on Debian 8.6 64-bit  October 10, 2016 &mdash;  Jakob Dalsgaard   In order to have automatic music mixing on a Logitech Media Server (former Slimserver...), now a days you'll need the Music IP Mixer x86 installed. Running  t" />
 <meta name='twitter:image' content='http://blog.dalsgaard.net//media/lightworks-redshark.png' />
 </head><body>
 <div id="divbodyholder">
@@ -19,6 +19,139 @@
 <div id="description">Anything...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="installing-musicip-mixer-on-debian-86-64-bit.html">
+Installing MusicIP Mixer on Debian 8.6 64-bit
+</a></h3>
+<div class="subtitle">October 10, 2016 &mdash; 
+Jakob Dalsgaard</div>
+<!-- text begin -->
+
+<p>In order to have automatic music mixing on a Logitech Media Server (former
+Slimserver...), now a days you'll need the Music IP Mixer x86 installed. Running 
+that beast on a 64-bit Debian 8.6 requires a bit of configuration.</p>
+
+<p>First; make your platform support x86 (32-bit) binaries:</p>
+
+<p>~~~~
+sudo dpkg --add-architecture i386
+sudo apt-get update
+sudo apt-get install libgcc1:i386
+~~~~</p>
+
+<p>Now, download the MusicIP software, version 1.8 from the Spicefly Sugarcube homepage:</p>
+
+<p><a href="http://www.spicefly.com/article.php?page=musicip-software">Spicefly MusicIP Software</a>.</p>
+
+<p>I then created a user for the MusicIP software, to keep things separated:</p>
+
+<p>~~~~~
+sudo user-add -m --system musicip
+~~~~~</p>
+
+<p>Now, in the software bundle for Linux, there is an init script called <code>mmserver</code> -- 
+just copy that one to <code>/etc/init.d</code> make it owned by root, and change the username therein
+to <code>musicip</code> and the music home to <code>/home/musicip/MusicMagicMixer/</code> (remember the trailing slash).</p>
+
+<p>You can now start the MusicMagicMixer with:</p>
+
+<p>~~~~
+/etc/init.d/mmserver start
+~~~~</p>
+
+<p>It prints a wee bit on the terminal, but all is good. On all interfaces MusicMagicMixer is
+now responding to port 10002. You can point your browser to it, and you'll have a fine
+web UI. You can make it even finer if you download and install the Spicefly Sugarcube MusicIP
+replacement UI: <a href="http://www.spicefly.com/article.php?page=musicip-headless-interface">MusicIP Replacement UI</a>.</p>
+
+<p>Please support software, buy your license to Spicefly Sugarcube: <a href="http://www.spicefly.com/licensing/">SugarCube Licensing</a>.</p>
+
+<p>Tags: <a href='tag_slimserver.html'>slimserver</a>, <a href='tag_squeezebox.html'>squeezebox</a>, <a href='tag_logitech.html'>logitech</a>, <a href='tag_software.html'>software</a>, <a href='tag_debian.html'>debian</a>, <a href='tag_linux.html'>linux</a></p>
+
+<!-- text end -->
+<p id='twitter'><a href="http://blog.dalsgaard.net//installing-musicip-mixer-on-debian-86-64-bit.html#disqus_thread">Comments?</a> &nbsp;
+<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//installing-musicip-mixer-on-debian-86-64-bit.html"
+ data-via="jakobdalsgaard"
+>Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</p>
+<h3><a class="ablack" href="aebletaerte-super-nem.html">
+Æbletærte, super-nem
+</a></h3>
+<div class="subtitle">September 13, 2016 &mdash; 
+Jakob Dalsgaard</div>
+<!-- text begin -->
+
+<p>Her kommer så min version af æbletærte; opskriften udmærker sig ved at være <em>virkelig</em> nem.</p>
+
+<p>Ingredienser:</p>
+
+<ul>
+<li>3 æbler</li>
+<li>2 æg</li>
+<li>1 dL sukker</li>
+<li>&frac12; tsk kanel</li>
+<li>180g sukker</li>
+<li>100g smør</li>
+<li>120g hvedemel</li>
+</ul>
+
+<p>Ovnen tændes på 200&deg;C.</p>
+
+<p>Æblerne skrælles og skæres i både; 1 dL sukker og &frac12; tsk kanel blandes, halvdelen af denne blanding vendes med æblebådene.</p>
+
+<p>Tærteform på ca. 26cm i diameter smøres.</p>
+
+<p>Pisk æg og sukker sammen. Smørret smeltes og tilsættes sammen med mel. Rør dejen sammen og hæld den i formen.
+Æblebådene sættes i dejen, og den resterende sukker med kanel drysses over.</p>
+
+<p>Bagetiden er ca. 30 minutter ved 200&deg;C på nederste rille.</p>
+
+<p>Tags: <a href='tag_mad.html'>mad</a>, <a href='tag_opskrift.html'>opskrift</a>, <a href='tag_kage.html'>kage</a></p>
+
+
+<!-- text end -->
+<p id='twitter'><a href="http://blog.dalsgaard.net//aebletaerte-super-nem.html#disqus_thread">Comments?</a> &nbsp;
+<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//aebletaerte-super-nem.html"
+ data-via="jakobdalsgaard"
+>Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</p>
+<h3><a class="ablack" href="chokoladekage-i-form.html">
+Chokoladekage i form
+</a></h3>
+<div class="subtitle">September 16, 2016 &mdash; 
+Jakob Dalsgaard</div>
+<!-- text begin -->
+
+<p>Eller: endnu en variation over klassens-time kage.... Den her er
+faktisk en kopi af <a href="https://lineh.dk/opskrifter/lines-legendariske-chokoladekage/">Lines Legendariske Chokoladekage</a>. 
+Primært kopieret herind for at have opskrifterne samlet.</p>
+
+<p>Ingredienser:</p>
+
+<ul>
+<li>250g smør</li>
+<li>350g sukker</li>
+<li>4 æg</li>
+<li>500g hvedemel</li>
+<li>4&frac12; tsk bagepulver</li>
+<li>1 dL kakao</li>
+<li>3 tsk vaniljesukker</li>
+<li>3 dL mælk</li>
+<li>100g mørk chokolade</li>
+</ul>
+
+<p>Tænd ovnen på 170&deg;C.
+Smør og sukker røres sammen, æggene tilsættes et ad gangen. Bland mel, bagepulver, kakao og vaniljesukker og 
+rør det i dejen sammen med mælken. Fordel dejen i tre brødforme eller &eacute;n stor bradepande, eller måske lasagnefad.
+Kagen bages i ca. 50 minutter ved 170&deg;C.</p>
+
+<p>Tags: <a href='tag_mad.html'>mad</a>, <a href='tag_kage.html'>kage</a>, <a href='tag_opskrift.html'>opskrift</a></p>
+
+<!-- text end -->
+<p id='twitter'><a href="http://blog.dalsgaard.net//chokoladekage-i-form.html#disqus_thread">Comments?</a> &nbsp;
+<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//chokoladekage-i-form.html"
+ data-via="jakobdalsgaard"
+>Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</p>
 <h3><a class="ablack" href="convert-to-lightworks.html">
 Convert to Lightworks
 </a></h3>
@@ -142,85 +275,6 @@ plade over.</p>
 <!-- text end -->
 <p id='twitter'><a href="http://blog.dalsgaard.net//mega-meget-lasagne.html#disqus_thread">Comments?</a> &nbsp;
 <a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//mega-meget-lasagne.html"
- data-via="jakobdalsgaard"
->Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-</p>
-<h3><a class="ablack" href="aebletaerte-super-nem.html">
-Æbletærte, super-nem
-</a></h3>
-<div class="subtitle">September 13, 2016 &mdash; 
-Jakob Dalsgaard</div>
-<!-- text begin -->
-
-<p>Her kommer så min version af æbletærte; opskriften udmærker sig ved at være <em>virkelig</em> nem.</p>
-
-<p>Ingredienser:</p>
-
-<ul>
-<li>3 æbler</li>
-<li>2 æg</li>
-<li>1 dL sukker</li>
-<li>&frac12; tsk kanel</li>
-<li>180g sukker</li>
-<li>100g smør</li>
-<li>120g hvedemel</li>
-</ul>
-
-<p>Ovnen tændes på 200&deg;C.</p>
-
-<p>Æblerne skrælles og skæres i både; 1 dL sukker og &frac12; tsk kanel blandes, halvdelen af denne blanding vendes med æblebådene.</p>
-
-<p>Tærteform på ca. 26cm i diameter smøres.</p>
-
-<p>Pisk æg og sukker sammen. Smørret smeltes og tilsættes sammen med mel. Rør dejen sammen og hæld den i formen.
-Æblebådene sættes i dejen, og den resterende sukker med kanel drysses over.</p>
-
-<p>Bagetiden er ca. 30 minutter ved 200&deg;C på nederste rille.</p>
-
-<p>Tags: <a href='tag_mad.html'>mad</a>, <a href='tag_opskrift.html'>opskrift</a>, <a href='tag_kage.html'>kage</a></p>
-
-
-<!-- text end -->
-<p id='twitter'><a href="http://blog.dalsgaard.net//aebletaerte-super-nem.html#disqus_thread">Comments?</a> &nbsp;
-<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//aebletaerte-super-nem.html"
- data-via="jakobdalsgaard"
->Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-</p>
-<h3><a class="ablack" href="chokoladekage-i-form.html">
-Chokoladekage i form
-</a></h3>
-<div class="subtitle">September 16, 2016 &mdash; 
-Jakob Dalsgaard</div>
-<!-- text begin -->
-
-<p>Eller: endnu en variation over klassens-time kage.... Den her er
-faktisk en kopi af <a href="https://lineh.dk/opskrifter/lines-legendariske-chokoladekage/">Lines Legendariske Chokoladekage</a>. 
-Primært kopieret herind for at have opskrifterne samlet.</p>
-
-<p>Ingredienser:</p>
-
-<ul>
-<li>250g smør</li>
-<li>350g sukker</li>
-<li>4 æg</li>
-<li>500g hvedemel</li>
-<li>4&frac12; tsk bagepulver</li>
-<li>1 dL kakao</li>
-<li>3 tsk vaniljesukker</li>
-<li>3 dL mælk</li>
-<li>100g mørk chokolade</li>
-</ul>
-
-<p>Tænd ovnen på 170&deg;C.
-Smør og sukker røres sammen, æggene tilsættes et ad gangen. Bland mel, bagepulver, kakao og vaniljesukker og 
-rør det i dejen sammen med mælken. Fordel dejen i tre brødforme eller &eacute;n stor bradepande, eller måske lasagnefad.
-Kagen bages i ca. 50 minutter ved 170&deg;C.</p>
-
-<p>Tags: <a href='tag_mad.html'>mad</a>, <a href='tag_kage.html'>kage</a>, <a href='tag_opskrift.html'>opskrift</a></p>
-
-<!-- text end -->
-<p id='twitter'><a href="http://blog.dalsgaard.net//chokoladekage-i-form.html#disqus_thread">Comments?</a> &nbsp;
-<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//chokoladekage-i-form.html"
  data-via="jakobdalsgaard"
 >Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 </p>
