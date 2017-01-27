@@ -2,8 +2,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Jakob Dalsgaards blog</title><link>http://blog.dalsgaard.net/</link>
 <description>Anything...</description><language>en</language>
-<lastBuildDate>Fri, 27 Jan 2017 10:39:52 +0100</lastBuildDate>
-<pubDate>Fri, 27 Jan 2017 10:39:52 +0100</pubDate>
+<lastBuildDate>Fri, 27 Jan 2017 14:00:38 +0100</lastBuildDate>
+<pubDate>Fri, 27 Jan 2017 14:00:38 +0100</pubDate>
 <atom:link href="http://blog.dalsgaard.net//feed.rss" rel="self" type="application/rss+xml" />
 <item><title>
 To be, or not to be, DevOps
@@ -14,6 +14,7 @@ To be, or not to be, DevOps
 
 <p>Tags: <a href='tag_computer.html'>computer</a>, <a href='tag_devops.html'>devops</a></p>
 
+
 <!-- text end -->
 <p id='twitter'><a href="http://blog.dalsgaard.net//to-be-or-not-to-be-devops.html#disqus_thread">Comments?</a> &nbsp;
 <a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//to-be-or-not-to-be-devops.html"
@@ -23,26 +24,7 @@ To be, or not to be, DevOps
 ]]></description><link>http://blog.dalsgaard.net//to-be-or-not-to-be-devops.html</link>
 <guid>http://blog.dalsgaard.net//./to-be-or-not-to-be-devops.html</guid>
 <dc:creator>Jakob Dalsgaard</dc:creator>
-<pubDate>Fri, 27 Jan 2017 10:39:49 +0100</pubDate></item>
-<item><title>
-Title on this line
-</title><description><![CDATA[
-
-<p>The rest of the text file is a <strong>Markdown</strong> blog post. The process will continue
-as soon as you exit your editor.</p>
-
-<p>Tags: <a href='tag_keep-this-tag-format.html'>keep-this-tag-format</a>, <a href='tag_tags-are-optional.html'>tags-are-optional</a>, <a href='tag_beware-with-underscores-in-markdown.html'>beware-with-underscores-in-markdown</a>, <a href='tag_example.html'>example</a></p>
-
-<!-- text end -->
-<p id='twitter'><a href="http://blog.dalsgaard.net//title-on-this-line.html#disqus_thread">Comments?</a> &nbsp;
-<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//title-on-this-line.html"
- data-via="jakobdalsgaard"
->Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-</p>
-]]></description><link>http://blog.dalsgaard.net//title-on-this-line.html</link>
-<guid>http://blog.dalsgaard.net//./title-on-this-line.html</guid>
-<dc:creator>Jakob Dalsgaard</dc:creator>
-<pubDate>Fri, 27 Jan 2017 10:36:53 +0100</pubDate></item>
+<pubDate>Fri, 27 Jan 2017 10:39:00 +0100</pubDate></item>
 <item><title>
 Gelato di Vaniglia
 </title><description><![CDATA[
@@ -79,6 +61,7 @@ Tag gryden af blusset. Pisk æggeblommen til den er tyktflydende, hæld cirka 2 
 
 <p>Tags: <a href='tag_mad.html'>mad</a>, <a href='tag_opskrift.html'>opskrift</a>, <a href='tag_italy-ftw.html'>italy-ftw</a></p>
 
+
 <!-- text end -->
 <p id='twitter'><a href="http://blog.dalsgaard.net//gelato-di-vaniglia.html#disqus_thread">Comments?</a> &nbsp;
 <a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//gelato-di-vaniglia.html"
@@ -98,6 +81,7 @@ for aiding in critical productions situations: <a href="https://www.linkedin.com
 
 <p>Tags: <a href='tag_computer.html'>computer</a>, <a href='tag_devops.html'>devops</a></p>
 
+
 <!-- text end -->
 <p id='twitter'><a href="http://blog.dalsgaard.net//help-me-im-all-alone.html#disqus_thread">Comments?</a> &nbsp;
 <a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//help-me-im-all-alone.html"
@@ -107,7 +91,7 @@ for aiding in critical productions situations: <a href="https://www.linkedin.com
 ]]></description><link>http://blog.dalsgaard.net//help-me-im-all-alone.html</link>
 <guid>http://blog.dalsgaard.net//./help-me-im-all-alone.html</guid>
 <dc:creator>Jakob Dalsgaard</dc:creator>
-<pubDate>Fri, 20 Jan 2017 08:44:55 +0100</pubDate></item>
+<pubDate>Fri, 20 Jan 2017 08:44:00 +0100</pubDate></item>
 <item><title>
 Foggy Business
 </title><description><![CDATA[
@@ -116,6 +100,7 @@ Foggy Business
 <a href="https://www.linkedin.com/pulse/foggy-business-jakob-dalsgaard">Foggy Business</a>.</p>
 
 <p>Tags: <a href='tag_cloud.html'>cloud</a>, <a href='tag_aws.html'>aws</a>, <a href='tag_computer.html'>computer</a>, <a href='tag_devops.html'>devops</a></p>
+
 
 <!-- text end -->
 <p id='twitter'><a href="http://blog.dalsgaard.net//foggy-business.html#disqus_thread">Comments?</a> &nbsp;
@@ -126,7 +111,7 @@ Foggy Business
 ]]></description><link>http://blog.dalsgaard.net//foggy-business.html</link>
 <guid>http://blog.dalsgaard.net//./foggy-business.html</guid>
 <dc:creator>Jakob Dalsgaard</dc:creator>
-<pubDate>Fri, 13 Jan 2017 20:48:14 +0100</pubDate></item>
+<pubDate>Fri, 13 Jan 2017 20:48:00 +0100</pubDate></item>
 <item><title>
 Installing MusicIP Mixer on Debian 8.6 64-bit
 </title><description><![CDATA[
@@ -168,6 +153,7 @@ replacement UI: <a href="http://www.spicefly.com/article.php?page=musicip-headle
 <p>Please support software, buy your license to Spicefly Sugarcube: <a href="http://www.spicefly.com/licensing/">SugarCube Licensing</a>.</p>
 
 <p>Tags: <a href='tag_slimserver.html'>slimserver</a>, <a href='tag_squeezebox.html'>squeezebox</a>, <a href='tag_logitech.html'>logitech</a>, <a href='tag_software.html'>software</a>, <a href='tag_debian.html'>debian</a>, <a href='tag_linux.html'>linux</a></p>
+
 
 <!-- text end -->
 <p id='twitter'><a href="http://blog.dalsgaard.net//installing-musicip-mixer-on-debian-86-64-bit.html#disqus_thread">Comments?</a> &nbsp;
@@ -211,6 +197,7 @@ replacement UI: <a href="http://www.spicefly.com/article.php?page=musicip-headle
 <p>Tags: <a href='tag_mad.html'>mad</a>, <a href='tag_opskrift.html'>opskrift</a>, <a href='tag_kage.html'>kage</a></p>
 
 
+
 <!-- text end -->
 <p id='twitter'><a href="http://blog.dalsgaard.net//aebletaerte-super-nem.html#disqus_thread">Comments?</a> &nbsp;
 <a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//aebletaerte-super-nem.html"
@@ -220,7 +207,7 @@ replacement UI: <a href="http://www.spicefly.com/article.php?page=musicip-headle
 ]]></description><link>http://blog.dalsgaard.net//aebletaerte-super-nem.html</link>
 <guid>http://blog.dalsgaard.net//./aebletaerte-super-nem.html</guid>
 <dc:creator>Jakob Dalsgaard</dc:creator>
-<pubDate>Mon, 10 Oct 2016 09:47:35 +0200</pubDate></item>
+<pubDate>Mon, 10 Oct 2016 09:47:00 +0200</pubDate></item>
 <item><title>
 Chokoladekage i form
 </title><description><![CDATA[
@@ -250,6 +237,7 @@ Kagen bages i ca. 50 minutter ved 170&deg;C.</p>
 
 <p>Tags: <a href='tag_mad.html'>mad</a>, <a href='tag_kage.html'>kage</a>, <a href='tag_opskrift.html'>opskrift</a></p>
 
+
 <!-- text end -->
 <p id='twitter'><a href="http://blog.dalsgaard.net//chokoladekage-i-form.html#disqus_thread">Comments?</a> &nbsp;
 <a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//chokoladekage-i-form.html"
@@ -259,7 +247,35 @@ Kagen bages i ca. 50 minutter ved 170&deg;C.</p>
 ]]></description><link>http://blog.dalsgaard.net//chokoladekage-i-form.html</link>
 <guid>http://blog.dalsgaard.net//./chokoladekage-i-form.html</guid>
 <dc:creator>Jakob Dalsgaard</dc:creator>
-<pubDate>Mon, 10 Oct 2016 09:47:35 +0200</pubDate></item>
+<pubDate>Mon, 10 Oct 2016 09:47:00 +0200</pubDate></item>
+<item><title>
+Convert to Lightworks
+</title><description><![CDATA[
+
+<p>The <a href="https://www.lwks.com/">Lightworks</a> application is a very nice <a href="https://en.wikipedia.org/wiki/Non-linear_editing_system">non-linear video editing system</a> -
+and, when 720p is sufficient, free of charge! However, it's a bit picky on import
+formats. I've found the easiest approach to this is installing <a href="https://ffmmpeg.org/download.html">FFMpeg</a>
+and batch converting everything you want to import to mpegts, FullHD, 46kHz stereo.</p>
+
+<p><img src="media/lightworks-redshark.png" alt="Lightworks red shark" title="" /></p>
+
+<p>To do so, I've created a script, should work on all unices, available here: <a href="http://convert-to-lightworks.dalsgaard.net/">convert-to-lightworks</a> 
+-- and also a .bat file for Windows lusers, available here: <a href="http://convert-to-lightworks-bat.dalsgaard.net/">convert-to-lightworks.bat</a>.
+They should both support just dropping files onto them from a file manager.</p>
+
+<p>Tags: <a href='tag_computer.html'>computer</a>, <a href='tag_video.html'>video</a>, <a href='tag_software.html'>software</a></p>
+
+
+<!-- text end -->
+<p id='twitter'><a href="http://blog.dalsgaard.net//convert-to-lightworks.html#disqus_thread">Comments?</a> &nbsp;
+<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//convert-to-lightworks.html"
+ data-via="jakobdalsgaard"
+>Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</p>
+]]></description><link>http://blog.dalsgaard.net//convert-to-lightworks.html</link>
+<guid>http://blog.dalsgaard.net//./convert-to-lightworks.html</guid>
+<dc:creator>Jakob Dalsgaard</dc:creator>
+<pubDate>Mon, 10 Oct 2016 09:47:00 +0200</pubDate></item>
 <item><title>
 Mega meget lasagne
 </title><description><![CDATA[
@@ -351,6 +367,7 @@ plade over.</p>
 
 <p>Tags: <a href='tag_mad.html'>mad</a>, <a href='tag_opskrift.html'>opskrift</a>, <a href='tag_italy-ftw.html'>italy-ftw</a></p>
 
+
 <!-- text end -->
 <p id='twitter'><a href="http://blog.dalsgaard.net//mega-meget-lasagne.html#disqus_thread">Comments?</a> &nbsp;
 <a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//mega-meget-lasagne.html"
@@ -359,33 +376,6 @@ plade over.</p>
 </p>
 ]]></description><link>http://blog.dalsgaard.net//mega-meget-lasagne.html</link>
 <guid>http://blog.dalsgaard.net//./mega-meget-lasagne.html</guid>
-<dc:creator>Jakob Dalsgaard</dc:creator>
-<pubDate>Mon, 10 Oct 2016 09:47:35 +0200</pubDate></item>
-<item><title>
-Convert to Lightworks
-</title><description><![CDATA[
-
-<p>The <a href="https://www.lwks.com/">Lightworks</a> application is a very nice <a href="https://en.wikipedia.org/wiki/Non-linear_editing_system">non-linear video editing system</a> -
-and, when 720p is sufficient, free of charge! However, it's a bit picky on import
-formats. I've found the easiest approach to this is installing <a href="https://ffmmpeg.org/download.html">FFMpeg</a>
-and batch converting everything you want to import to mpegts, FullHD, 46kHz stereo.</p>
-
-<p><img src="media/lightworks-redshark.png" alt="Lightworks red shark" title="" /></p>
-
-<p>To do so, I've created a script, should work on all unices, available here: <a href="http://convert-to-lightworks.dalsgaard.net/">convert-to-lightworks</a> 
--- and also a .bat file for Windows lusers, available here: <a href="http://convert-to-lightworks-bat.dalsgaard.net/">convert-to-lightworks.bat</a>.
-They should both support just dropping files onto them from a file manager.</p>
-
-<p>Tags: <a href='tag_computer.html'>computer</a>, <a href='tag_video.html'>video</a>, <a href='tag_software.html'>software</a></p>
-
-<!-- text end -->
-<p id='twitter'><a href="http://blog.dalsgaard.net//convert-to-lightworks.html#disqus_thread">Comments?</a> &nbsp;
-<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//convert-to-lightworks.html"
- data-via="jakobdalsgaard"
->Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-</p>
-]]></description><link>http://blog.dalsgaard.net//convert-to-lightworks.html</link>
-<guid>http://blog.dalsgaard.net//./convert-to-lightworks.html</guid>
 <dc:creator>Jakob Dalsgaard</dc:creator>
 <pubDate>Mon, 10 Oct 2016 09:47:00 +0200</pubDate></item>
 </channel></rss>
