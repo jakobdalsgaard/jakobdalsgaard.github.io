@@ -10,7 +10,7 @@ Ingredienser
 * 500g durum hvedemel
 * 500g tipo 00 hvedemel
 * 10 æg
-* 10 dL olivenolie
+* 1 dL olivenolie (eller vand...)
 * 1 tsk salt
 
 Det er klart nemmest at lave pastadejen i en stor køkkenmaskine, eksempelvis en Kenwood. Hæld al
