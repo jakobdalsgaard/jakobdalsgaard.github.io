@@ -2,9 +2,28 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Jakob Dalsgaards blog</title><link>http://blog.dalsgaard.net/</link>
 <description>Anything...</description><language>en</language>
-<lastBuildDate>Fri, 27 Jan 2017 14:00:38 +0100</lastBuildDate>
-<pubDate>Fri, 27 Jan 2017 14:00:38 +0100</pubDate>
+<lastBuildDate>Fri, 03 Feb 2017 11:39:18 +0100</lastBuildDate>
+<pubDate>Fri, 03 Feb 2017 11:39:18 +0100</pubDate>
 <atom:link href="http://blog.dalsgaard.net//feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+IPv6 FTW!
+</title><description><![CDATA[
+
+<p>A piece on the future of the internet as we know it: 
+<a href="https://www.linkedin.com/pulse/ipv6-ftw-jakob-dalsgaard">IPv6 FTW!</a>.</p>
+
+<p>Tags: <a href='tag_computer.html'>computer</a>, <a href='tag_devops.html'>devops</a>, <a href='tag_cloud.html'>cloud</a>, <a href='tag_aws.html'>aws</a></p>
+
+<!-- text end -->
+<p id='twitter'><a href="http://blog.dalsgaard.net//ipv6-ftw.html#disqus_thread">Comments?</a> &nbsp;
+<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//ipv6-ftw.html"
+ data-via="jakobdalsgaard"
+>Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</p>
+]]></description><link>http://blog.dalsgaard.net//ipv6-ftw.html</link>
+<guid>http://blog.dalsgaard.net//./ipv6-ftw.html</guid>
+<dc:creator>Jakob Dalsgaard</dc:creator>
+<pubDate>Fri, 03 Feb 2017 11:39:15 +0100</pubDate></item>
 <item><title>
 To be, or not to be, DevOps
 </title><description><![CDATA[
