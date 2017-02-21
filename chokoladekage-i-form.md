@@ -18,7 +18,7 @@ Ingredienser:
 
 Tænd ovnen på 170&deg;C.
 Smør og sukker røres sammen, æggene tilsættes et ad gangen. Bland mel, bagepulver, kakao og vaniljesukker og 
-rør det i dejen sammen med mælken. Fordel dejen i tre brødforme eller &eacute;n stor bradepande, eller måske lasagnefad.
+rør det i dejen sammen med mælken og smeltet chokolade. Fordel dejen i tre brødforme eller &eacute;n stor bradepande, eller måske lasagnefad.
 Kagen bages i ca. 50 minutter ved 170&deg;C.
 
 
