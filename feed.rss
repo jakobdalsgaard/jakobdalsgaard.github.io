@@ -2,8 +2,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Jakob Dalsgaards blog</title><link>http://blog.dalsgaard.net/</link>
 <description>Anything...</description><language>en</language>
-<lastBuildDate>Fri, 10 Mar 2017 07:17:14 +0100</lastBuildDate>
-<pubDate>Fri, 10 Mar 2017 07:17:14 +0100</pubDate>
+<lastBuildDate>Fri, 10 Mar 2017 08:54:26 +0100</lastBuildDate>
+<pubDate>Fri, 10 Mar 2017 08:54:26 +0100</pubDate>
 <atom:link href="http://blog.dalsgaard.net//feed.rss" rel="self" type="application/rss+xml" />
 <item><title>
 IPv6 FTW!
@@ -283,12 +283,11 @@ They should both support just dropping files onto them from a file manager.</p>
 
 <p>To installl ffmpeg on Elementary OS Freya release, do this:</p>
 
-<p><code>
-sudo cat "deb http://www.deb-multimedia.org wheezy main" &gt; /etc/apt/sources.list.d/
+<pre><code>sudo cat "deb http://www.deb-multimedia.org wheezy main" &gt; /etc/apt/sources.list.d/
 sudo apt-get update
 sudo apt-get install deb-multimedia-keyring
 sudo apt-get install ffmpeg
-</code></p>
+</code></pre>
 
 <p>Tags: <a href='tag_computer.html'>computer</a>, <a href='tag_video.html'>video</a>, <a href='tag_software.html'>software</a></p>
 

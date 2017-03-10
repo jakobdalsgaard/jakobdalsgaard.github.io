@@ -13,11 +13,9 @@ They should both support just dropping files onto them from a file manager.
 
 To installl ffmpeg on Elementary OS Freya release, do this:
 
-```
-sudo cat "deb http://www.deb-multimedia.org wheezy main" > /etc/apt/sources.list.d/
-sudo apt-get update
-sudo apt-get install deb-multimedia-keyring
-sudo apt-get install ffmpeg
-```
+    sudo cat "deb http://www.deb-multimedia.org wheezy main" > /etc/apt/sources.list.d/
+    sudo apt-get update
+    sudo apt-get install deb-multimedia-keyring
+    sudo apt-get install ffmpeg
 
 Tags: computer, video, software
