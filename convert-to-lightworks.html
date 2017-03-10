@@ -29,7 +29,7 @@ Jakob Dalsgaard</div>
 
 <p>The <a href="https://www.lwks.com/">Lightworks</a> application is a very nice <a href="https://en.wikipedia.org/wiki/Non-linear_editing_system">non-linear video editing system</a> -
 and, when 720p is sufficient, free of charge! However, it's a bit picky on import
-formats. I've found the easiest approach to this is installing <a href="https://ffmmpeg.org/download.html">FFMpeg</a>
+formats. I've found the easiest approach to this is installing <a href="https://ffmpeg.org/download.html">FFMpeg</a>
 and batch converting everything you want to import to mpegts, FullHD, 46kHz stereo.</p>
 
 <p><img src="media/lightworks-redshark.png" alt="Lightworks red shark" title="" /></p>
@@ -38,8 +38,16 @@ and batch converting everything you want to import to mpegts, FullHD, 46kHz ster
 -- and also a .bat file for Windows lusers, available here: <a href="http://convert-to-lightworks-bat.dalsgaard.net/">convert-to-lightworks.bat</a>.
 They should both support just dropping files onto them from a file manager.</p>
 
-<p>Tags: <a href='tag_computer.html'>computer</a>, <a href='tag_video.html'>video</a>, <a href='tag_software.html'>software</a></p>
+<p>To installl ffmpeg on Elementary OS Freya release, do this:</p>
 
+<p><code>
+sudo cat "deb http://www.deb-multimedia.org wheezy main" &gt; /etc/apt/sources.list.d/
+sudo apt-get update
+sudo apt-get install deb-multimedia-keyring
+sudo apt-get install ffmpeg
+</code></p>
+
+<p>Tags: <a href='tag_computer.html'>computer</a>, <a href='tag_video.html'>video</a>, <a href='tag_software.html'>software</a></p>
 
 <!-- text end -->
 <p id='twitter'><a href="http://blog.dalsgaard.net//convert-to-lightworks.html#disqus_thread">Comments?</a> &nbsp;
