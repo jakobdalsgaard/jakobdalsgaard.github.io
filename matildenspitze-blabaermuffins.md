@@ -11,7 +11,7 @@ Giver 12 stk.
 * 140 g rørsukker eller almindelig sukker
 * 120 g blødt smør
 * Kornene af 1 vaniljestang (eller 2 tsk vaniljesukker)
-* 170 g hvdemel
+* 170 g hvedemel
 * 2 tsk bagepulver
 * 1/2 tsk salt
 * 1 dL mælk
@@ -19,7 +19,7 @@ Giver 12 stk.
 * 1 tsk sukker
 * 12 muffinsforme
 
-Tænd ovnen på 190 grader.
+Tænd ovnen på 190&deg;C.
 
 Pisk æg med sukker, blødt smør og vaniljekorn til det er hvidt og luftigt. Det må gerne have klumper - de skal nok blive rørt ud senere.
 Bland hvedemel med bagepulver og salt og tilsæt ægge-smør massen. Rør det hele grundigt sammen og tilsæt da mælken. Rør til en cremet dej.
