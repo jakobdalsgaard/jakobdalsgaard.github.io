@@ -2,9 +2,56 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Jakob Dalsgaards blog</title><link>http://blog.dalsgaard.net/</link>
 <description>Anything...</description><language>en</language>
-<lastBuildDate>Sun, 30 Apr 2017 10:32:45 +0200</lastBuildDate>
-<pubDate>Sun, 30 Apr 2017 10:32:45 +0200</pubDate>
+<lastBuildDate>Sun, 30 Apr 2017 10:51:44 +0200</lastBuildDate>
+<pubDate>Sun, 30 Apr 2017 10:51:44 +0200</pubDate>
 <atom:link href="http://blog.dalsgaard.net//feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Matildenspitze Blåbærmuffins
+</title><description><![CDATA[
+
+<p>Den nemmeste og aller-super-bedste opskrift på blåbærmuffins. Desværre er www.matildenspitze.com ikke længere :-/ Så her
+kommer min kopi af opskriften, hentet fra http://archive.org/:</p>
+
+<h2>Blåbærmuffins</h2>
+
+<p>Giver 12 stk.</p>
+
+<ul>
+<li>2 æg</li>
+<li>140 g rørsukker eller almindelig sukker</li>
+<li>120 g blødt smør</li>
+<li>Kornene af 1 vaniljestang (eller 2 tsk vaniljesukker)</li>
+<li>170 g hvdemel</li>
+<li>2 tsk bagepulver</li>
+<li>1/2 tsk salt</li>
+<li>1 dL mælk</li>
+<li>120 g blåbær - friske eller frosne. Jeg brugte halv af hver.</li>
+<li>1 tsk sukker</li>
+<li>12 muffinsforme</li>
+</ul>
+
+<p>Tænd ovnen på 190 grader.</p>
+
+<p>Pisk æg med sukker, blødt smør og vaniljekorn til det er hvidt og luftigt. Det må gerne have klumper - de skal nok blive rørt ud senere.
+Bland hvedemel med bagepulver og salt og tilsæt ægge-smør massen. Rør det hele grundigt sammen og tilsæt da mælken. Rør til en cremet dej.
+Vend forsigtigt blåbærrene i dejen så de ikke går for meget i smadder eller farver dejen helt blå.
+Fyld dejen i muffinsforme (fyldes 2/3 op) og drys med lidt sukker på toppen - så bliver de ekstra sprøde.</p>
+
+<p>Bag muffin&apos;erne midt i ovnen i ca 25-27 minutter. Stik i en af dem med en tandstik eller spids kniv for at tjekke om de er færdige. Hvis
+den kommer ud uden dej på er de klar til spisning! Afkøl på bagerist - hvis du altså kan vente!!</p>
+
+<p>Tags: <a href='tag_mad.html'>mad</a>, <a href='tag_kage.html'>kage</a>, <a href='tag_opskrift.html'>opskrift</a></p>
+
+<!-- text end -->
+<p id='twitter'><a href="http://blog.dalsgaard.net//matildenspitze-blabaermuffins.html#disqus_thread">Comments?</a> &nbsp;
+<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//matildenspitze-blabaermuffins.html"
+ data-via="jakobdalsgaard"
+>Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</p>
+]]></description><link>http://blog.dalsgaard.net//matildenspitze-blabaermuffins.html</link>
+<guid>http://blog.dalsgaard.net//./matildenspitze-blabaermuffins.html</guid>
+<dc:creator>Jakob Dalsgaard</dc:creator>
+<pubDate>Sun, 30 Apr 2017 10:51:41 +0200</pubDate></item>
 <item><title>
 On the Subject of Root Cause Analysis
 </title><description><![CDATA[
@@ -282,41 +329,6 @@ Kagen bages i ca. 50 minutter ved 170&deg;C.</p>
 </p>
 ]]></description><link>http://blog.dalsgaard.net//chokoladekage-i-form.html</link>
 <guid>http://blog.dalsgaard.net//./chokoladekage-i-form.html</guid>
-<dc:creator>Jakob Dalsgaard</dc:creator>
-<pubDate>Mon, 10 Oct 2016 09:47:00 +0200</pubDate></item>
-<item><title>
-Convert to Lightworks
-</title><description><![CDATA[
-
-<p>The <a href="https://www.lwks.com/">Lightworks</a> application is a very nice <a href="https://en.wikipedia.org/wiki/Non-linear_editing_system">non-linear video editing system</a> -
-and, when 720p is sufficient, free of charge! However, it's a bit picky on import
-formats. I've found the easiest approach to this is installing <a href="https://ffmpeg.org/download.html">FFMpeg</a>
-and batch converting everything you want to import to mpegts, FullHD, 46kHz stereo.</p>
-
-<p><img src="media/lightworks-redshark.png" alt="Lightworks red shark" title="" /></p>
-
-<p>To do so, I've created a script, should work on all unices, available here: <a href="http://convert-to-lightworks.dalsgaard.net/">convert-to-lightworks</a> 
--- and also a .bat file for Windows lusers, available here: <a href="http://convert-to-lightworks-bat.dalsgaard.net/">convert-to-lightworks.bat</a>.
-They should both support just dropping files onto them from a file manager.</p>
-
-<p>To installl ffmpeg on Elementary OS Freya release, do this:</p>
-
-<pre><code>sudo cat "deb http://www.deb-multimedia.org wheezy main" &gt; /etc/apt/sources.list.d/deb-multimedia.list
-sudo apt-get update
-sudo apt-get install deb-multimedia-keyring
-sudo apt-get install ffmpeg
-</code></pre>
-
-<p>Tags: <a href='tag_computer.html'>computer</a>, <a href='tag_video.html'>video</a>, <a href='tag_software.html'>software</a></p>
-
-<!-- text end -->
-<p id='twitter'><a href="http://blog.dalsgaard.net//convert-to-lightworks.html#disqus_thread">Comments?</a> &nbsp;
-<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//convert-to-lightworks.html"
- data-via="jakobdalsgaard"
->Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-</p>
-]]></description><link>http://blog.dalsgaard.net//convert-to-lightworks.html</link>
-<guid>http://blog.dalsgaard.net//./convert-to-lightworks.html</guid>
 <dc:creator>Jakob Dalsgaard</dc:creator>
 <pubDate>Mon, 10 Oct 2016 09:47:00 +0200</pubDate></item>
 </channel></rss>
