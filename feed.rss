@@ -2,9 +2,47 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Jakob Dalsgaards blog</title><link>http://blog.dalsgaard.net/</link>
 <description>Anything...</description><language>en</language>
-<lastBuildDate>Sun, 30 Apr 2017 18:44:10 +0200</lastBuildDate>
-<pubDate>Sun, 30 Apr 2017 18:44:10 +0200</pubDate>
+<lastBuildDate>Sat, 10 Mar 2018 00:25:43 +0100</lastBuildDate>
+<pubDate>Sat, 10 Mar 2018 00:25:43 +0100</pubDate>
 <atom:link href="http://blog.dalsgaard.net//feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Lagkagebunde
+</title><description><![CDATA[
+
+<p>Tyvstjålet fra <a href="https://www.arla.dk/opskrifter/lagkagebunde/">Arla Lagkagebunde</a> - er kun
+skrevet her som sikkerhed for at have opskriften i fremtiden.</p>
+
+<p>Til en springform bruges:</p>
+
+<ul>
+<li>4 æg</li>
+<li>150 g sukker</li>
+<li>150 g hvedemel</li>
+<li>1 tsk bagepulver</li>
+<li>smør til formen</li>
+</ul>
+
+<p>Tænd ovnen på 200&deg;C. Pisk æg og sukker til en meget luftig æggesnaps. Bland
+hvedemel og bagepulver og vend det forsigtigt (drysset gennem en sigte) i
+æggesnapsen. Hæld dejen i en smurt springform (ca. 22 cm i diameter). Skub
+forsigtigt dejen ud mod siden med bagsiden af en ske, så der en lille
+fordybning i midten - på den måde undgår du at kagen hvælver på midten, når den
+er bagt. Bag kagen nederst i ovnen - dæk kagen med bagepapir hvis den er ved at
+blive for mørk. Vend kagen ud af formen (så den har toppen nedad) og lad den
+køle af på en bagerist. Del kagen i 3 lagkagebunde.</p>
+
+<p>Tags: <a href='tag_mad.html'>mad</a>, <a href='tag_kage.html'>kage</a>, <a href='tag_opskrift.html'>opskrift</a></p>
+
+<!-- text end -->
+<p id='twitter'><a href="http://blog.dalsgaard.net//lagkagebunde.html#disqus_thread">Comments?</a> &nbsp;
+<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//lagkagebunde.html"
+ data-via="jakobdalsgaard"
+>Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</p>
+]]></description><link>http://blog.dalsgaard.net//lagkagebunde.html</link>
+<guid>http://blog.dalsgaard.net//./lagkagebunde.html</guid>
+<dc:creator>Jakob Dalsgaard</dc:creator>
+<pubDate>Sat, 10 Mar 2018 00:25:40 +0100</pubDate></item>
 <item><title>
 Matildenspitze Blåbærmuffins
 </title><description><![CDATA[
@@ -290,45 +328,6 @@ replacement UI: <a href="http://www.spicefly.com/article.php?page=musicip-headle
 </p>
 ]]></description><link>http://blog.dalsgaard.net//aebletaerte-super-nem.html</link>
 <guid>http://blog.dalsgaard.net//./aebletaerte-super-nem.html</guid>
-<dc:creator>Jakob Dalsgaard</dc:creator>
-<pubDate>Mon, 10 Oct 2016 09:47:00 +0200</pubDate></item>
-<item><title>
-Chokoladekage i form
-</title><description><![CDATA[
-
-<p>Eller: endnu en variation over klassens-time kage.... Den her er
-faktisk en kopi af <a href="https://lineh.dk/opskrifter/lines-legendariske-chokoladekage/">Lines Legendariske Chokoladekage</a>. 
-Primært kopieret herind for at have opskrifterne samlet.</p>
-
-<p>Ingredienser:</p>
-
-<ul>
-<li>250g smør</li>
-<li>350g sukker</li>
-<li>4 æg</li>
-<li>500g hvedemel</li>
-<li>4&frac12; tsk bagepulver</li>
-<li>1 dL kakao</li>
-<li>3 tsk vaniljesukker</li>
-<li>3 dL mælk</li>
-<li>100g mørk chokolade</li>
-</ul>
-
-<p>Tænd ovnen på 170&deg;C.
-Smør og sukker røres sammen, æggene tilsættes et ad gangen. Bland mel, bagepulver, kakao og vaniljesukker og 
-rør det i dejen sammen med mælken og smeltet chokolade. Fordel dejen i tre brødforme eller &eacute;n stor bradepande, eller måske lasagnefad.
-Kagen bages i ca. 50 minutter ved 170&deg;C.</p>
-
-<p>Tags: <a href='tag_mad.html'>mad</a>, <a href='tag_kage.html'>kage</a>, <a href='tag_opskrift.html'>opskrift</a></p>
-
-<!-- text end -->
-<p id='twitter'><a href="http://blog.dalsgaard.net//chokoladekage-i-form.html#disqus_thread">Comments?</a> &nbsp;
-<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//chokoladekage-i-form.html"
- data-via="jakobdalsgaard"
->Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-</p>
-]]></description><link>http://blog.dalsgaard.net//chokoladekage-i-form.html</link>
-<guid>http://blog.dalsgaard.net//./chokoladekage-i-form.html</guid>
 <dc:creator>Jakob Dalsgaard</dc:creator>
 <pubDate>Mon, 10 Oct 2016 09:47:00 +0200</pubDate></item>
 </channel></rss>
