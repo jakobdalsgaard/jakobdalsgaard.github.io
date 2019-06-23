@@ -2,8 +2,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Jakob Dalsgaards blog</title><link>http://blog.dalsgaard.net/</link>
 <description>Anything...</description><language>en</language>
-<lastBuildDate>Sun, 23 Jun 2019 10:11:05 +0200</lastBuildDate>
-<pubDate>Sun, 23 Jun 2019 10:11:05 +0200</pubDate>
+<lastBuildDate>Sun, 23 Jun 2019 10:12:41 +0200</lastBuildDate>
+<pubDate>Sun, 23 Jun 2019 10:12:41 +0200</pubDate>
 <atom:link href="http://blog.dalsgaard.net//feed.rss" rel="self" type="application/rss+xml" />
 <item><title>
 Hyldeblomstsaft koncentreret
@@ -442,7 +442,7 @@ $HOME/bin/ffmpeg -i bee-movie.mp4 -vf crop=1280:272:0:268,scale=640:136 -c:v lib
 
 <p>Not really final, as anything on the internet, it's always a work in progress. But the website is now live at:</p>
 
-<p>(https://honning.dalsgaard.net/)</p>
+<p><a href="https://honning.dalsgaard.net/">honning.dalsgaard.net</a></p>
 
 <p>Danish only for the time being, but I'm working on an international version for when my honey is to be sold globally...</p>
 
@@ -467,7 +467,7 @@ $HOME/bin/ffmpeg -i bee-movie.mp4 -vf crop=1280:272:0:268,scale=640:136 -c:v lib
 ]]></description><link>http://blog.dalsgaard.net//honey-we-need-a-website.html</link>
 <guid>http://blog.dalsgaard.net//./honey-we-need-a-website.html</guid>
 <dc:creator>Jakob Dalsgaard</dc:creator>
-<pubDate>Sun, 23 Jun 2019 09:54:40 +0200</pubDate></item>
+<pubDate>Sun, 23 Jun 2019 09:54:00 +0200</pubDate></item>
 <item><title>
 To be, or not to be, DevOps
 </title><description><![CDATA[

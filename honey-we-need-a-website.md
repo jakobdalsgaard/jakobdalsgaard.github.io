@@ -352,7 +352,7 @@ The `always` specifies that this header _must_ be sent, also for error pages and
 
 Not really final, as anything on the internet, it's always a work in progress. But the website is now live at:
 
-(https://honning.dalsgaard.net/)
+[honning.dalsgaard.net](https://honning.dalsgaard.net/)
 
 Danish only for the time being, but I'm working on an international version for when my honey is to be sold globally...
 
