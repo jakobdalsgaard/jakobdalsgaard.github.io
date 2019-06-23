@@ -2,47 +2,569 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Jakob Dalsgaards blog</title><link>http://blog.dalsgaard.net/</link>
 <description>Anything...</description><language>en</language>
-<lastBuildDate>Sat, 10 Mar 2018 00:25:43 +0100</lastBuildDate>
-<pubDate>Sat, 10 Mar 2018 00:25:43 +0100</pubDate>
+<lastBuildDate>Sun, 23 Jun 2019 09:54:44 +0200</lastBuildDate>
+<pubDate>Sun, 23 Jun 2019 09:54:44 +0200</pubDate>
 <atom:link href="http://blog.dalsgaard.net//feed.rss" rel="self" type="application/rss+xml" />
 <item><title>
-Lagkagebunde
+Honey, we need a website
 </title><description><![CDATA[
 
-<p>Tyvstjålet fra <a href="https://www.arla.dk/opskrifter/lagkagebunde/">Arla Lagkagebunde</a> - er kun
-skrevet her som sikkerhed for at have opskriften i fremtiden.</p>
+<p>Being a new member of the <a href="https://www.biavl.dk/">Danish Beekeepers Association</a> I get 100 free stickers to put on honey that I can actually, legally sell (the insurance of the association will be covering, it's actually a pretty good deal). Nowadays they can put a QR encoded URL on the stickers, and off course I opted for that. Now I <em>just</em> need to build a website. Some might go straight to <a href="https://www.one.com/">one.com</a> and get a hosted static website. But I can do so much better than that.</p>
 
-<p>Til en springform bruges:</p>
+<h1>Security</h1>
+
+<p>When it comes to websites for honey, you want top class security -- you cannot risk anyone eavesdropping on your honery website browsing.</p>
+
+<h2>Support the right protocols</h2>
+
+<p>Site needs to be TLS, really, it does, and I want TLS1.3. This is not as simple as it sounds. My Debian box was running Debian Jessie, and it seemed to be a good idea to move onto Debian Stretch. First I did <code>apt-get update</code> and <code>apt-get upgrade</code> to make sure the Debian Jessie was as good as it could be, then <code>/etc/apt/sources.list</code> was updated to have stretch specified instead of jessie:</p>
+
+<pre><code># deb http://ftp.dk.debian.org/debian/ jessie main
+# deb-src http://ftp.dk.debian.org/debian/ jessie main
+
+deb http://ftp.dk.debian.org/debian/ stretch main
+deb-src http://ftp.dk.debian.org/debian/ stretch main
+
+# deb http://security.debian.org/ jessie/updates main
+# deb-src http://security.debian.org/ jessie/updates main
+
+deb http://security.debian.org/ stretch/updates main
+deb-src http://security.debian.org/ stretch/updates main
+</code></pre>
+
+<p>With that setup in place, yet another round of <code>apt-get upgrade</code> + <code>apt-get update</code> could be done. Finally an <code>apt-get dist-upgrade</code> and a reboot. I now had Debian Stretch. But I can do so much better than that.</p>
+
+<p>Note: An alternative would be to install Debian Stretch from scratch, wiping the system -- I would prefer that... not only would I be able to repartition the system, but there would probably be much less kipple on the system. That'll have to wait for some time in the not so near future where I have much more time. When reinstalling a home linux box I always make sure to install <a href="https://www.fail2ban.org/">fail2ban</a> -- it's a nice safeguard.</p>
+
+<p>I'll go for the nginx webserver, since it has a long tradition of being async epoll based, and according to Linux Journal, even <a href="https://www.zencurity.com/">youporn</a> uses it, so why not me. It also comes highly recommended by <a href="https://syshero.org/">syshero</a>. My use case is serving static files with a bit of logic on figuring out which file should have what headers, but not any server side processes that resembles any significant business logic -- my use case is basically: shove as many bytes over the wire to as many clients as possible, as securely and efficient as possible. For that nginx seems like a fine choice.</p>
+
+<p>The version of nginx that comes with Debian 9 is 1.10.3 -- a fine version indeed, but since it's compiled with OpenSSL in a pre-1.1.0j version, it cannot do the TLS1.3 that I want. Therefore I need to find another version of nginx, luckily the internet is full of guides on that, I chose <a href="https://www.lukeng.net/tlsv1-3-with-nginx-and-openssl-on-debian/">Life on the Net, by Luke NG</a> -- scroll down to the section that reads 'Current Nginx mainline version [1.15.5] from nginx.org'. It's pretty simple. Create the file <code>/etc/apt/sources.list.d/nginx.conf</code> with the contents:</p>
+
+<pre><code>deb http://nginx.org/packages/mainline/debian/ stretch nginx
+deb-src http://nginx.org/packages/mainline/debian/ stretch nginx
+</code></pre>
+
+<p>Then add the nginx public key to your trusted apt keys: <code>wget https://nginx.org/keys/nginx_signing.key</code> + <code>apt-key add nginx_signing.key</code> and install the package:</p>
+
+<pre><code>apt-get update
+apt-get install nginx
+</code></pre>
+
+<p>And then, all of a sudden, running <code>nginx -V</code> looks something like this:</p>
+
+<pre><code>jakob@rack1:~$ /usr/sbin/nginx -V
+nginx version: nginx/1.17.0
+built by gcc 6.3.0 20170516 (Debian 6.3.0-18+deb9u1)
+built with OpenSSL 1.1.0j  20 Nov 2018 (running with OpenSSL 1.1.1c  28 May 2019)
+TLS SNI support enabled
+</code></pre>
+
+<p>Gr8!</p>
+
+<h2>Get a fine certificate</h2>
+
+<p>These days a certificate is not that hard to get, <a href="https://letsencrypt.org">letsencrypt.org</a> makes it fairly easy to provision a certificate for a domain you own. There are many guides online on how to obtain certificates, and many toolboxes to aid you. I've chosen the <a href="https://acme.sh/">acme.sh</a> solution -- a shell implemented client that covers my needs. I prefer to acknowledge ownership of the domain through TXT records; the process might be a bit tedious, but I hate to spin up the site insecure first to publish the validation token; I'd rather use DNS for that. I have a dedicated <code>acme</code> user on the Debian box, and <code>acme.sh</code> installed in that user's homedirectory. So, in order to issue the certificate, I run:</p>
+
+<pre><code>./.acme.sh/acme.sh --issue -d www.myhoneywebsite.com --dns --yes-I-know-dns-manual-mode-enough-go-ahead-please
+</code></pre>
+
+<p>In a lot of terminal output I locate the TXT record name and value, I head over to my DNS admin interface and type it in. Now the certificate can be renewed/issued:</p>
+
+<pre><code>./.acme.sh/acme.sh --renew -d www.myhoneywebsite.com --dns --yes-I-know-dns-manual-mode-enough-go-ahead-please
+</code></pre>
+
+<p>This provides me with a certificate and associated private key; readily configurable in nginx.</p>
+
+<h1>Availability</h1>
+
+<p>A modern world calls for modern solutions, so off course this website will be running IPv4 and IPv6 dualstack -- since I only have a single IPv4, it'll be available through SNI (Server Name Identification); due to my vast amount of IPv6 space you don't need SNI to reach the site using IPv6. The nginx that I run does not support any encrypted version of SNI, I believe the standards are yet to be fully specified. That said, SNI also only reveals what site you wish to connect to, it does not expose any of the data you transmit over the socket. Since who ever is spying on you can always see the IP you're connecting to, the enencrypted SNI will only make a difference should that IP be serving many, many sites. Mine does not.</p>
+
+<h2>Get traffic forwarded</h2>
+
+<p>I only have one IPv4 number for the entire house and my openwrt router owns it. I thus need to forward port 80 and port 443 to it (I also forward port 22... but that one is not necessary to serve webpages). So I ensure I have these two rules in <code>/etc/config/firewall</code> on the router:</p>
+
+<pre><code>config redirect
+        option target 'DNAT'
+        option src 'wan'
+        option dest 'lan'
+        option proto 'tcp'
+        option dest_ip '192.168.1.60'
+        option dest_port '443'
+        option name 'https'
+        option src_dport '443'
+
+config redirect
+        option target 'DNAT'
+        option src 'wan'
+        option dest 'lan'
+        option proto 'tcp'
+        option src_dport '80'
+        option dest_ip '192.168.1.60'
+        option dest_port '80'
+        option name 'http'
+</code></pre>
+
+<p>My server has the internal IPv4 number <code>192.168.1.60</code> configured statically, no DHCP mumbo jumbo here; <code>/etc/network/interfaces</code> contains:</p>
+
+<pre><code>iface eth0 inet static
+        address 192.168.1.60
+        netmask 255.255.0.0
+        gateway 192.168.1.1
+</code></pre>
+
+<p>Why? because there's no need for this to change.</p>
+
+<p>Any <a href="https://twitter.com/jakobdalsgaard/status/479169734706225152">serious</a> business needs IPv6 these days, therefore also my honey website.</p>
+
+<p>My ISP does not provide any IPv6 - which is really, really annoying. Therefore I've signed up at <a href="https://he.com/">Hurricane Electric</a>, done their <a href="https://ipv6.he.net/certification/">IPv6 certification</a> since <a href="https://www.zencurity.com/">kramse</a> told me to -- now a Sarge, but still accruing points. Hurrican Electric runs a fine IPv6 tunnel <a href="https://tunnelbroker.net/">service</a>, by which I tunnel IPv6 packets over IPv4 from my house to Frankfurt -- works great. I have my own <code>::/64</code> net!</p>
+
+<p>Having my own <code>::/64</code> net I want to assign multiple addresses to my main inhouse server. The only way I've been able to make multiple static IPv6 addresses appear consistenly on my Debian boxes is by adding a file <code>/etc/config/if-up.d/ipv6-up</code> that contains:</p>
+
+<pre><code>#!/bin/sh
+# filename: ipv6-up
+
+if [ "$IFACE" = eth1 ]; then
+  echo "Setting ipv6"
+  ip -6 addr add 2001:db8:1f0b:dfe:0:0:0:400/64 dev eth1
+  ip -6 addr add 2001:db8:1f0b:dfe:0:0:0:800/64 dev eth1
+  ip -6 route add default via 2001:db8:1f0b:dfe::1
+fi
+</code></pre>
+
+<p>This works brilliantly, and I can add as many IPv6 addresses in my <code>2001:db8:1f0b:dfe::/64</code> block that I want.</p>
+
+<p>For IPv6 we don't need any NAT (Network Address Translation) to happen, IPv6 works as the internet was intended to work. But we need to have the firewall opened. Thus I make sure that <code>/etc/config/firewall</code> on my router contains:</p>
+
+<pre><code>config rule
+        option target 'ACCEPT'
+        option src 'wan'
+        option name 'https IPv6 to honey'
+        option family 'ipv6'
+        option proto 'tcp'
+        option dest_ip '2001:db8:1f0b:dfe::400'
+        option dest_port '443'
+        option dest '*'
+
+config rule
+        option target 'ACCEPT'
+        option name 'http IPv6 to honey'
+        option family 'ipv6'
+        option proto 'tcp'
+        option dest_ip '2001:db8:1f0b:dfe::400'
+        option dest_port '80'
+        option dest '*'
+        option src '*'
+</code></pre>
+
+<p>Make sure to commit changes, and restart firewall:</p>
+
+<pre><code>uci commit firewall
+service firewall restart
+</code></pre>
+
+<p>Voilá, with <code>nc</code> on a machine outside the network (through a mobile subscription for example) and <code>nc</code> on the Debian box, connectivity can be tested -- that exercise is left for the reader. </p>
+
+<h2>Getting nginx configured</h2>
+
+<p>Now it's time to configure nginx for this fancy site. I created the file <code>/etc/nginx/sites-enabled/honey</code> to hold the configuration; many things must be considered.</p>
+
+<h3>Forward all http to https</h3>
+
+<p>Security is a very high priority -- the site will have to respond to <em>any</em> http call with a 301 redirect to the same https. This is accomplished for both IPv4 and IPV6 endpoints by this:</p>
+
+<pre><code>server {
+    listen      192.168.1.60:80;
+    listen      [2001:db8:1f0b:dfe:0:0:0:400]:80;
+    server_name www.myhoneywebsite.com;
+    return 301 https://$server_name$request_uri;
+    expires max;
+
+    access_log /var/log/nginx/honey-access.log;
+    error_log /var/log/nginx/honey-error.log;
+}
+</code></pre>
+
+<p>Here's a brief explanation of the <code>expires max</code> setting (see <a href="http://nginx.org/en/docs/http/ngx_http_headers_module.html#expires">here</a>):</p>
+
+<blockquote>
+  <p>The max parameter sets “Expires” to the value “Thu, 31 Dec 2037 23:55:55 GMT”, and “Cache-Control” to 10 years.</p>
+</blockquote>
+
+<p>As I'll <em>never</em> change strategy on this redirect, this cache control setting seems fine.</p>
+
+<h3>Caching stuff</h3>
+
+<p>I'll be running this website on my home xDSL line -- not the most fancy setup, bandwidth is limited, and my media ambitions are skyhigh, therefore I neeed to setup proper Cache-Control headers for my content. A convenient way of doing this, is to map content types into Cache-Control headers. First a map is defined:</p>
+
+<pre><code>map $sent_http_content_type $cc_header {
+  default                    "no-cache";
+  text/html                  "public, max-age=7200";
+  text/css                   "public, max-age=7200";
+  application/javascript     "public, max-age=14400";
+  ~image/                    "public, max-age=14400";
+  ~video/                    "public, max-age=31536000";
+}
+</code></pre>
+
+<p>The cache timeouts are: 7200s (2 hours), 14400s (4 days), 28800s (8 days)  and 31536000s (1 year) -- for most imagery and video the cache timeout can be arbitrarily long, as I can just choose other filenames to bypass caching, but 8 days for pictures and 1 year for videos seem fair. The cache timeout for html pages is set to the lowest, 2 hours, they're probably updated the most <em>and</em> their size is most likely small. In my current setup, the <code>s-maxage</code> is not really relevant, as I'm serving https traffic straight from my own server and to whoever is viewing my website, anything in between that can see the content and therefore cache it, would be considered a 'man-in-the-middle' that basically breaks the fundamental concept of privacy through the use of private/public key encryption. I <em>have</em> seen corporate setups with decrypting/re-encrypting proxies for the employees to use; but I cannot stress too much how bad such a setup is. Period.</p>
+
+<p>The magic inside a <code>server</code> block is now that you can write:</p>
+
+<pre><code>  add_header Cache-Control $cc_header always;
+</code></pre>
+
+<p>And have nginx set the relevant value. Once this is put in place, do verify with <code>curl -I</code>.</p>
+
+<p>Actually talking about caching: A default nginx will make most browsers issue <code>If-Modified-Since</code> requests, even on resources served with cache control headers as specified here. There are two ways of prevent that roundtrip:</p>
+
+<ol>
+<li>Add <code>immutable</code> to the cache control header, thereby saying that this item <em>will never</em> change. Forcing a refresh in the browser will actually make it reload the resource anyway; so much for being immutable.</li>
+<li>Remove the <code>etag</code> from the responses. The <code>etag</code> is sort of a hash value for the resource, and is by default shipped along -- in the absence of this header most browser solely rely on the cache control header and will <em>not</em> issue <code>If-Modified-Since</code> requests.</li>
+</ol>
+
+<p>Less requests means more bandwidth to all the other eager honey web surfers out there; I opt for version 2 above, since my content is not really immutable. Thus, right before the <code>add_header</code> line, I'll add:</p>
+
+<pre><code>etag off;
+</code></pre>
+
+<p>Then I get less requests.</p>
+
+<p>Oh, I'll be serving static content, might as well just set a document root and be done with, default file is index.html and default character set is UTF-8 (after all, we no longer live in the 1970's):</p>
+
+<pre><code>root /home/www-home/honning;
+index index.html
+charset UTF-8;
+</code></pre>
+
+<h3>Doing https traffic</h3>
+
+<p>So, we need TLS -- first, nginx must listen on the right IPs and ports:</p>
+
+<pre><code>server_name www.myhoneywebsite.com;
+listen 192.168.1.60:443 ssl;
+listen [2001:db8:1f0b:dfe:0:0:0:400]:443 ssl;
+</code></pre>
+
+<p>All good, then, since this nginx is serving multiple sites, make sure logging is sane:</p>
+
+<pre><code>access_log /var/log/nginx/honey-access.log;
+error_log /var/log/nginx/honey-error.log;
+</code></pre>
+
+<p>And now the fun TLS part, the list of allowed protocols -- it's important to have that non-default version of nginx or else you're out of good options on ciphers. I want top grade security, so I write:</p>
+
+<pre><code>ssl_protocols TLSv1.2 TLSv1.3;
+</code></pre>
+
+<p>This seems to be a good and security configuration as of June 2019. Then for Diffie Hellmann to work, we configure a shiny new DH key:</p>
+
+<pre><code>ssl_dhparam /etc/nginx/dhparam.pem;
+</code></pre>
+
+<p>It was computed with openssl with; be patient, it takes a while:</p>
+
+<pre><code>openssl dhparam -out dhparams.pem 4096
+</code></pre>
+
+<p>Now, making a proper cipher list is bit of black magic I don't quite get -- it seems to be passed unaltered to the TLS implementation and the format thus relies on your TLS library you have. For this specific nginx it looks like a cipher list like this will give a really good rating:</p>
+
+<pre><code>ssl_ciphers 'TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256 kEECDH+ECDSA+AES128 kEECDH+ECDSA+AES256 kEECDH+AES128 kEECDH+AES256 kEDH+AES128 kEDH+AES256 DES-CBC3-SHA +SHA !aNULL !eNULL !LOW !kECDH !DSS !MD5 !RC4 !EXP !CBC !PSK !SRP !CAMELLIA !SEED';
+ssl_prefer_server_ciphers on;
+</code></pre>
+
+<p>The last line of config makes sure that the server insists on selecting the cipher -- then clients cannot suddenly downgrade for some odd reason -- my server will be in charge of security.</p>
+
+<p>Lets have nginx load the Letsentcrypt certificate and private key:</p>
+
+<pre><code>ssl_certificate /home/acme/.acme.sh/www.myhoneywebsite.com/fullchain.cer;
+ssl_certificate_key /home/acme/.acme.sh/www.myhoneywebsite.com/www.myhoneywebsite.com.key;
+</code></pre>
+
+<p>Another fairly important security feature is the <code>Strict-Transport-Security</code> header; it makes browsers that <em>already has</em> visited your website only do https for a specified period of time. Not only can that possibly prevent a superfluous server roundtrip, but it also prevents anything from being sent in clear text. This is especially handy if your website has to deal with some sort of authentication cookies. I set the period to one year:</p>
+
+<pre><code>add_header Strict-Transport-Security "max-age=31536000" always;
+</code></pre>
+
+<h1>Content</h1>
+
+<p>Oh, I need some content as well. I don't have much to say about honey, as I've not really produced any honey yet, but I do need an index.html page. I'll be making it pretty normal straight HTML page. I'll assume that most of the browsers visiting the page are fairly modern and has javascript enabled, thus I might as well inline the stylesheet and javascript for speed. I don't mind responsive design, but I'll aim at making nginx serve a different HTML file for mobile devices, one that references significantly harder compressed media.</p>
+
+<p>So, the HTML is pretty easy to lay out -- simple is better, so a basic structure like this:</p>
+
+<pre><code>&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;My Honey Website&lt;/title&gt;
+    &lt;style&gt;
+      h1 {
+        font-face: serif;
+      }
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;My Honey Website&lt;/h1&gt;
+    &lt;p&gt;My glourious honey information&lt;/p&gt;
+    &lt;img src="danish-honey-association.png" width="100" height="100" /&gt;
+    &lt;script type="text/javascript"&gt;
+      function onLoad () {
+        ..
+      }
+      document.AddEventListener("DOMContentLoaded", onLoad);
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>Is what I'm aiming at - as I go along, I'll get more added to this. First, off course, an icon. Since a bee looks really cute, I'm going for a nice little icon of a western honey bee (<a href="https://en.wikipedia.org/wiki/Western_honey_bee_">Apis mellifera</a>) -- it'll look nice in your bookmark menu and amidst your tabs. In order to infringe any copyrights, I'll be drawing my own bee following this tutorial: <a href="https://www.youtube.com/watch?v=yY9-m4qurGA">How To Draw a Cute Honey Bee Step By Step Easy For Kids</a> -- my kids have taught me to rely on youtube for almost anything... might as well follow their advise. A 64x64 pixels PNG file showing a cute honey bee with no background (i.e. PNG transparent) is created and put into the document root of my website; then referred to by the HTML like this:</p>
+
+<p><link rel="icon" type="image/png" href="/honeybee-favicon.png"/></p>
+
+<p>Called <code>favicon</code> in honor of dark origins of the icon facility itself. Also in my document root I'll put the logo of the Danish Beekeeper Association as a PNG with transparent background. By adding the <code>width</code> and <code>height</code> attributes of the IMG tag I'm allowing the browser render engine to layout the page before the image is downloaded. This improves the rendering speed -- and speed is important.</p>
+
+<pre><code>&lt;img src="beekeeper-logo.png" width="113" height="99" alt="[Danish Beekeeper Association logo]"/&gt;
+</code></pre>
+
+<p>The <code>alt</code> attribute is important for accessibility concern -- vision impaired people have automation that will tell them what the picture is about, also, most browsers will show the <code>alt</code> text by the mouse cursor as you hover slowly over the image; a nice feature for me, crucial for others. </p>
+
+<p>Since all the fancy up and coming tech companies seem to have video streams on their websites, I will, off course, have that too. Using my cheap Canon Camcorder I recorded some 20 minutes of bee activity from the bee hive. I pulled out some 15 minutes using <a href="https://www.lwks.com/">Lightworks</a> -- and this needs to be compressed properly for online usage. The new AV1 codec is much appraised, and well supported in the newer Chrome browser. But the standard ffmpeg on Debian Stretch does not support it. A problem to be solved. Luckily I stumbled upon: <a href="https://gist.github.com/Brainiarc7/7b099f98f6b373699aa2f54e5d6ccb58">Brainiarc7 /  install-ffmpeg.sh</a> which downloads and installs a version of ffmpeg that <em>does</em> AV1 encoding. The author has tested it on Ubuntu 16.04 -- I found no big problems running it on Debian Stretch; there was just a single Debian package that I had to install manually:</p>
+
+<pre><code>apt-get install libfdk-aac-dev
+</code></pre>
+
+<p>Now, with ffmpeg installed in <code>$HOME/bin</code> I can start converting the video. It'll be handy to have AV1, h.265 and h.264 versions around, so my complete convert job looks like this:</p>
+
+<pre><code>$HOME/bin/ffmpeg -i bee-movie.mp4 -vf crop=1280:272:0:268 -an -c:v libaom-av1 -strict -2 bee-movie-av1.mp4
+$HOME/bin/ffmpeg -y -i bee-movie.mp4 -vf crop=1280:272:0:268 -c:v libx265 -b:v 400k -x265-params pass=1 -an -f mp4 /dev/null &amp;&amp; \
+$HOME/bin/ffmpeg -i bee-movie.mp4 -vf crop=1280:272:0:268 -c:v libx265 -b:v 400k -x265-params pass=2 -an bee-movie-h265.mp4
+$HOME/bin/ffmpeg -y -i bee-movie.mp4 -vf crop=1280:272:0:268 -c:v libx264 -b:v 400k -x264-params pass=1 -an -f mp4 /dev/null &amp;&amp; \
+$HOME/bin/ffmpeg -i bee-movie.mp4 -vf crop=1280:272:0:268 -c:v libx264 -b:v 400k -x264-params pass=2 -an bee-movie-h264.mp4
+</code></pre>
+
+<p>I'll need to redo the AV1 in dual-pass; I'll leave that task for later as the encoding process is <em>really</em> slow - as in <em>days</em>. Preferably don't do this on your laptop -- it'll most likely get hot and loud -- my server does that too, but in the basement (to an extent that I rather not do this while anyone is trying to sleep). Also, for mobile device that are getting more and more capable, I'll want a lowres version with less bandwidth; I know that modern smartphones have incredible displays of immense resolution -- but to save bandwidth I'll be serving them a file of about 25% the size of what a browser will get.</p>
+
+<p>The lowres version is done by:</p>
+
+<pre><code>$HOME/bin/ffmpeg -y -i bee-movie.mp4 -vf crop=1280:272:0:268,scale=640:136 -c:v libx264 -b:v 100k -x264-params pass=1 -an -f mp4 /dev/null &amp;&amp; \
+$HOME/bin/ffmpeg -i bee-movie.mp4 -vf crop=1280:272:0:268,scale=640:136 -c:v libx264 -b:v 100k -x264-params pass=2 -an bee-movie-small-h264.mp4
+</code></pre>
+
+<p>I might make more versions (I believe I once read that Netflix has at least 20 different encodings of all their material).</p>
+
+<p>These video files get quite big -- the h.264 version is some 40MiB; since I'll be hosting this site on my home xDSL line, I'd prefer if people watching my site are not exhausting my capacity. Thus I throttle the download. The <code>video</code> folder of my website will allow fast download of the first megabyte of a file, after which you're throttled to 50KiB per second. 50KiB is the equivalent of 400 kilobit -- exactly the highest bitrate of my codecs, so I guess it's a bit tight (there's an mp4 container, network noise, etc.) -- but it seems to work. Here's my nginx configuration:</p>
+
+<pre><code>location /video {
+  limit_rate_after 1m;
+  limit_rate 50k;
+}
+</code></pre>
+
+<h1>Mobile support</h1>
+
+<p>So, using responsive design it's possible to serve the same document, the same stylesheet, the same code to all devices and have them figure out the layout, the correct media and whatnot. Here, I'll go down a different road, that of serving mobile phones a differnt version of the HTML -- by doing this, I make sure that a client which, by the server, is regarded as being a mobile phone, is never handed any of the URLs to the high definition videos. In the future I might make the response design act differently on phones -- I will, for sure, very soon make adjustments to the stylesheet for mobile devices, as the current stylesheet is not really optimized for smaller screen. Right now I only have one HTML file, the infamous <code>index.html</code> -- configured as this:</p>
+
+<pre><code>index index.html;
+</code></pre>
+
+<p>Now I'd like to present a different html file for mobile devices, I could opt for an <code>if</code> statement, but <a href="https://www.nginx.com/resources/wiki/start/topics/depth/ifisevil/">If Is Evil</a> -- and thus I'll try something else. From https://gist.github.com/perusio/1326701 I get this mapping <code>$http_user_agent</code> that becomes very useful:</p>
+
+<pre><code>map $http_user_agent $is_desktop {
+  default 0;
+  ~*linux.*android|windows\s+(?:ce|phone) 0; # exceptions to the rule
+  ~*spider|crawl|slurp|bot 1; # bots
+  ~*windows|linux|os\s+x\s*[\d\._]+|solaris|bsd 1; # OSes
+}
+</code></pre>
+
+<p>This I would like to make into a content suffix; like this:</p>
+
+<pre><code>map $is_desktop $content_suffix {
+  1 "";
+  0 "-mobile";
+}
+</code></pre>
+
+<p>Now I can use the <code>$content_suffix</code> anywhere I like and have it do nothing at all for desktop browsers, but evaluate to "-mobile" for all other requests; alas, my configuration of <code>index.html</code> now looks like this:</p>
+
+<pre><code>index index$content_suffix.html
+</code></pre>
+
+<p>Meaning that my browser will get <code>index.html</code> as usual, but my phone will be feed <code>index-mobile.html</code> when accessing https://www.myhoneywebsite.com/. I tested it, it works. Right now the desktop and the mobile version look very similar, but the mobile version only has one video listed for the background and that is an h.264 encoded lowres video, whereas the desktop version lists three different encodings: av1, h.265 and h.264. Most browsers seem to choose av1 or h.264. I might do some statistics on that.</p>
+
+<p>Serving different content on the same incoming URL is a bit tricky, especially if you ever want to front your website with a CDN. How is a CDN gonna know which clients can be served a given cached version; so I make sure to tell such machinery to include the client <code>User-Agent</code> header in whatever cachekey it's building up:</p>
+
+<pre><code>add_header Vary "User-Agent" always;
+</code></pre>
+
+<p>The <code>always</code> specifies that this header <em>must</em> be sent, also for error pages and the like. This directive will a CDN <em>less</em> efficient in shielding my server; for me that's a tradeoff I can live with. </p>
+
+<h1>Final site</h1>
+
+<p>Not really final, as anything on the internet, it's always a work in progress. But the website is now live at:</p>
+
+<p>(https://honning.dalsgaard.net/)</p>
+
+<p>Danish only for the time being, but I'm working on an international version for when my honey is to be sold globally...</p>
+
+<p>My efforts seem to have not been in vain, according to <a href="https://www.ssllabs.com/">Qualys SSL Labs</a> my website scores <a href="https://www.ssllabs.com/ssltest/analyze.html?d=honning.dalsgaard.net">A+</a> -- better than many others, such as:</p>
 
 <ul>
-<li>4 æg</li>
-<li>150 g sukker</li>
-<li>150 g hvedemel</li>
-<li>1 tsk bagepulver</li>
-<li>smør til formen</li>
+<li><a href="http://um.dk/">um.dk</a> - The Foreign Minestry of Denmark, that apparently does not run SSL/TLS at <a href="https://www.ssllabs.com/ssltest/analyze.html?d=um.dk">all</a>.</li>
+<li><a href="https://www.nets.eu/">nets.eu</a> - NETS, payment provider in Denmark, and Scandinavia, and increasingly the rest of Europe, they have <a href="https://www.ssllabs.com/ssltest/analyze.html?d=www.nets.eu">B</a>.</li>
+<li><a href="https://politi.dk">politi.dk</a> - The Danish Police Force, they have <a href="https://www.ssllabs.com/ssltest/analyze.html?d=politi.dk">B</a>.</li>
 </ul>
 
-<p>Tænd ovnen på 200&deg;C. Pisk æg og sukker til en meget luftig æggesnaps. Bland
-hvedemel og bagepulver og vend det forsigtigt (drysset gennem en sigte) i
-æggesnapsen. Hæld dejen i en smurt springform (ca. 22 cm i diameter). Skub
-forsigtigt dejen ud mod siden med bagsiden af en ske, så der en lille
-fordybning i midten - på den måde undgår du at kagen hvælver på midten, når den
-er bagt. Bag kagen nederst i ovnen - dæk kagen med bagepapir hvis den er ved at
-blive for mørk. Vend kagen ud af formen (så den har toppen nedad) og lad den
-køle af på en bagerist. Del kagen i 3 lagkagebunde.</p>
+<p>Now, not having a high score on your frontpage may not be a huge problem. Most interactions with these bodies do not go via their hosted main website. Also, my version of grade A+ security prevents some old clients from viewing it at all - your use case may vary, and A+ might not be for you.</p>
 
-<p>Tags: <a href='tag_mad.html'>mad</a>, <a href='tag_kage.html'>kage</a>, <a href='tag_opskrift.html'>opskrift</a></p>
+<p>Tags: <a href='tag_computer.html'>computer</a>, <a href='tag_debian.html'>debian</a>, <a href='tag_devops.html'>devops</a>, <a href='tag_video.html'>video</a>, <a href='tag_linux.html'>linux</a></p>
 
 <!-- text end -->
-<p id='twitter'><a href="http://blog.dalsgaard.net//lagkagebunde.html#disqus_thread">Comments?</a> &nbsp;
-<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//lagkagebunde.html"
+<p id='twitter'><a href="http://blog.dalsgaard.net//honey-we-need-a-website.html#disqus_thread">Comments?</a> &nbsp;
+<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//honey-we-need-a-website.html"
  data-via="jakobdalsgaard"
 >Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 </p>
-]]></description><link>http://blog.dalsgaard.net//lagkagebunde.html</link>
-<guid>http://blog.dalsgaard.net//./lagkagebunde.html</guid>
+]]></description><link>http://blog.dalsgaard.net//honey-we-need-a-website.html</link>
+<guid>http://blog.dalsgaard.net//./honey-we-need-a-website.html</guid>
 <dc:creator>Jakob Dalsgaard</dc:creator>
-<pubDate>Sat, 10 Mar 2018 00:25:40 +0100</pubDate></item>
+<pubDate>Sun, 23 Jun 2019 09:54:40 +0200</pubDate></item>
+<item><title>
+To be, or not to be, DevOps
+</title><description><![CDATA[
+
+<p>Yet another article on Linkedin; being a devops is many things:
+<a href="https://www.linkedin.com/pulse/devops-jakob-dalsgaard">To be, or not to be, DevOps</a>.</p>
+
+<p>Tags: <a href='tag_computer.html'>computer</a>, <a href='tag_devops.html'>devops</a></p>
+
+
+<!-- text end -->
+<p id='twitter'><a href="http://blog.dalsgaard.net//to-be-or-not-to-be-devops.html#disqus_thread">Comments?</a> &nbsp;
+<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//to-be-or-not-to-be-devops.html"
+ data-via="jakobdalsgaard"
+>Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</p>
+]]></description><link>http://blog.dalsgaard.net//to-be-or-not-to-be-devops.html</link>
+<guid>http://blog.dalsgaard.net//./to-be-or-not-to-be-devops.html</guid>
+<dc:creator>Jakob Dalsgaard</dc:creator>
+<pubDate>Tue, 18 Jun 2019 11:23:07 +0200</pubDate></item>
+<item><title>
+On the Subject of Root Cause Analysis
+</title><description><![CDATA[
+
+<p>A little something I brewed together: <a href="https://medium.com/@jakobdalsgaard/on-the-subject-of-root-cause-analysis-e7b2ede46b6e">On the Subject of Root Cause Analysis</a>.</p>
+
+<p>Tags: <a href='tag_computer.html'>computer</a>, <a href='tag_devops.html'>devops</a></p>
+
+<!-- text end -->
+<p id='twitter'><a href="http://blog.dalsgaard.net//on-the-subject-of-root-cause-analysis.html#disqus_thread">Comments?</a> &nbsp;
+<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//on-the-subject-of-root-cause-analysis.html"
+ data-via="jakobdalsgaard"
+>Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</p>
+]]></description><link>http://blog.dalsgaard.net//on-the-subject-of-root-cause-analysis.html</link>
+<guid>http://blog.dalsgaard.net//./on-the-subject-of-root-cause-analysis.html</guid>
+<dc:creator>Jakob Dalsgaard</dc:creator>
+<pubDate>Tue, 18 Jun 2019 11:23:07 +0200</pubDate></item>
+<item><title>
+Mega meget lasagne
+</title><description><![CDATA[
+
+<p>Lasagne nok til 12 brødforme... just saying... Husk smør til formene, de skal være smurte!
+Opskriften er temmelig meget en kopi af FXcuisines fantastiske <a href="http://fxcuisine.com/Default.asp?language=2&amp;Display=152&amp;resolution=high">Lasagna from Scratch</a>.</p>
+
+<h2>Lasagneplader</h2>
+
+<p>Ingredienser</p>
+
+<ul>
+<li>500g durum hvedemel</li>
+<li>500g tipo 00 hvedemel</li>
+<li>10 æg</li>
+<li>1 dL olivenolie (eller vand...)</li>
+<li>1 tsk salt</li>
+</ul>
+
+<p>Det er klart nemmest at lave pastadejen i en stor køkkenmaskine, eksempelvis en Kenwood. Hæld al
+melen i røreskålen, derpå æg, olivenolie og salt. Sæt maskinen til at røre langsomt i et par minutter,
+derpå ganske anseeligt hurtigt for at dejen slåes op mod siderne. Hvis dejen ikke samles ordentlig,
+kan man hælde lidt koldt vand i. <em>Lidt</em>.</p>
+
+<p>Pladerne kan med fordel laves i forvejen, rulles ud til tykkelsen 8 på din Marcato Atlas lasagnemaskine,
+koges 10 sekunder i spilkogende vand og hænges til tørre.</p>
+
+<h2>Rag&uacute; Bolognese (Kødsovs....)</h2>
+
+<p>Ingredienser</p>
+
+<ul>
+<li>1kg okse- eller kalvekød</li>
+<li>250g bacon eller pancetta</li>
+<li>1kg gulerødder</li>
+<li>5 dåser flåede tomater</li>
+<li>1 bundt bladselleri</li>
+<li>kyllingelever</li>
+<li>1L kyllingefond</li>
+<li>3dL hvidvin</li>
+<li>&frac12;L fløde</li>
+<li>100g smør</li>
+<li>1 dL olivenolie</li>
+</ul>
+
+<p>Gulerødder skrælles, skæres i tynde strimler, ca. 2-3mm x 2-3mm, derpå i små tern. Bladselleri skæres ligeledes
+i små tern. Sættes til side. Bacon skæres i små tern af nogenlunde samme størrelse. Tag gerne to pander og en
+stor gryde. Panderne bruges til at forberede en lang række af ingredienserne på førend de smides i gryden.</p>
+
+<p>Der forberedes kun små portioner ad gangen på panderne. Smør og olie først, varmes godt op, løg smides på panden, og
+vandet fordampes væk, lad løgene blive klare, ikke brune. Dernæst gulerødder og bladselleri. Lad
+det svitse og blive lidt blødt, skub det lidt til side og rist en smule bacon/pancetta. Ikke for meget, det
+skal ikke koge i egen saft, men få en karamelliseret overflade. Derpå en smule okse/kalvekød og lidt kyllingelever.
+Det ristes nogenlunde tørt. Panden koges af med lidt hvidvin, der koger lidt ind. Derpå en smule kyllingefond,
+der koger lidt ind. Derpå fløde, der koger lidt ind. Denne proces laves med små portioner, der smides i gryden.</p>
+
+<p>Når al kød og alle grøntsager således er processeret, da bringes grydens indhold til kogepunktet. 5 dåser flåede tomater
+tilføjes, og gryden koger i <em>minimum</em> 3 timer. Lad den gerne stå til dagen efter!</p>
+
+<h2>Sauce B&eacute;chamel</h2>
+
+<ul>
+<li>4L sødmælk</li>
+<li>5dL hvedemel</li>
+<li>500g smør</li>
+<li>1 tsk salt</li>
+<li>1 tsk revet muskatnød</li>
+</ul>
+
+<p>Tag en stor gryde, smelt smørret ved lav varme, rør melet i -- det bliver en stor klump.
+Ved lidt højere varme: hæld langsomt mælken i under omrøring. Det bliver en tyk sovs.
+Tilsæt salt og muskatnød og lad sovsen koge svagt i ca. 10 minutter. Sæt til at køle.</p>
+
+<h2>Opbygning af lasagnen</h2>
+
+<p>Ingredienser:</p>
+
+<ul>
+<li>50g smør til at smøre formene.</li>
+<li>300g parmesan</li>
+</ul>
+
+<p>Tag en form, smør den. Start med et lag lasagneplade, derpå en smulle rag&uacute;, b&eacute;chamel og
+revet parmesan. Repet&eacute;r dette til formen er fyldt. Der afsluttes med revet parmesan.</p>
+
+<p>Brødformene kan vikles ind i madfolie, eller lægges i fryseposer og fryses. <em>Eller</em> sættes direkte i ovnen,
+ca. 1 time ved 175&deg;C, med en plade over, så toppen ikke bliver fuldstændig sveden, dernæst en halv time uden
+plade over.</p>
+
+<p>Tags: <a href='tag_mad.html'>mad</a>, <a href='tag_opskrift.html'>opskrift</a>, <a href='tag_italy-ftw.html'>italy-ftw</a></p>
+
+<!-- text end -->
+<p id='twitter'><a href="http://blog.dalsgaard.net//mega-meget-lasagne.html#disqus_thread">Comments?</a> &nbsp;
+<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//mega-meget-lasagne.html"
+ data-via="jakobdalsgaard"
+>Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</p>
+]]></description><link>http://blog.dalsgaard.net//mega-meget-lasagne.html</link>
+<guid>http://blog.dalsgaard.net//./mega-meget-lasagne.html</guid>
+<dc:creator>Jakob Dalsgaard</dc:creator>
+<pubDate>Tue, 18 Jun 2019 11:23:07 +0200</pubDate></item>
 <item><title>
 Matildenspitze Blåbærmuffins
 </title><description><![CDATA[
@@ -89,25 +611,45 @@ den kommer ud uden dej på er de klar til spisning! Afkøl på bagerist - hvis d
 ]]></description><link>http://blog.dalsgaard.net//matildenspitze-blabaermuffins.html</link>
 <guid>http://blog.dalsgaard.net//./matildenspitze-blabaermuffins.html</guid>
 <dc:creator>Jakob Dalsgaard</dc:creator>
-<pubDate>Sun, 30 Apr 2017 10:51:00 +0200</pubDate></item>
+<pubDate>Tue, 18 Jun 2019 11:23:07 +0200</pubDate></item>
 <item><title>
-On the Subject of Root Cause Analysis
+Lagkagebunde
 </title><description><![CDATA[
 
-<p>A little something I brewed together: <a href="https://medium.com/@jakobdalsgaard/on-the-subject-of-root-cause-analysis-e7b2ede46b6e">On the Subject of Root Cause Analysis</a>.</p>
+<p>Tyvstjålet fra <a href="https://www.arla.dk/opskrifter/lagkagebunde/">Arla Lagkagebunde</a> - er kun
+skrevet her som sikkerhed for at have opskriften i fremtiden.</p>
 
-<p>Tags: <a href='tag_computer.html'>computer</a>, <a href='tag_devops.html'>devops</a></p>
+<p>Til en springform bruges:</p>
+
+<ul>
+<li>4 æg</li>
+<li>150 g sukker</li>
+<li>150 g hvedemel</li>
+<li>1 tsk bagepulver</li>
+<li>smør til formen</li>
+</ul>
+
+<p>Tænd ovnen på 200&deg;C. Pisk æg og sukker til en meget luftig æggesnaps. Bland
+hvedemel og bagepulver og vend det forsigtigt (drysset gennem en sigte) i
+æggesnapsen. Hæld dejen i en smurt springform (ca. 22 cm i diameter). Skub
+forsigtigt dejen ud mod siden med bagsiden af en ske, så der en lille
+fordybning i midten - på den måde undgår du at kagen hvælver på midten, når den
+er bagt. Bag kagen nederst i ovnen - dæk kagen med bagepapir hvis den er ved at
+blive for mørk. Vend kagen ud af formen (så den har toppen nedad) og lad den
+køle af på en bagerist. Del kagen i 3 lagkagebunde.</p>
+
+<p>Tags: <a href='tag_mad.html'>mad</a>, <a href='tag_kage.html'>kage</a>, <a href='tag_opskrift.html'>opskrift</a></p>
 
 <!-- text end -->
-<p id='twitter'><a href="http://blog.dalsgaard.net//on-the-subject-of-root-cause-analysis.html#disqus_thread">Comments?</a> &nbsp;
-<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//on-the-subject-of-root-cause-analysis.html"
+<p id='twitter'><a href="http://blog.dalsgaard.net//lagkagebunde.html#disqus_thread">Comments?</a> &nbsp;
+<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//lagkagebunde.html"
  data-via="jakobdalsgaard"
 >Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 </p>
-]]></description><link>http://blog.dalsgaard.net//on-the-subject-of-root-cause-analysis.html</link>
-<guid>http://blog.dalsgaard.net//./on-the-subject-of-root-cause-analysis.html</guid>
+]]></description><link>http://blog.dalsgaard.net//lagkagebunde.html</link>
+<guid>http://blog.dalsgaard.net//./lagkagebunde.html</guid>
 <dc:creator>Jakob Dalsgaard</dc:creator>
-<pubDate>Sun, 30 Apr 2017 10:32:42 +0200</pubDate></item>
+<pubDate>Tue, 18 Jun 2019 11:23:07 +0200</pubDate></item>
 <item><title>
 IPv6 FTW!
 </title><description><![CDATA[
@@ -126,114 +668,7 @@ IPv6 FTW!
 ]]></description><link>http://blog.dalsgaard.net//ipv6-ftw.html</link>
 <guid>http://blog.dalsgaard.net//./ipv6-ftw.html</guid>
 <dc:creator>Jakob Dalsgaard</dc:creator>
-<pubDate>Fri, 03 Feb 2017 11:39:15 +0100</pubDate></item>
-<item><title>
-To be, or not to be, DevOps
-</title><description><![CDATA[
-
-<p>Yet another article on Linkedin; being a devops is many things:
-<a href="https://www.linkedin.com/pulse/devops-jakob-dalsgaard">To be, or not to be, DevOps</a>.</p>
-
-<p>Tags: <a href='tag_computer.html'>computer</a>, <a href='tag_devops.html'>devops</a></p>
-
-
-<!-- text end -->
-<p id='twitter'><a href="http://blog.dalsgaard.net//to-be-or-not-to-be-devops.html#disqus_thread">Comments?</a> &nbsp;
-<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//to-be-or-not-to-be-devops.html"
- data-via="jakobdalsgaard"
->Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-</p>
-]]></description><link>http://blog.dalsgaard.net//to-be-or-not-to-be-devops.html</link>
-<guid>http://blog.dalsgaard.net//./to-be-or-not-to-be-devops.html</guid>
-<dc:creator>Jakob Dalsgaard</dc:creator>
-<pubDate>Fri, 27 Jan 2017 10:39:00 +0100</pubDate></item>
-<item><title>
-Gelato di Vaniglia
-</title><description><![CDATA[
-
-<p>Livet er en lille smule herligere med en <a href="https://www.google.com/?q=nemox+gelatissimo">ismaskine</a>; der
-findes så mange herlige opskrifter at vælge imellem, og isene passer til hver deres ting.</p>
-
-<p>Den her gelato opnår sin cremede konsistens med en smule majsmel, hvilket kan lyde lidt ukonventionel.
-Men det er faktisk ikke så ualmindeligt. Oftest bliver de 'custard' baserede is fremhævet som de bedste, men
-hvis man skal lave meget is ender man med frygtelig mange æggehvider, <em>og</em> man skal passe på ikke at ende med
-is, der har en bismag af æg.</p>
-
-<p>Den her opskrift indeholder kun 1 æggeblomme per portion, hvorfor man ender med markant færre æggehvider.
-Derudover er isen fastere end en custard baseret is; og derfor mere velegnet til eksempelvis pandekager.</p>
-
-<p>Opskriften er tyvstjålet og konverteret til det metriske system fra den her side:
-<a href="http://www.saveur.com/article/Recipes/Sicilian-Vanilla-Ice-Cream">Sicilian Vanilla Ice Cream (Gelato di Vaniglia) Recipe | SAVEUR</a>.</p>
-
-<ul>
-<li>6 dL sødmælk eller minimælk</li>
-<li>2 dL piskefløde</li>
-<li>2 dL sukker</li>
-<li>1 tsk vanillesukker (el. en lille smule vanillepulver)</li>
-<li>1 spsk majsmel</li>
-<li>1 æggeblomme</li>
-</ul>
-
-<p>Hæld 4 dL mælk, 2 dL piskefløde og 1 tsk vanillesukker en gryde og varm den stille og roligt op til mælken simrer langs kanten af gryden,
-husk at røre lidt rundt i det. Samtidig piskes 1 spsk majsmel og 2 dL sukker  i de resterende 2 dL mælk i en skål. Tag gryden af bluset, 
-og pisk grydens indhold langsomt i skålen. Hæld det hele tilbage i gryden, varm det op og lad det simre i 8-10 minutter.
-Tag gryden af blusset. Pisk æggeblommen til den er tyktflydende, hæld cirka 2 dL fra gryden i under konstant piskning -- hæld det hele tilbage i gryden og rør godt rundt. Sæt det i køleskab, gerne natten over.</p>
-
-<p>Næste dag kan blandingen hældes i ismaskinen efter en kort omrøring -- tilsæt gerne hvad som helst der kan give smag.</p>
-
-<p>Tags: <a href='tag_mad.html'>mad</a>, <a href='tag_opskrift.html'>opskrift</a>, <a href='tag_italy-ftw.html'>italy-ftw</a></p>
-
-
-<!-- text end -->
-<p id='twitter'><a href="http://blog.dalsgaard.net//gelato-di-vaniglia.html#disqus_thread">Comments?</a> &nbsp;
-<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//gelato-di-vaniglia.html"
- data-via="jakobdalsgaard"
->Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-</p>
-]]></description><link>http://blog.dalsgaard.net//gelato-di-vaniglia.html</link>
-<guid>http://blog.dalsgaard.net//./gelato-di-vaniglia.html</guid>
-<dc:creator>Jakob Dalsgaard</dc:creator>
-<pubDate>Fri, 20 Jan 2017 16:58:00 +0100</pubDate></item>
-<item><title>
-Help me, I'm all alone
-</title><description><![CDATA[
-
-<p>Yet another Linkedin article, this time about having devs make proper logging
-for aiding in critical productions situations: <a href="https://www.linkedin.com/pulse/help-me-im-all-alone-jakob-dalsgaard">Help me, I'm all alone</a>.</p>
-
-<p>Tags: <a href='tag_computer.html'>computer</a>, <a href='tag_devops.html'>devops</a></p>
-
-
-<!-- text end -->
-<p id='twitter'><a href="http://blog.dalsgaard.net//help-me-im-all-alone.html#disqus_thread">Comments?</a> &nbsp;
-<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//help-me-im-all-alone.html"
- data-via="jakobdalsgaard"
->Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-</p>
-]]></description><link>http://blog.dalsgaard.net//help-me-im-all-alone.html</link>
-<guid>http://blog.dalsgaard.net//./help-me-im-all-alone.html</guid>
-<dc:creator>Jakob Dalsgaard</dc:creator>
-<pubDate>Fri, 20 Jan 2017 08:44:00 +0100</pubDate></item>
-<item><title>
-Foggy Business
-</title><description><![CDATA[
-
-<p>A little something on Linkedin, on the subject of moving into the cloud: 
-<a href="https://www.linkedin.com/pulse/foggy-business-jakob-dalsgaard">Foggy Business</a>.</p>
-
-<p>Tags: <a href='tag_cloud.html'>cloud</a>, <a href='tag_aws.html'>aws</a>, <a href='tag_computer.html'>computer</a>, <a href='tag_devops.html'>devops</a></p>
-
-
-<!-- text end -->
-<p id='twitter'><a href="http://blog.dalsgaard.net//foggy-business.html#disqus_thread">Comments?</a> &nbsp;
-<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//foggy-business.html"
- data-via="jakobdalsgaard"
->Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-</p>
-]]></description><link>http://blog.dalsgaard.net//foggy-business.html</link>
-<guid>http://blog.dalsgaard.net//./foggy-business.html</guid>
-<dc:creator>Jakob Dalsgaard</dc:creator>
-<pubDate>Fri, 13 Jan 2017 20:48:00 +0100</pubDate></item>
+<pubDate>Tue, 18 Jun 2019 11:23:07 +0200</pubDate></item>
 <item><title>
 Installing MusicIP Mixer on Debian 8.6 64-bit
 </title><description><![CDATA[
@@ -286,48 +721,72 @@ replacement UI: <a href="http://www.spicefly.com/article.php?page=musicip-headle
 ]]></description><link>http://blog.dalsgaard.net//installing-musicip-mixer-on-debian-86-64-bit.html</link>
 <guid>http://blog.dalsgaard.net//./installing-musicip-mixer-on-debian-86-64-bit.html</guid>
 <dc:creator>Jakob Dalsgaard</dc:creator>
-<pubDate>Mon, 10 Oct 2016 10:21:00 +0200</pubDate></item>
+<pubDate>Tue, 18 Jun 2019 11:23:07 +0200</pubDate></item>
 <item><title>
-Æbletærte, super-nem
+Help me, I'm all alone
 </title><description><![CDATA[
 
-<p>Her kommer så min version af æbletærte; opskriften udmærker sig ved at være <em>virkelig</em> nem.</p>
+<p>Yet another Linkedin article, this time about having devs make proper logging
+for aiding in critical productions situations: <a href="https://www.linkedin.com/pulse/help-me-im-all-alone-jakob-dalsgaard">Help me, I'm all alone</a>.</p>
 
-<p>Ingredienser:</p>
-
-<ul>
-<li>3 æbler</li>
-<li>2 æg</li>
-<li>1 dL sukker</li>
-<li>&frac12; tsk kanel</li>
-<li>180g sukker</li>
-<li>100g smør</li>
-<li>120g hvedemel</li>
-</ul>
-
-<p>Ovnen tændes på 200&deg;C.</p>
-
-<p>Æblerne skrælles og skæres i både; 1 dL sukker og &frac12; tsk kanel blandes, halvdelen af denne blanding vendes med æblebådene.</p>
-
-<p>Tærteform på ca. 26cm i diameter smøres.</p>
-
-<p>Pisk æg og sukker sammen. Smørret smeltes og tilsættes sammen med mel. Rør dejen sammen og hæld den i formen.
-Æblebådene sættes i dejen, og den resterende sukker med kanel drysses over.</p>
-
-<p>Bagetiden er ca. 30 minutter ved 200&deg;C på nederste rille.</p>
-
-<p>Tags: <a href='tag_mad.html'>mad</a>, <a href='tag_opskrift.html'>opskrift</a>, <a href='tag_kage.html'>kage</a></p>
-
+<p>Tags: <a href='tag_computer.html'>computer</a>, <a href='tag_devops.html'>devops</a></p>
 
 
 <!-- text end -->
-<p id='twitter'><a href="http://blog.dalsgaard.net//aebletaerte-super-nem.html#disqus_thread">Comments?</a> &nbsp;
-<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//aebletaerte-super-nem.html"
+<p id='twitter'><a href="http://blog.dalsgaard.net//help-me-im-all-alone.html#disqus_thread">Comments?</a> &nbsp;
+<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//help-me-im-all-alone.html"
  data-via="jakobdalsgaard"
 >Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 </p>
-]]></description><link>http://blog.dalsgaard.net//aebletaerte-super-nem.html</link>
-<guid>http://blog.dalsgaard.net//./aebletaerte-super-nem.html</guid>
+]]></description><link>http://blog.dalsgaard.net//help-me-im-all-alone.html</link>
+<guid>http://blog.dalsgaard.net//./help-me-im-all-alone.html</guid>
 <dc:creator>Jakob Dalsgaard</dc:creator>
-<pubDate>Mon, 10 Oct 2016 09:47:00 +0200</pubDate></item>
+<pubDate>Tue, 18 Jun 2019 11:23:07 +0200</pubDate></item>
+<item><title>
+Gelato di Vaniglia
+</title><description><![CDATA[
+
+<p>Livet er en lille smule herligere med en <a href="https://www.google.com/?q=nemox+gelatissimo">ismaskine</a>; der
+findes så mange herlige opskrifter at vælge imellem, og isene passer til hver deres ting.</p>
+
+<p>Den her gelato opnår sin cremede konsistens med en smule majsmel, hvilket kan lyde lidt ukonventionel.
+Men det er faktisk ikke så ualmindeligt. Oftest bliver de 'custard' baserede is fremhævet som de bedste, men
+hvis man skal lave meget is ender man med frygtelig mange æggehvider, <em>og</em> man skal passe på ikke at ende med
+is, der har en bismag af æg.</p>
+
+<p>Den her opskrift indeholder kun 1 æggeblomme per portion, hvorfor man ender med markant færre æggehvider.
+Derudover er isen fastere end en custard baseret is; og derfor mere velegnet til eksempelvis pandekager.</p>
+
+<p>Opskriften er tyvstjålet og konverteret til det metriske system fra den her side:
+<a href="http://www.saveur.com/article/Recipes/Sicilian-Vanilla-Ice-Cream">Sicilian Vanilla Ice Cream (Gelato di Vaniglia) Recipe | SAVEUR</a>.</p>
+
+<ul>
+<li>6 dL sødmælk eller minimælk</li>
+<li>2 dL piskefløde</li>
+<li>2 dL sukker</li>
+<li>1 tsk vanillesukker (el. en lille smule vanillepulver)</li>
+<li>1 spsk majsmel</li>
+<li>1 æggeblomme</li>
+</ul>
+
+<p>Hæld 4 dL mælk, 2 dL piskefløde og 1 tsk vanillesukker en gryde og varm den stille og roligt op til mælken simrer langs kanten af gryden,
+husk at røre lidt rundt i det. Samtidig piskes 1 spsk majsmel og 2 dL sukker  i de resterende 2 dL mælk i en skål. Tag gryden af bluset, 
+og pisk grydens indhold langsomt i skålen. Hæld det hele tilbage i gryden, varm det op og lad det simre i 8-10 minutter.
+Tag gryden af blusset. Pisk æggeblommen til den er tyktflydende, hæld cirka 2 dL fra gryden i under konstant piskning -- hæld det hele tilbage i gryden og rør godt rundt. Sæt det i køleskab, gerne natten over.</p>
+
+<p>Næste dag kan blandingen hældes i ismaskinen efter en kort omrøring -- tilsæt gerne hvad som helst der kan give smag.</p>
+
+<p>Tags: <a href='tag_mad.html'>mad</a>, <a href='tag_opskrift.html'>opskrift</a>, <a href='tag_italy-ftw.html'>italy-ftw</a></p>
+
+
+<!-- text end -->
+<p id='twitter'><a href="http://blog.dalsgaard.net//gelato-di-vaniglia.html#disqus_thread">Comments?</a> &nbsp;
+<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//gelato-di-vaniglia.html"
+ data-via="jakobdalsgaard"
+>Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</p>
+]]></description><link>http://blog.dalsgaard.net//gelato-di-vaniglia.html</link>
+<guid>http://blog.dalsgaard.net//./gelato-di-vaniglia.html</guid>
+<dc:creator>Jakob Dalsgaard</dc:creator>
+<pubDate>Tue, 18 Jun 2019 11:23:07 +0200</pubDate></item>
 </channel></rss>
