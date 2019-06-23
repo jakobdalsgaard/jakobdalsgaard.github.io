@@ -9,7 +9,7 @@
 <meta name='twitter:card' content='summary' />
 <meta name='twitter:site' content='@jakobdalsgaard' />
 <meta name='twitter:title' content='Jakob Dalsgaards blog' />
-<meta name='twitter:description' content=" Honey, we need a website  June 23, 2019 &mdash;  Jakob Dalsgaard   Being a new member of the Danish Beekeepers Association I get 100 free stickers to put on honey that I can actually, legally sell (the insurance of the association will be covering, " />
+<meta name='twitter:description' content=" Hyldeblomstsaft koncentreret  June 23, 2019 &mdash;  Jakob Dalsgaard   Opskrift kopieret fra Politiken Ibyen Weekend tillæg, fredag den 14. juni 2019; skrevet ind her så jeg ved hvor jeg kan finde den:   1L vand 2kg sukker 40 hyldeblomstskærme 3" />
 </head><body>
 <div id="divbodyholder">
 <div class="headerholder"><div class="header">
@@ -18,6 +18,47 @@
 <div id="description">Anything...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="hyldeblomstsaft-koncentreret.html">
+Hyldeblomstsaft koncentreret
+</a></h3>
+<div class="subtitle">June 23, 2019 &mdash; 
+Jakob Dalsgaard</div>
+<!-- text begin -->
+
+<p>Opskrift kopieret fra Politiken Ibyen Weekend tillæg, fredag den 14. juni 2019; skrevet ind her så jeg ved hvor jeg kan finde den:</p>
+
+<ul>
+<li>1L vand</li>
+<li>2kg sukker</li>
+<li>40 hyldeblomstskærme</li>
+<li>3 usprøjtede citroner</li>
+<li>2 tsk citronsyre</li>
+</ul>
+
+<p><em>Sådan gør du</em></p>
+
+<p>Kog vand og sukker op, imens går du skærmene efter for små insekter. Du skal endelig ikke skuylle dem, for så fjerner du meget af den gode smag.</p>
+
+<p>Klip blomsterne helt tæt ved kronen, så du får så meget blomst og så lidt stængel med som muligt.</p>
+
+<p>Læg blomsterne i en stor gryde med låg, skær citronerne i skiver, og læg dem ned i gryden.</p>
+
+<p>Tilsæt citronsyren til den kogende lage, og hæld lagen over hyldeblomsterne. Sæt låg på, og stil gryden undenfor, indtil den er kølet af. Sæt den så i køleskabet og lad din saft trække her i to-tre dage. Når saften har trukket færdig, sigtes den og hældes på flaske.</p>
+
+<p>Bland den i forholdet 1:4 med enten vand eller danskvand.</p>
+
+<p><em>Mine noter</em></p>
+
+<p>Det bliver til ca. 2,5L saft; en almindelig indkøbspose indeholder cirka 80 hyldeblomstskærme.</p>
+
+<p>Tags: <a href='tag_mad.html'>mad</a>, <a href='tag_opskrift.html'>opskrift</a></p>
+
+<!-- text end -->
+<p id='twitter'><a href="http://blog.dalsgaard.net//hyldeblomstsaft-koncentreret.html#disqus_thread">Comments?</a> &nbsp;
+<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//hyldeblomstsaft-koncentreret.html"
+ data-via="jakobdalsgaard"
+>Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</p>
 <h3><a class="ablack" href="honey-we-need-a-website.html">
 Honey, we need a website
 </a></h3>
@@ -672,58 +713,6 @@ Jakob Dalsgaard</div>
 <!-- text end -->
 <p id='twitter'><a href="http://blog.dalsgaard.net//ipv6-ftw.html#disqus_thread">Comments?</a> &nbsp;
 <a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//ipv6-ftw.html"
- data-via="jakobdalsgaard"
->Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-</p>
-<h3><a class="ablack" href="installing-musicip-mixer-on-debian-86-64-bit.html">
-Installing MusicIP Mixer on Debian 8.6 64-bit
-</a></h3>
-<div class="subtitle">October 10, 2016 &mdash; 
-Jakob Dalsgaard</div>
-<!-- text begin -->
-
-<p>In order to have automatic music mixing on a Logitech Media Server (former
-Slimserver...), now a days you'll need the Music IP Mixer x86 installed. Running 
-that beast on a 64-bit Debian 8.6 requires a bit of configuration.</p>
-
-<p>First; make your platform support x86 (32-bit) binaries:</p>
-
-<pre><code>sudo dpkg --add-architecture i386
-sudo apt-get update
-sudo apt-get install libgcc1:i386
-</code></pre>
-
-<p>Now, download the MusicIP software, version 1.8 from the Spicefly Sugarcube homepage:</p>
-
-<p><a href="http://www.spicefly.com/article.php?page=musicip-software">Spicefly MusicIP Software</a>.</p>
-
-<p>I then created a user for the MusicIP software, to keep things separated:</p>
-
-<pre><code>sudo user-add -m --system musicip
-</code></pre>
-
-<p>Now, in the software bundle for Linux, there is an init script called <code>mmserver</code> -- 
-just copy that one to <code>/etc/init.d</code> make it owned by root, and change the username therein
-to <code>musicip</code> and the music home to <code>/home/musicip/MusicMagicMixer/</code> (remember the trailing slash).</p>
-
-<p>You can now start the MusicMagicMixer with:</p>
-
-<pre><code>/etc/init.d/mmserver start
-</code></pre>
-
-<p>It prints a wee bit on the terminal, but all is good. On all interfaces MusicMagicMixer is
-now responding to port 10002. You can point your browser to it, and you'll have a fine
-web UI. You can make it even finer if you download and install the Spicefly Sugarcube MusicIP
-replacement UI: <a href="http://www.spicefly.com/article.php?page=musicip-headless-interface">MusicIP Replacement UI</a>.</p>
-
-<p>Please support software, buy your license to Spicefly Sugarcube: <a href="http://www.spicefly.com/licensing/">SugarCube Licensing</a>.</p>
-
-<p>Tags: <a href='tag_slimserver.html'>slimserver</a>, <a href='tag_squeezebox.html'>squeezebox</a>, <a href='tag_logitech.html'>logitech</a>, <a href='tag_software.html'>software</a>, <a href='tag_debian.html'>debian</a>, <a href='tag_linux.html'>linux</a></p>
-
-
-<!-- text end -->
-<p id='twitter'><a href="http://blog.dalsgaard.net//installing-musicip-mixer-on-debian-86-64-bit.html#disqus_thread">Comments?</a> &nbsp;
-<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//installing-musicip-mixer-on-debian-86-64-bit.html"
  data-via="jakobdalsgaard"
 >Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 </p>
