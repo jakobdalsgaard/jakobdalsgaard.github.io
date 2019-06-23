@@ -2,51 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Jakob Dalsgaards blog</title><link>http://blog.dalsgaard.net/</link>
 <description>Anything...</description><language>en</language>
-<lastBuildDate>Sun, 23 Jun 2019 10:12:41 +0200</lastBuildDate>
-<pubDate>Sun, 23 Jun 2019 10:12:41 +0200</pubDate>
+<lastBuildDate>Sun, 23 Jun 2019 12:56:20 +0200</lastBuildDate>
+<pubDate>Sun, 23 Jun 2019 12:56:20 +0200</pubDate>
 <atom:link href="http://blog.dalsgaard.net//feed.rss" rel="self" type="application/rss+xml" />
-<item><title>
-Hyldeblomstsaft koncentreret
-</title><description><![CDATA[
-
-<p>Opskrift kopieret fra Politiken Ibyen Weekend tillæg, fredag den 14. juni 2019; skrevet ind her så jeg ved hvor jeg kan finde den:</p>
-
-<ul>
-<li>1L vand</li>
-<li>2kg sukker</li>
-<li>40 hyldeblomstskærme</li>
-<li>3 usprøjtede citroner</li>
-<li>2 tsk citronsyre</li>
-</ul>
-
-<p><em>Sådan gør du</em></p>
-
-<p>Kog vand og sukker op, imens går du skærmene efter for små insekter. Du skal endelig ikke skuylle dem, for så fjerner du meget af den gode smag.</p>
-
-<p>Klip blomsterne helt tæt ved kronen, så du får så meget blomst og så lidt stængel med som muligt.</p>
-
-<p>Læg blomsterne i en stor gryde med låg, skær citronerne i skiver, og læg dem ned i gryden.</p>
-
-<p>Tilsæt citronsyren til den kogende lage, og hæld lagen over hyldeblomsterne. Sæt låg på, og stil gryden undenfor, indtil den er kølet af. Sæt den så i køleskabet og lad din saft trække her i to-tre dage. Når saften har trukket færdig, sigtes den og hældes på flaske.</p>
-
-<p>Bland den i forholdet 1:4 med enten vand eller danskvand.</p>
-
-<p><em>Mine noter</em></p>
-
-<p>Det bliver til ca. 2,5L saft; en almindelig indkøbspose indeholder cirka 80 hyldeblomstskærme.</p>
-
-<p>Tags: <a href='tag_mad.html'>mad</a>, <a href='tag_opskrift.html'>opskrift</a></p>
-
-<!-- text end -->
-<p id='twitter'><a href="http://blog.dalsgaard.net//hyldeblomstsaft-koncentreret.html#disqus_thread">Comments?</a> &nbsp;
-<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//hyldeblomstsaft-koncentreret.html"
- data-via="jakobdalsgaard"
->Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-</p>
-]]></description><link>http://blog.dalsgaard.net//hyldeblomstsaft-koncentreret.html</link>
-<guid>http://blog.dalsgaard.net//./hyldeblomstsaft-koncentreret.html</guid>
-<dc:creator>Jakob Dalsgaard</dc:creator>
-<pubDate>Sun, 23 Jun 2019 10:11:03 +0200</pubDate></item>
 <item><title>
 Honey, we need a website
 </title><description><![CDATA[
@@ -78,7 +36,7 @@ deb-src http://security.debian.org/ stretch/updates main
 
 <p>Note: An alternative would be to install Debian Stretch from scratch, wiping the system -- I would prefer that... not only would I be able to repartition the system, but there would probably be much less kipple on the system. That'll have to wait for some time in the not so near future where I have much more time. When reinstalling a home linux box I always make sure to install <a href="https://www.fail2ban.org/">fail2ban</a> -- it's a nice safeguard.</p>
 
-<p>I'll go for the nginx webserver, since it has a long tradition of being async epoll based, and according to Linux Journal, even <a href="https://www.zencurity.com/">youporn</a> uses it, so why not me. It also comes highly recommended by <a href="https://syshero.org/">syshero</a>. My use case is serving static files with a bit of logic on figuring out which file should have what headers, but not any server side processes that resembles any significant business logic -- my use case is basically: shove as many bytes over the wire to as many clients as possible, as securely and efficient as possible. For that nginx seems like a fine choice.</p>
+<p>I'll go for the nginx webserver, since it has a long tradition of being async epoll based, and according to Linux Journal, even <a href="https://www.linuxjournal.com/article/10108">youporn</a> uses it, so why not me. It also comes highly recommended by <a href="https://syshero.org/">syshero</a>. My use case is serving static files with a bit of logic on figuring out which file should have what headers, but not any server side processes that resembles any significant business logic -- my use case is basically: shove as many bytes over the wire to as many clients as possible, as securely and efficient as possible. For that nginx seems like a fine choice.</p>
 
 <p>The version of nginx that comes with Debian 9 is 1.10.3 -- a fine version indeed, but since it's compiled with OpenSSL in a pre-1.1.0j version, it cannot do the TLS1.3 that I want. Therefore I need to find another version of nginx, luckily the internet is full of guides on that, I chose <a href="https://www.lukeng.net/tlsv1-3-with-nginx-and-openssl-on-debian/">Life on the Net, by Luke NG</a> -- scroll down to the section that reads 'Current Nginx mainline version [1.15.5] from nginx.org'. It's pretty simple. Create the file <code>/etc/apt/sources.list.d/nginx.conf</code> with the contents:</p>
 
@@ -467,7 +425,49 @@ $HOME/bin/ffmpeg -i bee-movie.mp4 -vf crop=1280:272:0:268,scale=640:136 -c:v lib
 ]]></description><link>http://blog.dalsgaard.net//honey-we-need-a-website.html</link>
 <guid>http://blog.dalsgaard.net//./honey-we-need-a-website.html</guid>
 <dc:creator>Jakob Dalsgaard</dc:creator>
-<pubDate>Sun, 23 Jun 2019 09:54:00 +0200</pubDate></item>
+<pubDate>Sun, 23 Jun 2019 12:54:00 +0200</pubDate></item>
+<item><title>
+Hyldeblomstsaft koncentreret
+</title><description><![CDATA[
+
+<p>Opskrift kopieret fra Politiken Ibyen Weekend tillæg, fredag den 14. juni 2019; skrevet ind her så jeg ved hvor jeg kan finde den:</p>
+
+<ul>
+<li>1L vand</li>
+<li>2kg sukker</li>
+<li>40 hyldeblomstskærme</li>
+<li>3 usprøjtede citroner</li>
+<li>2 tsk citronsyre</li>
+</ul>
+
+<p><em>Sådan gør du</em></p>
+
+<p>Kog vand og sukker op, imens går du skærmene efter for små insekter. Du skal endelig ikke skuylle dem, for så fjerner du meget af den gode smag.</p>
+
+<p>Klip blomsterne helt tæt ved kronen, så du får så meget blomst og så lidt stængel med som muligt.</p>
+
+<p>Læg blomsterne i en stor gryde med låg, skær citronerne i skiver, og læg dem ned i gryden.</p>
+
+<p>Tilsæt citronsyren til den kogende lage, og hæld lagen over hyldeblomsterne. Sæt låg på, og stil gryden undenfor, indtil den er kølet af. Sæt den så i køleskabet og lad din saft trække her i to-tre dage. Når saften har trukket færdig, sigtes den og hældes på flaske.</p>
+
+<p>Bland den i forholdet 1:4 med enten vand eller danskvand.</p>
+
+<p><em>Mine noter</em></p>
+
+<p>Det bliver til ca. 2,5L saft; en almindelig indkøbspose indeholder cirka 80 hyldeblomstskærme.</p>
+
+<p>Tags: <a href='tag_mad.html'>mad</a>, <a href='tag_opskrift.html'>opskrift</a></p>
+
+<!-- text end -->
+<p id='twitter'><a href="http://blog.dalsgaard.net//hyldeblomstsaft-koncentreret.html#disqus_thread">Comments?</a> &nbsp;
+<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//hyldeblomstsaft-koncentreret.html"
+ data-via="jakobdalsgaard"
+>Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</p>
+]]></description><link>http://blog.dalsgaard.net//hyldeblomstsaft-koncentreret.html</link>
+<guid>http://blog.dalsgaard.net//./hyldeblomstsaft-koncentreret.html</guid>
+<dc:creator>Jakob Dalsgaard</dc:creator>
+<pubDate>Sun, 23 Jun 2019 10:11:03 +0200</pubDate></item>
 <item><title>
 To be, or not to be, DevOps
 </title><description><![CDATA[
