@@ -2,9 +2,35 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Jakob Dalsgaards blog</title><link>http://blog.dalsgaard.net/</link>
 <description>Anything...</description><language>en</language>
-<lastBuildDate>Sun, 23 Jun 2019 12:56:20 +0200</lastBuildDate>
-<pubDate>Sun, 23 Jun 2019 12:56:20 +0200</pubDate>
+<lastBuildDate>Wed, 31 Jul 2019 09:25:14 +0200</lastBuildDate>
+<pubDate>Wed, 31 Jul 2019 09:25:14 +0200</pubDate>
 <atom:link href="http://blog.dalsgaard.net//feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Inverteret sukker
+</title><description><![CDATA[
+
+<p>Her lige en opskrift på omvendt sukker:</p>
+
+<ul>
+<li>1.2 kg sukker</li>
+<li>576 mL vand</li>
+<li>1/4 tsk citronsyre</li>
+</ul>
+
+<p>Varmes op til 114°C; that's it. Kan opbevares op til 6 måneder i køleskab.</p>
+
+<p>Tags: <a href='tag_mad.html'>mad</a>, <a href='tag_opskrift.html'>opskrift</a></p>
+
+<!-- text end -->
+<p id='twitter'><a href="http://blog.dalsgaard.net//inverteret-sukker.html#disqus_thread">Comments?</a> &nbsp;
+<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//inverteret-sukker.html"
+ data-via="jakobdalsgaard"
+>Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</p>
+]]></description><link>http://blog.dalsgaard.net//inverteret-sukker.html</link>
+<guid>http://blog.dalsgaard.net//./inverteret-sukker.html</guid>
+<dc:creator>Jakob Dalsgaard</dc:creator>
+<pubDate>Wed, 31 Jul 2019 09:25:12 +0200</pubDate></item>
 <item><title>
 Honey, we need a website
 </title><description><![CDATA[
@@ -762,26 +788,6 @@ replacement UI: <a href="http://www.spicefly.com/article.php?page=musicip-headle
 </p>
 ]]></description><link>http://blog.dalsgaard.net//installing-musicip-mixer-on-debian-86-64-bit.html</link>
 <guid>http://blog.dalsgaard.net//./installing-musicip-mixer-on-debian-86-64-bit.html</guid>
-<dc:creator>Jakob Dalsgaard</dc:creator>
-<pubDate>Tue, 18 Jun 2019 11:23:07 +0200</pubDate></item>
-<item><title>
-Help me, I'm all alone
-</title><description><![CDATA[
-
-<p>Yet another Linkedin article, this time about having devs make proper logging
-for aiding in critical productions situations: <a href="https://www.linkedin.com/pulse/help-me-im-all-alone-jakob-dalsgaard">Help me, I'm all alone</a>.</p>
-
-<p>Tags: <a href='tag_computer.html'>computer</a>, <a href='tag_devops.html'>devops</a></p>
-
-
-<!-- text end -->
-<p id='twitter'><a href="http://blog.dalsgaard.net//help-me-im-all-alone.html#disqus_thread">Comments?</a> &nbsp;
-<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//help-me-im-all-alone.html"
- data-via="jakobdalsgaard"
->Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-</p>
-]]></description><link>http://blog.dalsgaard.net//help-me-im-all-alone.html</link>
-<guid>http://blog.dalsgaard.net//./help-me-im-all-alone.html</guid>
 <dc:creator>Jakob Dalsgaard</dc:creator>
 <pubDate>Tue, 18 Jun 2019 11:23:07 +0200</pubDate></item>
 </channel></rss>
