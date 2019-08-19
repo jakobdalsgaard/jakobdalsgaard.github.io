@@ -2,9 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Jakob Dalsgaards blog</title><link>http://blog.dalsgaard.net/</link>
 <description>Anything...</description><language>en</language>
-<lastBuildDate>Wed, 31 Jul 2019 09:25:14 +0200</lastBuildDate>
-<pubDate>Wed, 31 Jul 2019 09:25:14 +0200</pubDate>
+<lastBuildDate>Mon, 19 Aug 2019 17:54:22 +0200</lastBuildDate>
+<pubDate>Mon, 19 Aug 2019 17:54:22 +0200</pubDate>
 <atom:link href="http://blog.dalsgaard.net//feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+To be, or not to be, DevOps
+</title><description><![CDATA[
+
+<p>Yet another article on Linkedin; being a devops is many things:
+<a href="https://www.linkedin.com/pulse/devops-jakob-dalsgaard">To be, or not to be, DevOps</a>.</p>
+
+<p>Tags: <a href='tag_computer.html'>computer</a>, <a href='tag_devops.html'>devops</a></p>
+
+
+<!-- text end -->
+<p id='twitter'><a href="http://blog.dalsgaard.net//to-be-or-not-to-be-devops.html#disqus_thread">Comments?</a> &nbsp;
+<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//to-be-or-not-to-be-devops.html"
+ data-via="jakobdalsgaard"
+>Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</p>
+]]></description><link>http://blog.dalsgaard.net//to-be-or-not-to-be-devops.html</link>
+<guid>http://blog.dalsgaard.net//./to-be-or-not-to-be-devops.html</guid>
+<dc:creator>Jakob Dalsgaard</dc:creator>
+<pubDate>Mon, 17 Aug 2020 01:27:00 +0200</pubDate></item>
 <item><title>
 Inverteret sukker
 </title><description><![CDATA[
@@ -39,7 +59,7 @@ Honey, we need a website
 
 <h1>Security</h1>
 
-<p>When it comes to websites for honey, you want top class security -- you cannot risk anyone eavesdropping on your honery website browsing.</p>
+<p>When it comes to websites for honey, you want top class security -- you cannot risk anyone eavesdropping on your honey website browsing.</p>
 
 <h2>Support the right protocols</h2>
 
@@ -494,26 +514,6 @@ Hyldeblomstsaft koncentreret
 <guid>http://blog.dalsgaard.net//./hyldeblomstsaft-koncentreret.html</guid>
 <dc:creator>Jakob Dalsgaard</dc:creator>
 <pubDate>Sun, 23 Jun 2019 10:11:03 +0200</pubDate></item>
-<item><title>
-To be, or not to be, DevOps
-</title><description><![CDATA[
-
-<p>Yet another article on Linkedin; being a devops is many things:
-<a href="https://www.linkedin.com/pulse/devops-jakob-dalsgaard">To be, or not to be, DevOps</a>.</p>
-
-<p>Tags: <a href='tag_computer.html'>computer</a>, <a href='tag_devops.html'>devops</a></p>
-
-
-<!-- text end -->
-<p id='twitter'><a href="http://blog.dalsgaard.net//to-be-or-not-to-be-devops.html#disqus_thread">Comments?</a> &nbsp;
-<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//to-be-or-not-to-be-devops.html"
- data-via="jakobdalsgaard"
->Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-</p>
-]]></description><link>http://blog.dalsgaard.net//to-be-or-not-to-be-devops.html</link>
-<guid>http://blog.dalsgaard.net//./to-be-or-not-to-be-devops.html</guid>
-<dc:creator>Jakob Dalsgaard</dc:creator>
-<pubDate>Tue, 18 Jun 2019 11:23:07 +0200</pubDate></item>
 <item><title>
 On the Subject of Root Cause Analysis
 </title><description><![CDATA[

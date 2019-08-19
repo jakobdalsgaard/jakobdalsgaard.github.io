@@ -4,7 +4,7 @@ Being a new member of the [Danish Beekeepers Association](https://www.biavl.dk/)
 
 # Security
 
-When it comes to websites for honey, you want top class security -- you cannot risk anyone eavesdropping on your honery website browsing.
+When it comes to websites for honey, you want top class security -- you cannot risk anyone eavesdropping on your honey website browsing.
 
 ## Support the right protocols
 
