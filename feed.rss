@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
-<channel><title>Jakob Dalsgaards blog</title><link>http://blog.dalsgaard.net/</link>
+<channel><title>Jakob Dalsgaards blog</title><link>http://blog.dalsgaard.net//index.html</link>
 <description>Anything...</description><language>en</language>
-<lastBuildDate>Mon, 19 Aug 2019 17:54:22 +0200</lastBuildDate>
-<pubDate>Mon, 19 Aug 2019 17:54:22 +0200</pubDate>
+<lastBuildDate>Sun, 24 Nov 2019 01:00:33 +0100</lastBuildDate>
+<pubDate>Sun, 24 Nov 2019 01:00:33 +0100</pubDate>
 <atom:link href="http://blog.dalsgaard.net//feed.rss" rel="self" type="application/rss+xml" />
 <item><title>
 To be, or not to be, DevOps
@@ -25,6 +25,26 @@ To be, or not to be, DevOps
 <guid>http://blog.dalsgaard.net//./to-be-or-not-to-be-devops.html</guid>
 <dc:creator>Jakob Dalsgaard</dc:creator>
 <pubDate>Mon, 17 Aug 2020 01:27:00 +0200</pubDate></item>
+<item><title>
+Oneplus 3T Running Hot
+</title><description><![CDATA[
+
+<p>I destroy a fair bit of smartphones through mere coexistence. It just happens; most recently, some three weeks ago, the display cracked — <em>behind</em> the screen protector, which was left intact. Not kidding. So, once again, I decided to replace the display; yes, on my own, I kinda got the experience. I seldom change brand or model, so I have a vast collection of more or less compatible spare parts. This time however, I was pretty sure the phone was toast after me "fixing" it. It ran hot, immediately. It would turn off with +60% on the battery, and be hot. Really hot. Also, which is my bad, I knew that I had unplugged the battery with a metal scalpel (for a man with a hammer, all problems are nails...) — with a few sparks to follow. So I was convinced this phone could not be repaired. Nonetheless I engaged in the hopeless quest to resurrect this beast, beknowing that I've previously binned a similar phone showing the same symptoms after many hours of <a href="http://foldoc.org/debugging">debugging</a>. This time, lo and behold, I spotted the error immediately after opening the phone; assembling the phone I had been a bit annoyed that longitudinal wires had connectors to the mainboard that aligned badly — it turns out I had turned the leftmost wire upside down. It's pure rocket science, the end marked 'MAIN' connects to the main board, whilst the end marked 'SUB' connects to the sub board. Not the other way around. Phone now assembled; works as it should. I'm happy.</p>
+
+<p><img src="media/wire-ribbon-oneplus-3t.jpg" alt="Connector" title="" /></p>
+
+<p>Tags: <a href='tag_smartphones.html'>smartphones</a>, <a href='tag_rocket-science.html'>rocket-science</a></p>
+
+<!-- text end -->
+<p id='twitter'><a href="http://blog.dalsgaard.net//oneplus-3t-running-hot.html#disqus_thread">Comments?</a> &nbsp;
+<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//oneplus-3t-running-hot.html"
+ data-via="jakobdalsgaard"
+>Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</p>
+]]></description><link>http://blog.dalsgaard.net//oneplus-3t-running-hot.html</link>
+<guid>http://blog.dalsgaard.net//./oneplus-3t-running-hot.html</guid>
+<dc:creator>Jakob Dalsgaard</dc:creator>
+<pubDate>Sat, 23 Nov 2019 16:53:13 +0100</pubDate></item>
 <item><title>
 Inverteret sukker
 </title><description><![CDATA[
@@ -735,59 +755,6 @@ IPv6 FTW!
 </p>
 ]]></description><link>http://blog.dalsgaard.net//ipv6-ftw.html</link>
 <guid>http://blog.dalsgaard.net//./ipv6-ftw.html</guid>
-<dc:creator>Jakob Dalsgaard</dc:creator>
-<pubDate>Tue, 18 Jun 2019 11:23:07 +0200</pubDate></item>
-<item><title>
-Installing MusicIP Mixer on Debian 8.6 64-bit
-</title><description><![CDATA[
-
-<p>In order to have automatic music mixing on a Logitech Media Server (former
-Slimserver...), now a days you'll need the Music IP Mixer x86 installed. Running 
-that beast on a 64-bit Debian 8.6 requires a bit of configuration.</p>
-
-<p>First; make your platform support x86 (32-bit) binaries:</p>
-
-<pre><code>sudo dpkg --add-architecture i386
-sudo apt-get update
-sudo apt-get install libgcc1:i386
-</code></pre>
-
-<p>Now, download the MusicIP software, version 1.8 from the Spicefly Sugarcube homepage:</p>
-
-<p><a href="http://www.spicefly.com/article.php?page=musicip-software">Spicefly MusicIP Software</a>.</p>
-
-<p>I then created a user for the MusicIP software, to keep things separated:</p>
-
-<pre><code>sudo user-add -m --system musicip
-</code></pre>
-
-<p>Now, in the software bundle for Linux, there is an init script called <code>mmserver</code> -- 
-just copy that one to <code>/etc/init.d</code> make it owned by root, and change the username therein
-to <code>musicip</code> and the music home to <code>/home/musicip/MusicMagicMixer/</code> (remember the trailing slash).</p>
-
-<p>You can now start the MusicMagicMixer with:</p>
-
-<pre><code>/etc/init.d/mmserver start
-</code></pre>
-
-<p>It prints a wee bit on the terminal, but all is good. On all interfaces MusicMagicMixer is
-now responding to port 10002. You can point your browser to it, and you'll have a fine
-web UI. You can make it even finer if you download and install the Spicefly Sugarcube MusicIP
-replacement UI: <a href="http://www.spicefly.com/article.php?page=musicip-headless-interface">MusicIP Replacement UI</a>.</p>
-
-<p>Please support software, buy your license to Spicefly Sugarcube: <a href="http://www.spicefly.com/licensing/">SugarCube Licensing</a>.</p>
-
-<p>Tags: <a href='tag_slimserver.html'>slimserver</a>, <a href='tag_squeezebox.html'>squeezebox</a>, <a href='tag_logitech.html'>logitech</a>, <a href='tag_software.html'>software</a>, <a href='tag_debian.html'>debian</a>, <a href='tag_linux.html'>linux</a></p>
-
-
-<!-- text end -->
-<p id='twitter'><a href="http://blog.dalsgaard.net//installing-musicip-mixer-on-debian-86-64-bit.html#disqus_thread">Comments?</a> &nbsp;
-<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//installing-musicip-mixer-on-debian-86-64-bit.html"
- data-via="jakobdalsgaard"
->Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-</p>
-]]></description><link>http://blog.dalsgaard.net//installing-musicip-mixer-on-debian-86-64-bit.html</link>
-<guid>http://blog.dalsgaard.net//./installing-musicip-mixer-on-debian-86-64-bit.html</guid>
 <dc:creator>Jakob Dalsgaard</dc:creator>
 <pubDate>Tue, 18 Jun 2019 11:23:07 +0200</pubDate></item>
 </channel></rss>
