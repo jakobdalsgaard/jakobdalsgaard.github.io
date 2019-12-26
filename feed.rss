@@ -2,29 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Jakob Dalsgaards blog</title><link>http://blog.dalsgaard.net//index.html</link>
 <description>Anything...</description><language>en</language>
-<lastBuildDate>Thu, 26 Dec 2019 19:45:25 +0100</lastBuildDate>
-<pubDate>Thu, 26 Dec 2019 19:45:25 +0100</pubDate>
+<lastBuildDate>Thu, 26 Dec 2019 19:50:51 +0100</lastBuildDate>
+<pubDate>Thu, 26 Dec 2019 19:50:51 +0100</pubDate>
 <atom:link href="http://blog.dalsgaard.net//feed.rss" rel="self" type="application/rss+xml" />
-<item><title>
-To be, or not to be, DevOps
-</title><description><![CDATA[
-
-<p>Yet another article on Linkedin; being a devops is many things:
-<a href="https://www.linkedin.com/pulse/devops-jakob-dalsgaard">To be, or not to be, DevOps</a>.</p>
-
-<p>Tags: <a href='tag_computer.html'>computer</a>, <a href='tag_devops.html'>devops</a></p>
-
-
-<!-- text end -->
-<p id='twitter'><a href="http://blog.dalsgaard.net//to-be-or-not-to-be-devops.html#disqus_thread">Comments?</a> &nbsp;
-<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//to-be-or-not-to-be-devops.html"
- data-via="jakobdalsgaard"
->Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-</p>
-]]></description><link>http://blog.dalsgaard.net//to-be-or-not-to-be-devops.html</link>
-<guid>http://blog.dalsgaard.net//./to-be-or-not-to-be-devops.html</guid>
-<dc:creator>Jakob Dalsgaard</dc:creator>
-<pubDate>Mon, 17 Aug 2020 01:27:00 +0200</pubDate></item>
 <item><title>
 Æbleskiver
 </title><description><![CDATA[
@@ -79,6 +59,7 @@ den i fald valdemarso ikke har den:</p>
 
 <p>Tags: <a href='tag_mad.html'>mad</a>, <a href='tag_opskrift.html'>opskrift</a></p>
 
+
 <!-- text end -->
 <p id='twitter'><a href="http://blog.dalsgaard.net//aebleskiver.html#disqus_thread">Comments?</a> &nbsp;
 <a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//aebleskiver.html"
@@ -122,6 +103,7 @@ Juster smagen med æblecidereddike, sukker og salt til sidst.</p>
 
 <p>Tags: <a href='tag_mad.html'>mad</a>, <a href='tag_opskrift.html'>opskrift</a></p>
 
+
 <!-- text end -->
 <p id='twitter'><a href="http://blog.dalsgaard.net//meyers-rodkalssalat.html#disqus_thread">Comments?</a> &nbsp;
 <a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//meyers-rodkalssalat.html"
@@ -141,6 +123,7 @@ Oneplus 3T Running Hot
 <p><img src="media/wire-ribbon-oneplus-3t.jpg" alt="Connector" title="" /></p>
 
 <p>Tags: <a href='tag_smartphones.html'>smartphones</a>, <a href='tag_rocket-science.html'>rocket-science</a></p>
+
 
 <!-- text end -->
 <p id='twitter'><a href="http://blog.dalsgaard.net//oneplus-3t-running-hot.html#disqus_thread">Comments?</a> &nbsp;
@@ -167,6 +150,7 @@ Inverteret sukker
 <p>Varmes op til 114°C; that's it. Kan opbevares op til 6 måneder i køleskab.</p>
 
 <p>Tags: <a href='tag_mad.html'>mad</a>, <a href='tag_opskrift.html'>opskrift</a></p>
+
 
 <!-- text end -->
 <p id='twitter'><a href="http://blog.dalsgaard.net//inverteret-sukker.html#disqus_thread">Comments?</a> &nbsp;
@@ -589,6 +573,7 @@ $HOME/bin/ffmpeg -i bee-movie.mp4 -vf crop=1280:272:0:268,scale=640:136 -c:v lib
 
 <p>Tags: <a href='tag_computer.html'>computer</a>, <a href='tag_debian.html'>debian</a>, <a href='tag_devops.html'>devops</a>, <a href='tag_video.html'>video</a>, <a href='tag_linux.html'>linux</a></p>
 
+
 <!-- text end -->
 <p id='twitter'><a href="http://blog.dalsgaard.net//honey-we-need-a-website.html#disqus_thread">Comments?</a> &nbsp;
 <a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//honey-we-need-a-website.html"
@@ -631,6 +616,7 @@ Hyldeblomstsaft koncentreret
 
 <p>Tags: <a href='tag_mad.html'>mad</a>, <a href='tag_opskrift.html'>opskrift</a></p>
 
+
 <!-- text end -->
 <p id='twitter'><a href="http://blog.dalsgaard.net//hyldeblomstsaft-koncentreret.html#disqus_thread">Comments?</a> &nbsp;
 <a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//hyldeblomstsaft-koncentreret.html"
@@ -642,169 +628,144 @@ Hyldeblomstsaft koncentreret
 <dc:creator>Jakob Dalsgaard</dc:creator>
 <pubDate>Sun, 23 Jun 2019 10:11:03 +0200</pubDate></item>
 <item><title>
-On the Subject of Root Cause Analysis
+Æbletærte, super-nem
 </title><description><![CDATA[
 
-<p>A little something I brewed together: <a href="https://medium.com/@jakobdalsgaard/on-the-subject-of-root-cause-analysis-e7b2ede46b6e">On the Subject of Root Cause Analysis</a>.</p>
-
-<p>Tags: <a href='tag_computer.html'>computer</a>, <a href='tag_devops.html'>devops</a></p>
-
-<!-- text end -->
-<p id='twitter'><a href="http://blog.dalsgaard.net//on-the-subject-of-root-cause-analysis.html#disqus_thread">Comments?</a> &nbsp;
-<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//on-the-subject-of-root-cause-analysis.html"
- data-via="jakobdalsgaard"
->Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-</p>
-]]></description><link>http://blog.dalsgaard.net//on-the-subject-of-root-cause-analysis.html</link>
-<guid>http://blog.dalsgaard.net//./on-the-subject-of-root-cause-analysis.html</guid>
-<dc:creator>Jakob Dalsgaard</dc:creator>
-<pubDate>Tue, 18 Jun 2019 11:23:07 +0200</pubDate></item>
-<item><title>
-Mega meget lasagne
-</title><description><![CDATA[
-
-<p>Lasagne nok til 12 brødforme... just saying... Husk smør til formene, de skal være smurte!
-Opskriften er temmelig meget en kopi af FXcuisines fantastiske <a href="http://fxcuisine.com/Default.asp?language=2&amp;Display=152&amp;resolution=high">Lasagna from Scratch</a>.</p>
-
-<h2>Lasagneplader</h2>
-
-<p>Ingredienser</p>
-
-<ul>
-<li>500g durum hvedemel</li>
-<li>500g tipo 00 hvedemel</li>
-<li>10 æg</li>
-<li>1 dL olivenolie (eller vand...)</li>
-<li>1 tsk salt</li>
-</ul>
-
-<p>Det er klart nemmest at lave pastadejen i en stor køkkenmaskine, eksempelvis en Kenwood. Hæld al
-melen i røreskålen, derpå æg, olivenolie og salt. Sæt maskinen til at røre langsomt i et par minutter,
-derpå ganske anseeligt hurtigt for at dejen slåes op mod siderne. Hvis dejen ikke samles ordentlig,
-kan man hælde lidt koldt vand i. <em>Lidt</em>.</p>
-
-<p>Pladerne kan med fordel laves i forvejen, rulles ud til tykkelsen 8 på din Marcato Atlas lasagnemaskine,
-koges 10 sekunder i spilkogende vand og hænges til tørre.</p>
-
-<h2>Rag&uacute; Bolognese (Kødsovs....)</h2>
-
-<p>Ingredienser</p>
-
-<ul>
-<li>1kg okse- eller kalvekød</li>
-<li>250g bacon eller pancetta</li>
-<li>1kg gulerødder</li>
-<li>5 dåser flåede tomater</li>
-<li>1 bundt bladselleri</li>
-<li>kyllingelever</li>
-<li>1L kyllingefond</li>
-<li>3dL hvidvin</li>
-<li>&frac12;L fløde</li>
-<li>100g smør</li>
-<li>1 dL olivenolie</li>
-</ul>
-
-<p>Gulerødder skrælles, skæres i tynde strimler, ca. 2-3mm x 2-3mm, derpå i små tern. Bladselleri skæres ligeledes
-i små tern. Sættes til side. Bacon skæres i små tern af nogenlunde samme størrelse. Tag gerne to pander og en
-stor gryde. Panderne bruges til at forberede en lang række af ingredienserne på førend de smides i gryden.</p>
-
-<p>Der forberedes kun små portioner ad gangen på panderne. Smør og olie først, varmes godt op, løg smides på panden, og
-vandet fordampes væk, lad løgene blive klare, ikke brune. Dernæst gulerødder og bladselleri. Lad
-det svitse og blive lidt blødt, skub det lidt til side og rist en smule bacon/pancetta. Ikke for meget, det
-skal ikke koge i egen saft, men få en karamelliseret overflade. Derpå en smule okse/kalvekød og lidt kyllingelever.
-Det ristes nogenlunde tørt. Panden koges af med lidt hvidvin, der koger lidt ind. Derpå en smule kyllingefond,
-der koger lidt ind. Derpå fløde, der koger lidt ind. Denne proces laves med små portioner, der smides i gryden.</p>
-
-<p>Når al kød og alle grøntsager således er processeret, da bringes grydens indhold til kogepunktet. 5 dåser flåede tomater
-tilføjes, og gryden koger i <em>minimum</em> 3 timer. Lad den gerne stå til dagen efter!</p>
-
-<h2>Sauce B&eacute;chamel</h2>
-
-<ul>
-<li>4L sødmælk</li>
-<li>5dL hvedemel</li>
-<li>500g smør</li>
-<li>1 tsk salt</li>
-<li>1 tsk revet muskatnød</li>
-</ul>
-
-<p>Tag en stor gryde, smelt smørret ved lav varme, rør melet i -- det bliver en stor klump.
-Ved lidt højere varme: hæld langsomt mælken i under omrøring. Det bliver en tyk sovs.
-Tilsæt salt og muskatnød og lad sovsen koge svagt i ca. 10 minutter. Sæt til at køle.</p>
-
-<h2>Opbygning af lasagnen</h2>
+<p>Her kommer så min version af æbletærte; opskriften udmærker sig ved at være <em>virkelig</em> nem.</p>
 
 <p>Ingredienser:</p>
 
 <ul>
-<li>50g smør til at smøre formene.</li>
-<li>300g parmesan</li>
+<li>3 æbler</li>
+<li>2 æg</li>
+<li>1 dL sukker</li>
+<li>&frac12; tsk kanel</li>
+<li>180g sukker</li>
+<li>100g smør</li>
+<li>120g hvedemel</li>
 </ul>
 
-<p>Tag en form, smør den. Start med et lag lasagneplade, derpå en smulle rag&uacute;, b&eacute;chamel og
-revet parmesan. Repet&eacute;r dette til formen er fyldt. Der afsluttes med revet parmesan.</p>
+<p>Ovnen tændes på 200&deg;C.</p>
 
-<p>Brødformene kan vikles ind i madfolie, eller lægges i fryseposer og fryses. <em>Eller</em> sættes direkte i ovnen,
-ca. 1 time ved 175&deg;C, med en plade over, så toppen ikke bliver fuldstændig sveden, dernæst en halv time uden
-plade over.</p>
+<p>Æblerne skrælles og skæres i både; 1 dL sukker og &frac12; tsk kanel blandes, halvdelen af denne blanding vendes med æblebådene.</p>
 
-<p>Tags: <a href='tag_mad.html'>mad</a>, <a href='tag_opskrift.html'>opskrift</a>, <a href='tag_italy-ftw.html'>italy-ftw</a></p>
+<p>Tærteform på ca. 26cm i diameter smøres.</p>
+
+<p>Pisk æg og sukker sammen. Smørret smeltes og tilsættes sammen med mel. Rør dejen sammen og hæld den i formen.
+Æblebådene sættes i dejen, og den resterende sukker med kanel drysses over.</p>
+
+<p>Bagetiden er ca. 30 minutter ved 200&deg;C på nederste rille.</p>
+
+<p>Tags: <a href='tag_mad.html'>mad</a>, <a href='tag_opskrift.html'>opskrift</a>, <a href='tag_kage.html'>kage</a></p>
+
+
+
 
 <!-- text end -->
-<p id='twitter'><a href="http://blog.dalsgaard.net//mega-meget-lasagne.html#disqus_thread">Comments?</a> &nbsp;
-<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//mega-meget-lasagne.html"
+<p id='twitter'><a href="http://blog.dalsgaard.net//aebletaerte-super-nem.html#disqus_thread">Comments?</a> &nbsp;
+<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//aebletaerte-super-nem.html"
  data-via="jakobdalsgaard"
 >Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 </p>
-]]></description><link>http://blog.dalsgaard.net//mega-meget-lasagne.html</link>
-<guid>http://blog.dalsgaard.net//./mega-meget-lasagne.html</guid>
+]]></description><link>http://blog.dalsgaard.net//aebletaerte-super-nem.html</link>
+<guid>http://blog.dalsgaard.net//./aebletaerte-super-nem.html</guid>
 <dc:creator>Jakob Dalsgaard</dc:creator>
 <pubDate>Tue, 18 Jun 2019 11:23:07 +0200</pubDate></item>
 <item><title>
-Matildenspitze Blåbærmuffins
+Chokoladekage i form
 </title><description><![CDATA[
 
-<p>Den nemmeste og aller-super-bedste opskrift på blåbærmuffins. Desværre er www.matildenspitze.com ikke længere :-/ Så her
-kommer min kopi af opskriften, hentet fra http://archive.org/:</p>
+<p>Eller: endnu en variation over klassens-time kage.... Den her er
+faktisk en kopi af <a href="https://lineh.dk/opskrifter/lines-legendariske-chokoladekage/">Lines Legendariske Chokoladekage</a>. 
+Primært kopieret herind for at have opskrifterne samlet.</p>
 
-<h2>Blåbærmuffins</h2>
-
-<p>Giver 12 stk.</p>
+<p>Ingredienser:</p>
 
 <ul>
-<li>2 æg</li>
-<li>140 g rørsukker eller almindelig sukker</li>
-<li>120 g blødt smør</li>
-<li>Kornene af 1 vaniljestang (eller 2 tsk vaniljesukker)</li>
-<li>170 g hvedemel</li>
-<li>2 tsk bagepulver</li>
-<li>1/2 tsk salt</li>
-<li>1 dL mælk</li>
-<li>120 g blåbær - friske eller frosne. Jeg brugte halv af hver.</li>
-<li>1 tsk sukker</li>
-<li>12 muffinsforme</li>
+<li>250g smør</li>
+<li>350g sukker</li>
+<li>4 æg</li>
+<li>500g hvedemel</li>
+<li>4&frac12; tsk bagepulver</li>
+<li>1 dL kakao</li>
+<li>3 tsk vaniljesukker</li>
+<li>3 dL mælk</li>
+<li>100g mørk chokolade</li>
 </ul>
 
-<p>Tænd ovnen på 190&deg;C.</p>
-
-<p>Pisk æg med sukker, blødt smør og vaniljekorn til det er hvidt og luftigt. Det må gerne have klumper - de skal nok blive rørt ud senere.
-Bland hvedemel med bagepulver og salt og tilsæt ægge-smør massen. Rør det hele grundigt sammen og tilsæt da mælken. Rør til en cremet dej.
-Vend forsigtigt blåbærrene i dejen så de ikke går for meget i smadder eller farver dejen helt blå.
-Fyld dejen i muffinsforme (fyldes 2/3 op) og drys med lidt sukker på toppen - så bliver de ekstra sprøde.</p>
-
-<p>Bag muffin&apos;erne midt i ovnen i ca 25-27 minutter. Stik i en af dem med en tandstik eller spids kniv for at tjekke om de er færdige. Hvis
-den kommer ud uden dej på er de klar til spisning! Afkøl på bagerist - hvis du altså kan vente!!</p>
+<p>Tænd ovnen på 170&deg;C.
+Smør og sukker røres sammen, æggene tilsættes et ad gangen. Bland mel, bagepulver, kakao og vaniljesukker og 
+rør det i dejen sammen med mælken og smeltet chokolade. Fordel dejen i tre brødforme eller &eacute;n stor bradepande, eller måske lasagnefad.
+Kagen bages i ca. 50 minutter ved 170&deg;C.</p>
 
 <p>Tags: <a href='tag_mad.html'>mad</a>, <a href='tag_kage.html'>kage</a>, <a href='tag_opskrift.html'>opskrift</a></p>
 
+
 <!-- text end -->
-<p id='twitter'><a href="http://blog.dalsgaard.net//matildenspitze-blabaermuffins.html#disqus_thread">Comments?</a> &nbsp;
-<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//matildenspitze-blabaermuffins.html"
+<p id='twitter'><a href="http://blog.dalsgaard.net//chokoladekage-i-form.html#disqus_thread">Comments?</a> &nbsp;
+<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//chokoladekage-i-form.html"
  data-via="jakobdalsgaard"
 >Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 </p>
-]]></description><link>http://blog.dalsgaard.net//matildenspitze-blabaermuffins.html</link>
-<guid>http://blog.dalsgaard.net//./matildenspitze-blabaermuffins.html</guid>
+]]></description><link>http://blog.dalsgaard.net//chokoladekage-i-form.html</link>
+<guid>http://blog.dalsgaard.net//./chokoladekage-i-form.html</guid>
+<dc:creator>Jakob Dalsgaard</dc:creator>
+<pubDate>Tue, 18 Jun 2019 11:23:07 +0200</pubDate></item>
+<item><title>
+Convert to Lightworks
+</title><description><![CDATA[
+
+<p>The <a href="https://www.lwks.com/">Lightworks</a> application is a very nice <a href="https://en.wikipedia.org/wiki/Non-linear_editing_system">non-linear video editing system</a> -
+and, when 720p is sufficient, free of charge! However, it's a bit picky on import
+formats. I've found the easiest approach to this is installing <a href="https://ffmpeg.org/download.html">FFMpeg</a>
+and batch converting everything you want to import to mpegts, FullHD, 46kHz stereo.</p>
+
+<p><img src="media/lightworks-redshark.png" alt="Lightworks red shark" title="" /></p>
+
+<p>To do so, I've created a script, should work on all unices, available here: <a href="http://convert-to-lightworks.dalsgaard.net/">convert-to-lightworks</a> 
+-- and also a .bat file for Windows lusers, available here: <a href="http://convert-to-lightworks-bat.dalsgaard.net/">convert-to-lightworks.bat</a>.
+They should both support just dropping files onto them from a file manager.</p>
+
+<p>To installl ffmpeg on Elementary OS Freya release, do this:</p>
+
+<pre><code>sudo cat "deb http://www.deb-multimedia.org wheezy main" &gt; /etc/apt/sources.list.d/deb-multimedia.list
+sudo apt-get update
+sudo apt-get install deb-multimedia-keyring
+sudo apt-get install ffmpeg
+</code></pre>
+
+<p>Tags: <a href='tag_computer.html'>computer</a>, <a href='tag_video.html'>video</a>, <a href='tag_software.html'>software</a></p>
+
+
+<!-- text end -->
+<p id='twitter'><a href="http://blog.dalsgaard.net//convert-to-lightworks.html#disqus_thread">Comments?</a> &nbsp;
+<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//convert-to-lightworks.html"
+ data-via="jakobdalsgaard"
+>Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</p>
+]]></description><link>http://blog.dalsgaard.net//convert-to-lightworks.html</link>
+<guid>http://blog.dalsgaard.net//./convert-to-lightworks.html</guid>
+<dc:creator>Jakob Dalsgaard</dc:creator>
+<pubDate>Tue, 18 Jun 2019 11:23:07 +0200</pubDate></item>
+<item><title>
+Foggy Business
+</title><description><![CDATA[
+
+<p>A little something on Linkedin, on the subject of moving into the cloud: 
+<a href="https://www.linkedin.com/pulse/foggy-business-jakob-dalsgaard">Foggy Business</a>.</p>
+
+<p>Tags: <a href='tag_cloud.html'>cloud</a>, <a href='tag_aws.html'>aws</a>, <a href='tag_computer.html'>computer</a>, <a href='tag_devops.html'>devops</a></p>
+
+
+
+<!-- text end -->
+<p id='twitter'><a href="http://blog.dalsgaard.net//foggy-business.html#disqus_thread">Comments?</a> &nbsp;
+<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//foggy-business.html"
+ data-via="jakobdalsgaard"
+>Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</p>
+]]></description><link>http://blog.dalsgaard.net//foggy-business.html</link>
+<guid>http://blog.dalsgaard.net//./foggy-business.html</guid>
 <dc:creator>Jakob Dalsgaard</dc:creator>
 <pubDate>Tue, 18 Jun 2019 11:23:07 +0200</pubDate></item>
 </channel></rss>
