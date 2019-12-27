@@ -2,129 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Jakob Dalsgaards blog</title><link>http://blog.dalsgaard.net//index.html</link>
 <description>Anything...</description><language>en</language>
-<lastBuildDate>Fri, 27 Dec 2019 15:21:32 +0100</lastBuildDate>
-<pubDate>Fri, 27 Dec 2019 15:21:32 +0100</pubDate>
+<lastBuildDate>Fri, 27 Dec 2019 16:33:15 +0100</lastBuildDate>
+<pubDate>Fri, 27 Dec 2019 16:33:15 +0100</pubDate>
 <atom:link href="http://blog.dalsgaard.net//feed.rss" rel="self" type="application/rss+xml" />
-<item><title>
-Prometheus Amok
-</title><description><![CDATA[
-
-<p>Got my new setup with a Linux box as router (an old Dell PowerEdge, but with two
-gigabit ports, and it handles gigabit traffic tremendously well, couldn't be
-happier).  Besides the Linux box, I now run a managed switch and an Ubiquiti
-access point. All this equipment can be monitored in very many ways; but I'd
-like the metrics to be gathered in one uniform application, so I installed
-<a href="https://prometheus.io/">Prometheus</a> - a time series database to store all sorts
-of metrics in; I then put <a href="https://grafana.com/">Grafana</a> in front of it --
-whilst Prometheus has a very nice UI itself, Grafana does come with a lot of
-nice features, such as dashboards and alerting.</p>
-
-<h2>The World of Prometheus Exporters</h2>
-
-<h3>Unifi Prometheous Exporter</h3>
-
-<p>To be fetched from here: <a href="http://github.com/mdlayher/unifi">Unifi Scraper</a> &emdash; now 
-author recommends a docker; I'm more a fan of running my stuff on a real machine. So
-I opted for a plain normal install on the box.</p>
-
-<p>For this go program to accept the Unifi application, I need to install at least a
-self signed certificate in Unifi, and Ubiqiti has not made that proces easy. I found
-it to work this way:</p>
-
-<p>First create a self signed certificate with your designed hostname as CN:</p>
-
-<pre><code># Make self signed certs
-openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365
-</code></pre>
-
-<p>Then convert it to pkcs12 to have something the Unifi java application wants to play with:</p>
-
-<pre><code># pacakge in pkcs12
-openssl pkcs12 -export -in cert.pem -inkey key.pem -out unifi.p12 -name unifi  -caname root
-</code></pre>
-
-<p>Now update the keystore with this very fine pkcs12 certificate:</p>
-
-<pre><code># use keytool to update keystore
-keytool -importkeystore -deststorepass aircontrolenterprise -destkeypass aircontrolenterprise -destkeystore new-keystore -srckeystore unifi.p12 -srcstoretype PKCS12 -srcstorepass temppass -alias ubnt -noprompt
-</code></pre>
-
-<p>I believe <code>keytool</code> can come from just about any java you have lying around. Now shut down your Unifi Controller application, take a backup copy of
-<code>/usr/lib/unifi/data/keystore</code> file, copy <code>new-keystore</code> to <code>/usr/lib/unifi/data/keystore</code> and start your Unifi Controller again and your Unifi
-Controller should be running with a brand new self signed certificate.</p>
-
-<p>Tags: <a href='tag_computer.html'>computer</a>, <a href='tag_software.html'>software</a></p>
-
-<!-- text end -->
-<p id='twitter'><a href="http://blog.dalsgaard.net//prometheus-amok11557.html#disqus_thread">Comments?</a> &nbsp;
-<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//prometheus-amok11557.html"
- data-via="jakobdalsgaard"
->Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-</p>
-]]></description><link>http://blog.dalsgaard.net//prometheus-amok11557.html</link>
-<guid>http://blog.dalsgaard.net//./prometheus-amok11557.html</guid>
-<dc:creator>Jakob Dalsgaard</dc:creator>
-<pubDate>Thu, 26 Dec 2019 20:19:08 +0100</pubDate></item>
-<item><title>
-Prometheus Amok
-</title><description><![CDATA[
-
-<p>Got my new setup with a Linux box as router (an old Dell PowerEdge, but with two
-gigabit ports, and it handles gigabit traffic tremendously well, couldn't be
-happier).  Besides the Linux box, I now run a managed switch and an Ubiquiti
-access point. All this equipment can be monitored in very many ways; but I'd
-like the metrics to be gathered in one uniform application, so I installed
-<a href="https://prometheus.io/">Prometheus</a> - a time series database to store all sorts
-of metrics in; I then put <a href="https://grafana.com/">Grafana</a> in front of it --
-whilst Prometheus has a very nice UI itself, Grafana does come with a lot of
-nice features, such as dashboards and alerting.</p>
-
-<h2>The World of Prometheus Exporters</h2>
-
-<h3>Unifi Prometheous Exporter</h3>
-
-<p>To be fetched from here: <a href="http://github.com/mdlayher/unifi">Unifi Scraper</a> &emdash; now 
-author recommends a docker; I'm more a fan of running my stuff on a real machine. So
-I opted for a plain normal install on the box.</p>
-
-<p>For this go program to accept the Unifi application, I need to install at least a
-self signed certificate in Unifi, and Ubiqiti has not made that proces easy. I found
-it to work this way:</p>
-
-<p>First create a self signed certificate with your designed hostname as CN:</p>
-
-<pre><code># Make self signed certs
-openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365
-</code></pre>
-
-<p>Then convert it to pkcs12 to have something the Unifi java application wants to play with:</p>
-
-<pre><code># pacakge in pkcs12
-openssl pkcs12 -export -in cert.pem -inkey key.pem -out unifi.p12 -name unifi  -caname root
-</code></pre>
-
-<p>Now update the keystore with this very fine pkcs12 certificate:</p>
-
-<pre><code># use keytool to update keystore
-keytool -importkeystore -deststorepass aircontrolenterprise -destkeypass aircontrolenterprise -destkeystore new-keystore -srckeystore unifi.p12 -srcstoretype PKCS12 -srcstorepass temppass -alias ubnt -noprompt
-</code></pre>
-
-<p>I believe <code>keytool</code> can come from just about any java you have lying around. Now shut down your Unifi Controller application, take a backup copy of
-<code>/usr/lib/unifi/data/keystore</code> file, copy <code>new-keystore</code> to <code>/usr/lib/unifi/data/keystore</code> and start your Unifi Controller again and your Unifi
-Controller should be running with a brand new self signed certificate.</p>
-
-<p>Tags: <a href='tag_computer.html'>computer</a>, <a href='tag_software.html'>software</a></p>
-
-<!-- text end -->
-<p id='twitter'><a href="http://blog.dalsgaard.net//prometheus-amok.html#disqus_thread">Comments?</a> &nbsp;
-<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//prometheus-amok.html"
- data-via="jakobdalsgaard"
->Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-</p>
-]]></description><link>http://blog.dalsgaard.net//prometheus-amok.html</link>
-<guid>http://blog.dalsgaard.net//./prometheus-amok.html</guid>
-<dc:creator>Jakob Dalsgaard</dc:creator>
-<pubDate>Thu, 26 Dec 2019 20:18:55 +0100</pubDate></item>
 <item><title>
 Æbleskiver
 </title><description><![CDATA[
@@ -179,6 +59,7 @@ den i fald valdemarso ikke har den:</p>
 
 <p>Tags: <a href='tag_mad.html'>mad</a>, <a href='tag_opskrift.html'>opskrift</a></p>
 
+
 <!-- text end -->
 <p id='twitter'><a href="http://blog.dalsgaard.net//aebleskiver.html#disqus_thread">Comments?</a> &nbsp;
 <a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//aebleskiver.html"
@@ -222,6 +103,7 @@ Juster smagen med æblecidereddike, sukker og salt til sidst.</p>
 
 <p>Tags: <a href='tag_mad.html'>mad</a>, <a href='tag_opskrift.html'>opskrift</a></p>
 
+
 <!-- text end -->
 <p id='twitter'><a href="http://blog.dalsgaard.net//meyers-rodkalssalat.html#disqus_thread">Comments?</a> &nbsp;
 <a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//meyers-rodkalssalat.html"
@@ -241,6 +123,7 @@ Oneplus 3T Running Hot
 <p><img src="media/wire-ribbon-oneplus-3t.jpg" alt="Connector" title="" /></p>
 
 <p>Tags: <a href='tag_smartphones.html'>smartphones</a>, <a href='tag_rocket-science.html'>rocket-science</a></p>
+
 
 
 <!-- text end -->
@@ -268,6 +151,7 @@ Inverteret sukker
 <p>Varmes op til 114°C; that's it. Kan opbevares op til 6 måneder i køleskab.</p>
 
 <p>Tags: <a href='tag_mad.html'>mad</a>, <a href='tag_opskrift.html'>opskrift</a></p>
+
 
 
 <!-- text end -->
@@ -692,6 +576,7 @@ $HOME/bin/ffmpeg -i bee-movie.mp4 -vf crop=1280:272:0:268,scale=640:136 -c:v lib
 <p>Tags: <a href='tag_computer.html'>computer</a>, <a href='tag_debian.html'>debian</a>, <a href='tag_devops.html'>devops</a>, <a href='tag_video.html'>video</a>, <a href='tag_linux.html'>linux</a></p>
 
 
+
 <!-- text end -->
 <p id='twitter'><a href="http://blog.dalsgaard.net//honey-we-need-a-website.html#disqus_thread">Comments?</a> &nbsp;
 <a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//honey-we-need-a-website.html"
@@ -733,6 +618,7 @@ Hyldeblomstsaft koncentreret
 <p>Det bliver til ca. 2,5L saft; en almindelig indkøbspose indeholder cirka 80 hyldeblomstskærme.</p>
 
 <p>Tags: <a href='tag_mad.html'>mad</a>, <a href='tag_opskrift.html'>opskrift</a></p>
+
 
 
 <!-- text end -->
@@ -779,6 +665,7 @@ Hyldeblomstsaft koncentreret
 
 
 
+
 <!-- text end -->
 <p id='twitter'><a href="http://blog.dalsgaard.net//aebletaerte-super-nem.html#disqus_thread">Comments?</a> &nbsp;
 <a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//aebletaerte-super-nem.html"
@@ -819,6 +706,7 @@ Kagen bages i ca. 50 minutter ved 170&deg;C.</p>
 <p>Tags: <a href='tag_mad.html'>mad</a>, <a href='tag_kage.html'>kage</a>, <a href='tag_opskrift.html'>opskrift</a></p>
 
 
+
 <!-- text end -->
 <p id='twitter'><a href="http://blog.dalsgaard.net//chokoladekage-i-form.html#disqus_thread">Comments?</a> &nbsp;
 <a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//chokoladekage-i-form.html"
@@ -827,6 +715,65 @@ Kagen bages i ca. 50 minutter ved 170&deg;C.</p>
 </p>
 ]]></description><link>http://blog.dalsgaard.net//chokoladekage-i-form.html</link>
 <guid>http://blog.dalsgaard.net//./chokoladekage-i-form.html</guid>
+<dc:creator>Jakob Dalsgaard</dc:creator>
+<pubDate>Tue, 18 Jun 2019 11:23:07 +0200</pubDate></item>
+<item><title>
+Convert to Lightworks
+</title><description><![CDATA[
+
+<p>The <a href="https://www.lwks.com/">Lightworks</a> application is a very nice <a href="https://en.wikipedia.org/wiki/Non-linear_editing_system">non-linear video editing system</a> -
+and, when 720p is sufficient, free of charge! However, it's a bit picky on import
+formats. I've found the easiest approach to this is installing <a href="https://ffmpeg.org/download.html">FFMpeg</a>
+and batch converting everything you want to import to mpegts, FullHD, 46kHz stereo.</p>
+
+<p><img src="media/lightworks-redshark.png" alt="Lightworks red shark" title="" /></p>
+
+<p>To do so, I've created a script, should work on all unices, available here: <a href="http://convert-to-lightworks.dalsgaard.net/">convert-to-lightworks</a> 
+-- and also a .bat file for Windows lusers, available here: <a href="http://convert-to-lightworks-bat.dalsgaard.net/">convert-to-lightworks.bat</a>.
+They should both support just dropping files onto them from a file manager.</p>
+
+<p>To installl ffmpeg on Elementary OS Freya release, do this:</p>
+
+<pre><code>sudo cat "deb http://www.deb-multimedia.org wheezy main" &gt; /etc/apt/sources.list.d/deb-multimedia.list
+sudo apt-get update
+sudo apt-get install deb-multimedia-keyring
+sudo apt-get install ffmpeg
+</code></pre>
+
+<p>Tags: <a href='tag_computer.html'>computer</a>, <a href='tag_video.html'>video</a>, <a href='tag_software.html'>software</a></p>
+
+
+
+<!-- text end -->
+<p id='twitter'><a href="http://blog.dalsgaard.net//convert-to-lightworks.html#disqus_thread">Comments?</a> &nbsp;
+<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//convert-to-lightworks.html"
+ data-via="jakobdalsgaard"
+>Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</p>
+]]></description><link>http://blog.dalsgaard.net//convert-to-lightworks.html</link>
+<guid>http://blog.dalsgaard.net//./convert-to-lightworks.html</guid>
+<dc:creator>Jakob Dalsgaard</dc:creator>
+<pubDate>Tue, 18 Jun 2019 11:23:07 +0200</pubDate></item>
+<item><title>
+Foggy Business
+</title><description><![CDATA[
+
+<p>A little something on Linkedin, on the subject of moving into the cloud: 
+<a href="https://www.linkedin.com/pulse/foggy-business-jakob-dalsgaard">Foggy Business</a>.</p>
+
+<p>Tags: <a href='tag_cloud.html'>cloud</a>, <a href='tag_aws.html'>aws</a>, <a href='tag_computer.html'>computer</a>, <a href='tag_devops.html'>devops</a></p>
+
+
+
+
+<!-- text end -->
+<p id='twitter'><a href="http://blog.dalsgaard.net//foggy-business.html#disqus_thread">Comments?</a> &nbsp;
+<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//foggy-business.html"
+ data-via="jakobdalsgaard"
+>Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</p>
+]]></description><link>http://blog.dalsgaard.net//foggy-business.html</link>
+<guid>http://blog.dalsgaard.net//./foggy-business.html</guid>
 <dc:creator>Jakob Dalsgaard</dc:creator>
 <pubDate>Tue, 18 Jun 2019 11:23:07 +0200</pubDate></item>
 </channel></rss>
