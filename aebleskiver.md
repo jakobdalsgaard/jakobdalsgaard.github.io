@@ -1,7 +1,7 @@
 Æbleskiver
 
 Hjemmelavede, som de skal være. Serveres med solbærsyltetøj og flormelis. Jeg har tyvstjålet opskriften 
-herfra: [www.valdemarsro.dk/aebleskiver/](https://www.valdemarsro.dk/aebleskiver/) &emdash; mest for at have
+herfra: [www.valdemarsro.dk/aebleskiver/](https://www.valdemarsro.dk/aebleskiver/) — mest for at have
 den i fald valdemarso ikke har den:
 
 ## Æbleskiver

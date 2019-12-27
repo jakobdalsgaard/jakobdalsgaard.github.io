@@ -9,7 +9,7 @@
 <meta name='twitter:card' content='summary' />
 <meta name='twitter:site' content='@jakobdalsgaard' />
 <meta name='twitter:title' content='Jakob Dalsgaards blog' />
-<meta name='twitter:description' content=" Æbleskiver   December 26, 2019 &mdash;  Jakob Dalsgaard    Hjemmelavede, som de skal være. Serveres med solbærsyltetøj og flormelis. Jeg har tyvstjålet opskriften  herfra: www.valdemarsro.dk/aebleskiver/ &emdash; mest for at have den i fald val" />
+<meta name='twitter:description' content=" Prometheus Amok   December 26, 2019 &mdash;  Jakob Dalsgaard    Got my new setup with a Linux box as router (an old Dell PowerEdge, but with two gigabit ports, and it handles gigabit traffic tremendously well, couldn't be happier).  Besides the Linu" />
 </head><body>
 <div id="divbodyholder">
 <div class="headerholder"><div class="header">
@@ -18,6 +18,128 @@
 <div id="description">Anything...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="prometheus-amok11557.html">
+Prometheus Amok
+</a></h3>
+<!-- bashblog_timestamp: #201912262019.08# -->
+<div class="subtitle">December 26, 2019 &mdash; 
+Jakob Dalsgaard
+</div>
+<!-- text begin -->
+
+<p>Got my new setup with a Linux box as router (an old Dell PowerEdge, but with two
+gigabit ports, and it handles gigabit traffic tremendously well, couldn't be
+happier).  Besides the Linux box, I now run a managed switch and an Ubiquiti
+access point. All this equipment can be monitored in very many ways; but I'd
+like the metrics to be gathered in one uniform application, so I installed
+<a href="https://prometheus.io/">Prometheus</a> - a time series database to store all sorts
+of metrics in; I then put <a href="https://grafana.com/">Grafana</a> in front of it --
+whilst Prometheus has a very nice UI itself, Grafana does come with a lot of
+nice features, such as dashboards and alerting.</p>
+
+<h2>The World of Prometheus Exporters</h2>
+
+<h3>Unifi Prometheous Exporter</h3>
+
+<p>To be fetched from here: <a href="http://github.com/mdlayher/unifi">Unifi Scraper</a> &emdash; now 
+author recommends a docker; I'm more a fan of running my stuff on a real machine. So
+I opted for a plain normal install on the box.</p>
+
+<p>For this go program to accept the Unifi application, I need to install at least a
+self signed certificate in Unifi, and Ubiqiti has not made that proces easy. I found
+it to work this way:</p>
+
+<p>First create a self signed certificate with your designed hostname as CN:</p>
+
+<pre><code># Make self signed certs
+openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365
+</code></pre>
+
+<p>Then convert it to pkcs12 to have something the Unifi java application wants to play with:</p>
+
+<pre><code># pacakge in pkcs12
+openssl pkcs12 -export -in cert.pem -inkey key.pem -out unifi.p12 -name unifi  -caname root
+</code></pre>
+
+<p>Now update the keystore with this very fine pkcs12 certificate:</p>
+
+<pre><code># use keytool to update keystore
+keytool -importkeystore -deststorepass aircontrolenterprise -destkeypass aircontrolenterprise -destkeystore new-keystore -srckeystore unifi.p12 -srcstoretype PKCS12 -srcstorepass temppass -alias ubnt -noprompt
+</code></pre>
+
+<p>I believe <code>keytool</code> can come from just about any java you have lying around. Now shut down your Unifi Controller application, take a backup copy of
+<code>/usr/lib/unifi/data/keystore</code> file, copy <code>new-keystore</code> to <code>/usr/lib/unifi/data/keystore</code> and start your Unifi Controller again and your Unifi
+Controller should be running with a brand new self signed certificate.</p>
+
+<p>Tags: <a href='tag_computer.html'>computer</a>, <a href='tag_software.html'>software</a></p>
+
+<!-- text end -->
+<p id='twitter'><a href="http://blog.dalsgaard.net//prometheus-amok11557.html#disqus_thread">Comments?</a> &nbsp;
+<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//prometheus-amok11557.html"
+ data-via="jakobdalsgaard"
+>Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</p>
+<h3><a class="ablack" href="prometheus-amok.html">
+Prometheus Amok
+</a></h3>
+<!-- bashblog_timestamp: #201912262018.55# -->
+<div class="subtitle">December 26, 2019 &mdash; 
+Jakob Dalsgaard
+</div>
+<!-- text begin -->
+
+<p>Got my new setup with a Linux box as router (an old Dell PowerEdge, but with two
+gigabit ports, and it handles gigabit traffic tremendously well, couldn't be
+happier).  Besides the Linux box, I now run a managed switch and an Ubiquiti
+access point. All this equipment can be monitored in very many ways; but I'd
+like the metrics to be gathered in one uniform application, so I installed
+<a href="https://prometheus.io/">Prometheus</a> - a time series database to store all sorts
+of metrics in; I then put <a href="https://grafana.com/">Grafana</a> in front of it --
+whilst Prometheus has a very nice UI itself, Grafana does come with a lot of
+nice features, such as dashboards and alerting.</p>
+
+<h2>The World of Prometheus Exporters</h2>
+
+<h3>Unifi Prometheous Exporter</h3>
+
+<p>To be fetched from here: <a href="http://github.com/mdlayher/unifi">Unifi Scraper</a> &emdash; now 
+author recommends a docker; I'm more a fan of running my stuff on a real machine. So
+I opted for a plain normal install on the box.</p>
+
+<p>For this go program to accept the Unifi application, I need to install at least a
+self signed certificate in Unifi, and Ubiqiti has not made that proces easy. I found
+it to work this way:</p>
+
+<p>First create a self signed certificate with your designed hostname as CN:</p>
+
+<pre><code># Make self signed certs
+openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365
+</code></pre>
+
+<p>Then convert it to pkcs12 to have something the Unifi java application wants to play with:</p>
+
+<pre><code># pacakge in pkcs12
+openssl pkcs12 -export -in cert.pem -inkey key.pem -out unifi.p12 -name unifi  -caname root
+</code></pre>
+
+<p>Now update the keystore with this very fine pkcs12 certificate:</p>
+
+<pre><code># use keytool to update keystore
+keytool -importkeystore -deststorepass aircontrolenterprise -destkeypass aircontrolenterprise -destkeystore new-keystore -srckeystore unifi.p12 -srcstoretype PKCS12 -srcstorepass temppass -alias ubnt -noprompt
+</code></pre>
+
+<p>I believe <code>keytool</code> can come from just about any java you have lying around. Now shut down your Unifi Controller application, take a backup copy of
+<code>/usr/lib/unifi/data/keystore</code> file, copy <code>new-keystore</code> to <code>/usr/lib/unifi/data/keystore</code> and start your Unifi Controller again and your Unifi
+Controller should be running with a brand new self signed certificate.</p>
+
+<p>Tags: <a href='tag_computer.html'>computer</a>, <a href='tag_software.html'>software</a></p>
+
+<!-- text end -->
+<p id='twitter'><a href="http://blog.dalsgaard.net//prometheus-amok.html#disqus_thread">Comments?</a> &nbsp;
+<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//prometheus-amok.html"
+ data-via="jakobdalsgaard"
+>Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</p>
 <h3><a class="ablack" href="aebleskiver.html">
 Æbleskiver
 </a></h3>
@@ -28,7 +150,7 @@ Jakob Dalsgaard
 <!-- text begin -->
 
 <p>Hjemmelavede, som de skal være. Serveres med solbærsyltetøj og flormelis. Jeg har tyvstjålet opskriften 
-herfra: <a href="https://www.valdemarsro.dk/aebleskiver/">www.valdemarsro.dk/aebleskiver/</a> &emdash; mest for at have
+herfra: <a href="https://www.valdemarsro.dk/aebleskiver/">www.valdemarsro.dk/aebleskiver/</a> — mest for at have
 den i fald valdemarso ikke har den:</p>
 
 <h2>Æbleskiver</h2>
@@ -93,7 +215,7 @@ Jakob Dalsgaard
 <!-- text begin -->
 
 <p>Der er flere 'Meyers Rødkålssalat'-opskrifter online, men det her er den rigtige. Her gengivet fra
-<a href="https://www.mamajasu.dk/arkiv/1401/">www.mamajasu.dk</a> &emdash; så kan jeg selv nemt finde den, og jeg har
+<a href="https://www.mamajasu.dk/arkiv/1401/">www.mamajasu.dk</a> — så kan jeg selv nemt finde den, og jeg har
 den i fald mamajasu lukker ned:</p>
 
 <h2>Rødkål (Meyer style)</h2>
@@ -641,92 +763,6 @@ Jakob Dalsgaard
 <!-- text end -->
 <p id='twitter'><a href="http://blog.dalsgaard.net//hyldeblomstsaft-koncentreret.html#disqus_thread">Comments?</a> &nbsp;
 <a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//hyldeblomstsaft-koncentreret.html"
- data-via="jakobdalsgaard"
->Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-</p>
-<h3><a class="ablack" href="aebletaerte-super-nem.html">
-Æbletærte, super-nem
-</a></h3>
-<!-- bashblog_timestamp: #201906181123.07# -->
-<div class="subtitle">June 18, 2019 &mdash; 
-Jakob Dalsgaard
-</div>
-<!-- text begin -->
-
-<p>Her kommer så min version af æbletærte; opskriften udmærker sig ved at være <em>virkelig</em> nem.</p>
-
-<p>Ingredienser:</p>
-
-<ul>
-<li>3 æbler</li>
-<li>2 æg</li>
-<li>1 dL sukker</li>
-<li>&frac12; tsk kanel</li>
-<li>180g sukker</li>
-<li>100g smør</li>
-<li>120g hvedemel</li>
-</ul>
-
-<p>Ovnen tændes på 200&deg;C.</p>
-
-<p>Æblerne skrælles og skæres i både; 1 dL sukker og &frac12; tsk kanel blandes, halvdelen af denne blanding vendes med æblebådene.</p>
-
-<p>Tærteform på ca. 26cm i diameter smøres.</p>
-
-<p>Pisk æg og sukker sammen. Smørret smeltes og tilsættes sammen med mel. Rør dejen sammen og hæld den i formen.
-Æblebådene sættes i dejen, og den resterende sukker med kanel drysses over.</p>
-
-<p>Bagetiden er ca. 30 minutter ved 200&deg;C på nederste rille.</p>
-
-<p>Tags: <a href='tag_mad.html'>mad</a>, <a href='tag_opskrift.html'>opskrift</a>, <a href='tag_kage.html'>kage</a></p>
-
-
-
-
-<!-- text end -->
-<p id='twitter'><a href="http://blog.dalsgaard.net//aebletaerte-super-nem.html#disqus_thread">Comments?</a> &nbsp;
-<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//aebletaerte-super-nem.html"
- data-via="jakobdalsgaard"
->Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-</p>
-<h3><a class="ablack" href="chokoladekage-i-form.html">
-Chokoladekage i form
-</a></h3>
-<!-- bashblog_timestamp: #201906181123.07# -->
-<div class="subtitle">June 18, 2019 &mdash; 
-Jakob Dalsgaard
-</div>
-<!-- text begin -->
-
-<p>Eller: endnu en variation over klassens-time kage.... Den her er
-faktisk en kopi af <a href="https://lineh.dk/opskrifter/lines-legendariske-chokoladekage/">Lines Legendariske Chokoladekage</a>. 
-Primært kopieret herind for at have opskrifterne samlet.</p>
-
-<p>Ingredienser:</p>
-
-<ul>
-<li>250g smør</li>
-<li>350g sukker</li>
-<li>4 æg</li>
-<li>500g hvedemel</li>
-<li>4&frac12; tsk bagepulver</li>
-<li>1 dL kakao</li>
-<li>3 tsk vaniljesukker</li>
-<li>3 dL mælk</li>
-<li>100g mørk chokolade</li>
-</ul>
-
-<p>Tænd ovnen på 170&deg;C.
-Smør og sukker røres sammen, æggene tilsættes et ad gangen. Bland mel, bagepulver, kakao og vaniljesukker og 
-rør det i dejen sammen med mælken og smeltet chokolade. Fordel dejen i tre brødforme eller &eacute;n stor bradepande, eller måske lasagnefad.
-Kagen bages i ca. 50 minutter ved 170&deg;C.</p>
-
-<p>Tags: <a href='tag_mad.html'>mad</a>, <a href='tag_kage.html'>kage</a>, <a href='tag_opskrift.html'>opskrift</a></p>
-
-
-<!-- text end -->
-<p id='twitter'><a href="http://blog.dalsgaard.net//chokoladekage-i-form.html#disqus_thread">Comments?</a> &nbsp;
-<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//chokoladekage-i-form.html"
  data-via="jakobdalsgaard"
 >Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 </p>

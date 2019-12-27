@@ -1,7 +1,7 @@
 Meyers Rødkålssalat
 
 Der er flere 'Meyers Rødkålssalat'-opskrifter online, men det her er den rigtige. Her gengivet fra
-[www.mamajasu.dk](https://www.mamajasu.dk/arkiv/1401/) &emdash; så kan jeg selv nemt finde den, og jeg har
+[www.mamajasu.dk](https://www.mamajasu.dk/arkiv/1401/) — så kan jeg selv nemt finde den, og jeg har
 den i fald mamajasu lukker ned:
 
 ## Rødkål (Meyer style)
