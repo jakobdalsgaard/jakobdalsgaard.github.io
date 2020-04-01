@@ -1,0 +1,193 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="main.css" type="text/css" />
+<link rel="stylesheet" href="blog.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="Subscribe to this page..." href="feed.rss" />
+<title>Prometheus Amok</title>
+<meta name='twitter:card' content='summary' />
+<meta name='twitter:site' content='@jakobdalsgaard' />
+<meta name='twitter:title' content='Prometheus Amok' />
+<meta name='twitter:description' content=" Got my new setup with a Linux box as router (an old Dell PowerEdge, but with two gigabit ports, and it handles gigabit traffic tremendously well, couldn't be happier).  Besides the Linux box, I now run a managed switch and an Ubiquiti access point. " />
+</head><body>
+<div id="divbodyholder">
+<div class="headerholder"><div class="header">
+<div id="title">
+<h1 class="nomargin"><a class="ablack" href="http://blog.dalsgaard.net//index.html">Jakob Dalsgaards blog</a></h1>
+<div id="description">Anything...</div>
+</div></div></div>
+<div id="divbody"><div class="content">
+<!-- entry begin -->
+<h3><a class="ablack" href="prometheus-amok.html">
+Prometheus Amok
+</a></h3>
+<!-- bashblog_timestamp: #202004012253.28# -->
+<div class="subtitle">April 01, 2020 &mdash; 
+Jakob Dalsgaard
+</div>
+<!-- text begin -->
+
+<p>Got my new setup with a Linux box as router (an old Dell PowerEdge, but with two
+gigabit ports, and it handles gigabit traffic tremendously well, couldn't be
+happier).  Besides the Linux box, I now run a managed switch and an Ubiquiti
+access point. All this equipment can be monitored in very many ways; but I'd
+like the metrics to be gathered in one uniform application, so I installed
+<a href="https://prometheus.io/">Prometheus</a> - a time series database to store all sorts
+of metrics in; I then put <a href="https://grafana.com/">Grafana</a> in front of it --
+whilst Prometheus has a very nice UI itself, Grafana does come with a lot of
+nice features, such as dashboards and alerting.</p>
+
+<h2>The World of Prometheus Exporters</h2>
+
+<h3>Unifi Prometheous Exporter</h3>
+
+<p>To be fetched from here: <a href="http://github.com/mdlayher/unifi">Unifi Scraper</a> &emdash; now 
+author recommends a docker; I'm more a fan of running my stuff on a real machine. So
+I opted for a plain normal install on the box.</p>
+
+<pre><code>export SRCDIR=$PWD
+mkdir -p src/github.com/mdlayher
+cd src/github.com/mdlayher
+git clone https://github.com/mdlayher/unifi_exporter.git
+cd unifi_exporter
+go get
+GOPATH=$SRCDIR go build ./cmd/unifi_exporter
+</code></pre>
+
+<p>And voil&aacute; I have the static binary <code>unifi_exporter</code>; copy that one to <code>/usr/local/sbin</code>; then make a
+service unit file:</p>
+
+<pre><code>[Unit]
+Description=Prometheus Unifi Exporter
+
+[Service]
+ExecStart=/usr/local/sbin/unifi_exporter -config.file /etc/prometheus/prometheus-unifi-exporter.yml
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+
+<p>Save that in <code>prometheus-unifi-exporter.service</code>, copy to <code>/etc/systemd/system/</code> and do a <code>systemctl daemon-reload</code>.</p>
+
+<p>The yaml config file can look like this:</p>
+
+<pre><code>listen:
+  address: :9130
+  metricspath: /metrics
+unifi:
+  address: https://my.domain.name:9445
+  username: PrometheusUnifiExporter
+  password: DamnPrometheus
+  site:
+  insecure: true
+  timeout: 5s
+</code></pre>
+
+<p>For this go program to accept the Unifi application, I need to install at least a
+self signed certificate in Unifi, and Ubiqiti has not made that proces easy. I found
+it to work this way:</p>
+
+<p>First create a self signed certificate with your designed hostname as CN:</p>
+
+<pre><code># Make self signed certs
+openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365
+</code></pre>
+
+<p>Then convert it to pkcs12 to have something the Unifi java application wants to play with:</p>
+
+<pre><code># pacakge in pkcs12
+openssl pkcs12 -export -in cert.pem -inkey key.pem -out unifi.p12 -name unifi  -caname root
+</code></pre>
+
+<p>Now update the keystore with this very fine pkcs12 certificate:</p>
+
+<pre><code># use keytool to update keystore
+keytool -importkeystore -deststorepass aircontrolenterprise -destkeypass aircontrolenterprise -destkeystore new-keystore -srckeystore unifi.p12 -srcstoretype PKCS12 -srcstorepass temppass -alias ubnt -noprompt
+</code></pre>
+
+<p>I believe <code>keytool</code> can come from just about any java you have lying around. Now shut down your Unifi Controller application, take a backup copy of
+<code>/usr/lib/unifi/data/keystore</code> file, copy <code>new-keystore</code> to <code>/usr/lib/unifi/data/keystore</code> and start your Unifi Controller again and your Unifi
+Controller should be running with a brand new self signed certificate.</p>
+
+<p>Now the prometheus unifi exporter service can be installed by doing <code>systemctl start prometheus-unifi-exporter</code>.</p>
+
+<h3>Openhab Exporter</h3>
+
+<p>I run openhab2, so obviously I needed an exporter for that too -- found this one: https://github.com/baaym/openhab2-prometheus-exporter -- and
+it looked fine, installed it in <code>/opt/openhab2-exporter</code> did the relevant gunicorn install:</p>
+
+<pre><code>sudo apt install python3-gunicorn
+</code></pre>
+
+<p>Make sure you change line 7 in the python script to reflect your openhab setup, the line looks like this <code>url = urllib.request.urlopen('http://...</code>
+-- the address there should match your openhab2 configuration.
+Then did a systemctl module file by the name of <code>/etc/systemd/system/openhab2-exporter.service</code> -- with contents:</p>
+
+<pre><code>[Unit]
+Description=OpenHAB2 Prometheus exporter
+After=openhab2.service
+
+[Service]
+WorkingDirectory=/opt/openhab2-exporter
+ExecStart=/usr/bin/gunicorn3 -w 4 -b 127.0.0.1:9195 openhab2-exporter:app
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+Alias=openhab2-exporter.service
+</code></pre>
+
+<p>Then <code>sudo systemctl daemon-reload</code> and <code>sudo systemctl start openhab2-exporter</code> -- and adding this configuration to prometheus.yml:</p>
+
+<pre><code>  - job_name: 'openhab2_exporter'
+    scrape_interval: 10s
+    scheme: http
+    static_configs:
+      - targets:
+        - 'localhost:9195'
+</code></pre>
+
+<p>A restart of prometheus and it's data is available.
+Tags: computer, software</p>
+
+<!-- text end -->
+<p id='twitter'><a href="http://blog.dalsgaard.net//prometheus-amok.html#disqus_thread">Comments?</a> &nbsp;
+<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//prometheus-amok.html"
+ data-via="jakobdalsgaard"
+>Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</p>
+<!-- entry end -->
+</div>
+<div id="disqus_thread"></div>
+            <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+               var disqus_shortname = 'jakob-dalsgaard-blog'; // required: replace example with your forum shortname
+
+            /* * * DONT EDIT BELOW THIS LINE * * */
+            (function() {
+            var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
+            dsq.src = "//" + disqus_shortname + ".disqus.com/embed.js";
+            (document.getElementsByTagName("head")[0] || document.getElementsByTagName("body")[0]).appendChild(dsq);
+            })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+<div id="footer">CC by-nc-nd <a href="https://twitter.com/jakobdalsgaard">Jakob Dalsgaard</a> &mdash; <a href="mailto:jakob&#64;dalsgaard&#46;net">jakob&#64;dalsgaard&#46;net</a><br/>
+Generated with <a href="https://github.com/cfenollosa/bashblog">bashblog</a>, a single bash script to easily create blogs like this one</div>
+<div id="footer">CC by-nc-nd <a href="https://twitter.com/jakobdalsgaard">Jakob Dalsgaard</a> &mdash; <a href="mailto:jakob&#64;dalsgaard&#46;net">jakob&#64;dalsgaard&#46;net</a><br/>
+Generated with <a href="https://github.com/cfenollosa/bashblog">bashblog</a>, a single bash script to easily create blogs like this one</div>
+</div></div>
+<script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'jakob-dalsgaard-blog'; // required: replace example with your forum shortname
+
+        /* * * DONT EDIT BELOW THIS LINE * * */
+        (function () {
+        var s = document.createElement("script"); s.async = true;
+        s.type = "text/javascript";
+        s.src = "//" + disqus_shortname + ".disqus.com/count.js";
+        (document.getElementsByTagName("HEAD")[0] || document.getElementsByTagName("BODY")[0]).appendChild(s);
+    }());
+    </script>
+</body></html>
