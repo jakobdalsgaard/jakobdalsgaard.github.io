@@ -358,13 +358,13 @@ Danish only for the time being, but I'm working on an international version for 
 
 My efforts seem to have not been in vain, according to [Qualys SSL Labs](https://www.ssllabs.com/) my website scores [A+](https://www.ssllabs.com/ssltest/analyze.html?d=honning.dalsgaard.net) -- better than many others, such as:
 
-* [um.dk](http://um.dk/) - The Foreign Minestry of Denmark, that apparently does not run SSL/TLS at [all](https://www.ssllabs.com/ssltest/analyze.html?d=um.dk).
+* [um.dk](http://um.dk/) - The Foreign Ministry of Denmark, that apparently does not run SSL/TLS at [all](https://www.ssllabs.com/ssltest/analyze.html?d=um.dk).
 * [nets.eu](https://www.nets.eu/) - NETS, payment provider in Denmark, and Scandinavia, and increasingly the rest of Europe, they have [B](https://www.ssllabs.com/ssltest/analyze.html?d=www.nets.eu).
 * [politi.dk](https://politi.dk) - The Danish Police Force, they have [B](https://www.ssllabs.com/ssltest/analyze.html?d=politi.dk).
 
 Now, not having a high score on your frontpage may not be a huge problem. Most interactions with these bodies do not go via their hosted main website. Also, my version of grade A+ security prevents some old clients from viewing it at all - your use case may vary, and A+ might not be for you.
 
-
+_Update:_ Checked past week, on Friday March 27 2020, and now the Foreign Ministry of Denmark has upgraded their site to use SSL now; good job!
 
 
 
