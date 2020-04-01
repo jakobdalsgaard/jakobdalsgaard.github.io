@@ -2,8 +2,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Jakob Dalsgaards blog</title><link>http://blog.dalsgaard.net//index.html</link>
 <description>Anything...</description><language>en</language>
-<lastBuildDate>Wed, 01 Apr 2020 22:58:08 +0200</lastBuildDate>
-<pubDate>Wed, 01 Apr 2020 22:58:08 +0200</pubDate>
+<lastBuildDate>Wed, 01 Apr 2020 22:59:28 +0200</lastBuildDate>
+<pubDate>Wed, 01 Apr 2020 22:59:28 +0200</pubDate>
 <atom:link href="http://blog.dalsgaard.net//feed.rss" rel="self" type="application/rss+xml" />
 <item><title>
 Prometheus Amok
@@ -21,7 +21,7 @@ nice features, such as dashboards and alerting.</p>
 
 <h2>The World of Prometheus Exporters</h2>
 
-<h3>Unifi Prometheous Exporter</h3>
+<h3>Unifi Prometheus Exporter</h3>
 
 <p>To be fetched from here: <a href="http://github.com/mdlayher/unifi">Unifi Scraper</a> &emdash; now 
 author recommends a docker; I'm more a fan of running my stuff on a real machine. So

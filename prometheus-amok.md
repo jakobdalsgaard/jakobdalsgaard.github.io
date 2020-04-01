@@ -12,7 +12,7 @@ nice features, such as dashboards and alerting.
 
 ## The World of Prometheus Exporters
 
-### Unifi Prometheous Exporter
+### Unifi Prometheus Exporter
 
 To be fetched from here: [Unifi Scraper](http://github.com/mdlayher/unifi) &emdash; now 
 author recommends a docker; I'm more a fan of running my stuff on a real machine. So
