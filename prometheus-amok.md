@@ -14,7 +14,7 @@ nice features, such as dashboards and alerting.
 
 ### Unifi Prometheus Exporter
 
-To be fetched from here: [Unifi Scraper](http://github.com/mdlayher/unifi) &emdash; now 
+To be fetched from here: [Unifi Scraper](http://github.com/mdlayher/unifi) — now 
 author recommends a docker; I'm more a fan of running my stuff on a real machine. So
 I opted for a plain normal install on the box.
 
@@ -112,4 +112,51 @@ Then `sudo systemctl daemon-reload` and `sudo systemctl start openhab2-exporter`
             - 'localhost:9195'
 
 A restart of prometheus and it's data is available.
+
+### SNMP Exporter
+
+Well.. SNMP is not _that_ easy to understand, imho. But this project [Prometheus SNMP Exporter](https://github.com/prometheus/snmp_exporter)
+does a fairly good job of easing the trouble. Got it installed and running. Did a unit file `prometheus-snmp-exporter.service`:
+
+    [Unit]
+    Description=Prometheus exporter for SNMP-enabled devices
+    Documentation=https://github.com/prometheus/snmp_exporter
+    After=network.target
+    
+    [Service]
+    User=prometheus
+    EnvironmentFile=/etc/default/prometheus-snmp-exporter
+    ExecStart=/usr/bin/prometheus-snmp-exporter $ARGS
+    ExecReload=/bin/kill -HUP $MAINPID
+    
+    [Install]
+    WantedBy=multi-user.target
+
+And the obligatory `sudo systemctl daemon-reload` and `sudo systemctl start prometheus-snmp-exporter` -- and the prometheus.yml configuration:
+
+
+      - job_name: 'snmp'
+        static_configs:
+          - targets:
+            - openmesh1.lan
+            - nanohd1.lan
+        metrics_path: /snmp
+        params:
+          module: [if_mib]
+        relabel_configs:
+          - source_labels: [__address__]
+            target_label: __param_target
+          - source_labels: [__param_target]
+            target_label: instance
+          - target_label: __address__
+            replacement: 127.0.0.1:9116  # The SNMP exporter's real hostname:port.
+
+Then, after restarting prometheus, the data is available.
+
+# Grafana
+
+Please do install grafana `sudo apt install grafana` -- you'll love it -- add prometheus as data source and be amazed.
+
+
+
 Tags: computer, software

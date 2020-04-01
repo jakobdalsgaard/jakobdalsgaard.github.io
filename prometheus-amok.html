@@ -42,7 +42,7 @@ nice features, such as dashboards and alerting.</p>
 
 <h3>Unifi Prometheus Exporter</h3>
 
-<p>To be fetched from here: <a href="http://github.com/mdlayher/unifi">Unifi Scraper</a> &emdash; now 
+<p>To be fetched from here: <a href="http://github.com/mdlayher/unifi">Unifi Scraper</a> — now 
 author recommends a docker; I'm more a fan of running my stuff on a real machine. So
 I opted for a plain normal install on the box.</p>
 
@@ -148,8 +148,54 @@ Alias=openhab2-exporter.service
         - 'localhost:9195'
 </code></pre>
 
-<p>A restart of prometheus and it's data is available.
-Tags: computer, software</p>
+<p>A restart of prometheus and it's data is available.</p>
+
+<h3>SNMP Exporter</h3>
+
+<p>Well.. SNMP is not <em>that</em> easy to understand, imho. But this project <a href="https://github.com/prometheus/snmp_exporter">Prometheus SNMP Exporter</a>
+does a fairly good job of easing the trouble. Got it installed and running. Did a unit file <code>prometheus-snmp-exporter.service</code>:</p>
+
+<pre><code>[Unit]
+Description=Prometheus exporter for SNMP-enabled devices
+Documentation=https://github.com/prometheus/snmp_exporter
+After=network.target
+
+[Service]
+User=prometheus
+EnvironmentFile=/etc/default/prometheus-snmp-exporter
+ExecStart=/usr/bin/prometheus-snmp-exporter $ARGS
+ExecReload=/bin/kill -HUP $MAINPID
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+
+<p>And the obligatory <code>sudo systemctl daemon-reload</code> and <code>sudo systemctl start prometheus-snmp-exporter</code> -- and the prometheus.yml configuration:</p>
+
+<pre><code>  - job_name: 'snmp'
+    static_configs:
+      - targets:
+        - openmesh1.lan
+        - nanohd1.lan
+    metrics_path: /snmp
+    params:
+      module: [if_mib]
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: 127.0.0.1:9116  # The SNMP exporter's real hostname:port.
+</code></pre>
+
+<p>Then, after restarting prometheus, the data is available.</p>
+
+<h1>Grafana</h1>
+
+<p>Please do install grafana <code>sudo apt install grafana</code> -- you'll love it -- add prometheus as data source and be amazed.</p>
+
+<p>Tags: <a href='tag_computer.html'>computer</a>, <a href='tag_software.html'>software</a></p>
 
 <!-- text end -->
 <p id='twitter'><a href="http://blog.dalsgaard.net//prometheus-amok.html#disqus_thread">Comments?</a> &nbsp;
