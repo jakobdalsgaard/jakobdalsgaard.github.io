@@ -364,7 +364,7 @@ My efforts seem to have not been in vain, according to [Qualys SSL Labs](https:/
 
 Now, not having a high score on your frontpage may not be a huge problem. Most interactions with these bodies do not go via their hosted main website. Also, my version of grade A+ security prevents some old clients from viewing it at all - your use case may vary, and A+ might not be for you.
 
-_Update:_ Checked past week, on Friday March 27 2020, and now the Foreign Ministry of Denmark has upgraded their site to use SSL now; good job!
+_Update:_ Checked past week, on Friday March 27 2020, and now the Foreign Ministry of Denmark has upgraded their site to use SSL; good job!
 
 
 
