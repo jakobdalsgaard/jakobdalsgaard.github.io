@@ -2,9 +2,61 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Jakob Dalsgaards blog</title><link>http://blog.dalsgaard.net//index.html</link>
 <description>Anything...</description><language>en</language>
-<lastBuildDate>Tue, 12 Jan 2021 07:33:55 +0100</lastBuildDate>
-<pubDate>Tue, 12 Jan 2021 07:33:55 +0100</pubDate>
+<lastBuildDate>Wed, 18 Aug 2021 21:51:13 +0200</lastBuildDate>
+<pubDate>Wed, 18 Aug 2021 21:51:13 +0200</pubDate>
 <atom:link href="http://blog.dalsgaard.net//feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Æblemarmelade
+</title><description><![CDATA[
+
+<p>Et overraskende godt påfund, og en god måde at få brugt æblerne fra haven. Den her opskrift
+er inspireret af flere opskrifter, blandt andet [den her fra Mambeno]{https://mambeno.dk/opskrifter/hurtig-aeblemarmelade/} 
+- selvfølgelige [den her fra Dansukker]{https://www.dansukker.dk/dk/opskrifter/aeblemarmelade-med-ingefaer}.
+Men her kommer så min version:</p>
+
+<p>Jeg høster æbler i 2 styk 15 liter spande, det er en udemærket mængde til den her opskrift, så er der lidt æbler til over,
+man kan jo bare spise dem. Æblerne skylles og kernehuse og andet skidt skæres fra, man skal bruge sådan cirka en 12-13 kilogram
+æbler. Her kommer lige hele listen:</p>
+
+<ul>
+<li>12-13 kg æblebåde</li>
+<li>4 kg sukker</li>
+<li>2 liter vand</li>
+<li>3 usprøjtede citroner</li>
+<li>en bakke ingefær, 200 g</li>
+<li>2 vaniljestænger</li>
+</ul>
+
+<p>Derudover skal du bruge:</p>
+
+<ul>
+<li>Atamon</li>
+<li>en hulens masse sylteglas...</li>
+<li>en [gryde]{https://www.expondo.dk/royal-catering-gryde-til-induktion-36-l-10011072}</li>
+</ul>
+
+<p>Riv skallen på de 3 citroner, pres saften ud af dem. Skræl ingefær og riv fint, skrab vaniljen ud af vaniljestængerne
+(husk at gemme vaniljestængerne, de kan bruges til andre projekter). Fyld gryden med æbler, sukker, vand, citronskal, citronsaft og
+revet ingefær og bring langsomt i kog. Kog i 30 minutter. Rør rundt og brug stavblender indtil du er tilfreds med konsistensen. Kog
+i 30 minutter mere.</p>
+
+<p>Sylteglas skoldes og skylles med Atamon. Syltetøj hældes i glassene; ikke til kanten, stop 8 mm før. Sæt låg på -- når al marmeladen
+er i glas, da fyld gryden med glassene, hæld vand over, sæt gryden på komfuret og hæv langsomt temperaturen til 95 grader. Ikke for
+hurtigt, så risikerer man at slå glassene i stykker. Lad glassene stå i det varme vand i 20 minutter - se at luften slipper ud af
+glassene. Det var det.</p>
+
+<p>Tags: <a href='tag_mad.html'>mad</a>, <a href='tag_opskrift.html'>opskrift</a></p>
+
+<!-- text end -->
+<p id='twitter'><a href="http://blog.dalsgaard.net//aeblemarmelade.html#disqus_thread">Comments?</a> &nbsp;
+<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//aeblemarmelade.html"
+ data-via="jakobdalsgaard"
+>Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</p>
+]]></description><link>http://blog.dalsgaard.net//aeblemarmelade.html</link>
+<guid>http://blog.dalsgaard.net//./aeblemarmelade.html</guid>
+<dc:creator>Jakob Dalsgaard</dc:creator>
+<pubDate>Wed, 18 Aug 2021 21:51:09 +0200</pubDate></item>
 <item><title>
 En anden opskrift på is
 </title><description><![CDATA[
@@ -510,46 +562,6 @@ den kommer ud uden dej på er de klar til spisning! Afkøl på bagerist - hvis d
 </p>
 ]]></description><link>http://blog.dalsgaard.net//matildenspitze-blabaermuffins.html</link>
 <guid>http://blog.dalsgaard.net//./matildenspitze-blabaermuffins.html</guid>
-<dc:creator>Jakob Dalsgaard</dc:creator>
-<pubDate>Thu, 07 Jan 2021 21:37:43 +0100</pubDate></item>
-<item><title>
-Lagkagebunde
-</title><description><![CDATA[
-
-<p>Tyvstjålet fra <a href="https://www.arla.dk/opskrifter/lagkagebunde/">Arla Lagkagebunde</a> - er kun
-skrevet her som sikkerhed for at have opskriften i fremtiden.</p>
-
-<p>Til en springform bruges:</p>
-
-<ul>
-<li>4 æg</li>
-<li>150 g sukker</li>
-<li>150 g hvedemel</li>
-<li>1 tsk bagepulver</li>
-<li>smør til formen</li>
-</ul>
-
-<p>Tænd ovnen på 200&deg;C. Pisk æg og sukker til en meget luftig æggesnaps. Bland
-hvedemel og bagepulver og vend det forsigtigt (drysset gennem en sigte) i
-æggesnapsen. Hæld dejen i en smurt springform (ca. 22 cm i diameter). Skub
-forsigtigt dejen ud mod siden med bagsiden af en ske, så der en lille
-fordybning i midten - på den måde undgår du at kagen hvælver på midten, når den
-er bagt. Bag kagen nederst i ovnen - dæk kagen med bagepapir hvis den er ved at
-blive for mørk. Vend kagen ud af formen (så den har toppen nedad) og lad den
-køle af på en bagerist. Del kagen i 3 lagkagebunde.</p>
-
-<p>Tags: <a href='tag_mad.html'>mad</a>, <a href='tag_kage.html'>kage</a>, <a href='tag_opskrift.html'>opskrift</a></p>
-
-
-
-<!-- text end -->
-<p id='twitter'><a href="http://blog.dalsgaard.net//lagkagebunde.html#disqus_thread">Comments?</a> &nbsp;
-<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//lagkagebunde.html"
- data-via="jakobdalsgaard"
->Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-</p>
-]]></description><link>http://blog.dalsgaard.net//lagkagebunde.html</link>
-<guid>http://blog.dalsgaard.net//./lagkagebunde.html</guid>
 <dc:creator>Jakob Dalsgaard</dc:creator>
 <pubDate>Thu, 07 Jan 2021 21:37:43 +0100</pubDate></item>
 </channel></rss>
