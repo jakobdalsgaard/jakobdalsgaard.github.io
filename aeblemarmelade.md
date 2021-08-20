@@ -2,12 +2,12 @@
 
 Et overraskende godt påfund, og en god måde at få brugt æblerne fra haven. Den her opskrift
 er inspireret af flere opskrifter, blandt andet [den her fra Mambeno](https://mambeno.dk/opskrifter/hurtig-aeblemarmelade/) 
-- selvfølgelige [den her fra Dansukker](https://www.dansukker.dk/dk/opskrifter/aeblemarmelade-med-ingefaer).
+- og selvfølgelig [den her fra Dansukker](https://www.dansukker.dk/dk/opskrifter/aeblemarmelade-med-ingefaer).
 Men her kommer så min version:
 
 Jeg høster æbler i 2 styk 15 liter spande, det er en udemærket mængde til den her opskrift, så er der lidt æbler til over,
-man kan jo bare spise dem. Æblerne skylles og kernehuse og andet skidt skæres fra, man skal bruge sådan cirka en 12-13 kilogram
-æbler. Her kommer lige hele listen:
+man kan jo bare spise dem. Æblerne skylles og kernehuse og andet skidt skæres fra, man skal bruge sådan cirka en 12-13 kilo
+æbler. Listen over ingredienser er således:
 
 * 12-13 kg æblebåde
 * 4 kg sukker
@@ -16,7 +16,7 @@ man kan jo bare spise dem. Æblerne skylles og kernehuse og andet skidt skæres 
 * en bakke ingefær, 200 g
 * 2 vaniljestænger
 
-Derudover skal du bruge:
+Derudover skal man bruge:
 
 * Atamon
 * en hulens masse sylteglas...
@@ -24,7 +24,7 @@ Derudover skal du bruge:
 
 Riv skallen på de 3 citroner, pres saften ud af dem. Skræl ingefær og riv fint, skrab vaniljen ud af vaniljestængerne
 (husk at gemme vaniljestængerne, de kan bruges til andre projekter). Fyld gryden med æbler, sukker, vand, citronskal, citronsaft og
-revet ingefær og bring langsomt i kog. Kog i 30 minutter. Rør rundt og brug stavblender indtil du er tilfreds med konsistensen. Kog
+revet ingefær og bring langsomt i kog. Kog i 30 minutter. Rør rundt og brug stavblender indtil konsistensen er som ønsket. Kog
 i 30 minutter mere.
 
 Sylteglas skoldes og skylles med Atamon. Syltetøj hældes i glassene; ikke til kanten, stop 8 mm før. Sæt låg på -- når al marmeladen
