@@ -30,8 +30,6 @@ i 30 minutter mere.
 Sylteglas skoldes og skylles med Atamon. Syltetøj hældes i glassene; ikke til kanten, stop 8 mm før. Sæt låg på -- når al marmeladen
 er i glas, da gør gryden ren og sæt den på komfuret, sæt alle glas i den og fyld vand over så det dækker glassene. Man skal ikke
 løfte gryden med så meget vægt i. Hæv langsomt temperaturen til 95 grader. Ikke for
-hurtigt, så risikerer man at slå glassene i stykker. Lad glassene stå i det varme vand i 20 minutter - se at luften slipper ud af
-glassene. Det var det.
-
+hurtigt, så risikerer man at slå glassene i stykker. Lad glassene stå i det varme vand i 30 minutter - det var det.
 
 Tags: mad, opskrift

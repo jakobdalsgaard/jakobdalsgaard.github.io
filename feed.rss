@@ -2,9 +2,41 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Jakob Dalsgaards blog</title><link>http://blog.dalsgaard.net//index.html</link>
 <description>Anything...</description><language>en</language>
-<lastBuildDate>Fri, 20 Aug 2021 07:19:48 +0200</lastBuildDate>
-<pubDate>Fri, 20 Aug 2021 07:19:48 +0200</pubDate>
+<lastBuildDate>Thu, 26 Aug 2021 22:31:39 +0200</lastBuildDate>
+<pubDate>Thu, 26 Aug 2021 22:31:39 +0200</pubDate>
 <atom:link href="http://blog.dalsgaard.net//feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Æblegrød
+</title><description><![CDATA[
+
+<p>Nemt at lave; opskriften er inspireret af den her fra <a href="https://madensverden.dk/aeblegroed-koges-i-15-minutter/">Madens Verden</a> -- skaleret en smule</p>
+
+<p>Som i min opskrift på <a href="aeblemarmelade.html">æblemarmelade</a> - høstes to 15 liters spandfulde af æbler, de skylles og skæres i både og kommes i gryden; 
+i alt skal bruges:</p>
+
+<ul>
+<li>12-13 kg æblebåde</li>
+<li>1,2 kg økologisk rørsukker</li>
+<li>4 vaniljestænger</li>
+</ul>
+
+<p>Hæld vandet over æblebådene og bring langsomt indholdet til at kogen. Tilføj sukker og vaniljen fra vaniljestængerne. Kog det hele igennem i en tyve
+minutters tid. Brug stavblenderen.</p>
+
+<p>Glas skoldes og skylles med atamon, æblegrød hældes i glassene, ikke til kanten men lidt under. Låg på. Brug gryden til vandbad for glassene, 30 minutter ved 95ºC.</p>
+
+<p>Tags: <a href='tag_mad.html'>mad</a>, <a href='tag_opskrift.html'>opskrift</a></p>
+
+<!-- text end -->
+<p id='twitter'><a href="http://blog.dalsgaard.net//aeblegrod.html#disqus_thread">Comments?</a> &nbsp;
+<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//aeblegrod.html"
+ data-via="jakobdalsgaard"
+>Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</p>
+]]></description><link>http://blog.dalsgaard.net//aeblegrod.html</link>
+<guid>http://blog.dalsgaard.net//./aeblegrod.html</guid>
+<dc:creator>Jakob Dalsgaard</dc:creator>
+<pubDate>Thu, 26 Aug 2021 22:30:46 +0200</pubDate></item>
 <item><title>
 Pickles
 </title><description><![CDATA[
@@ -81,8 +113,7 @@ i 30 minutter mere.</p>
 <p>Sylteglas skoldes og skylles med Atamon. Syltetøj hældes i glassene; ikke til kanten, stop 8 mm før. Sæt låg på -- når al marmeladen
 er i glas, da gør gryden ren og sæt den på komfuret, sæt alle glas i den og fyld vand over så det dækker glassene. Man skal ikke
 løfte gryden med så meget vægt i. Hæv langsomt temperaturen til 95 grader. Ikke for
-hurtigt, så risikerer man at slå glassene i stykker. Lad glassene stå i det varme vand i 20 minutter - se at luften slipper ud af
-glassene. Det var det.</p>
+hurtigt, så risikerer man at slå glassene i stykker. Lad glassene stå i det varme vand i 30 minutter - det var det.</p>
 
 <p>Tags: <a href='tag_mad.html'>mad</a>, <a href='tag_opskrift.html'>opskrift</a></p>
 
@@ -533,55 +564,6 @@ plade over.</p>
 </p>
 ]]></description><link>http://blog.dalsgaard.net//mega-meget-lasagne.html</link>
 <guid>http://blog.dalsgaard.net//./mega-meget-lasagne.html</guid>
-<dc:creator>Jakob Dalsgaard</dc:creator>
-<pubDate>Thu, 07 Jan 2021 21:37:43 +0100</pubDate></item>
-<item><title>
-Matildenspitze Blåbærmuffins
-</title><description><![CDATA[
-
-<p>Den nemmeste og aller-super-bedste opskrift på blåbærmuffins. Desværre er www.matildenspitze.com ikke længere :-/ Så her
-kommer min kopi af opskriften, hentet fra http://archive.org/:</p>
-
-<h2>Blåbærmuffins</h2>
-
-<p>Giver 12 stk.</p>
-
-<ul>
-<li>2 æg</li>
-<li>140 g rørsukker eller almindelig sukker</li>
-<li>120 g blødt smør</li>
-<li>Kornene af 1 vaniljestang (eller 2 tsk vaniljesukker)</li>
-<li>170 g hvedemel</li>
-<li>2 tsk bagepulver</li>
-<li>1/2 tsk salt</li>
-<li>1 dL mælk</li>
-<li>120 g blåbær - friske eller frosne. Jeg brugte halv af hver.</li>
-<li>1 tsk sukker</li>
-<li>12 muffinsforme</li>
-</ul>
-
-<p>Tænd ovnen på 190&deg;C.</p>
-
-<p>Pisk æg med sukker, blødt smør og vaniljekorn til det er hvidt og luftigt. Det må gerne have klumper - de skal nok blive rørt ud senere.
-Bland hvedemel med bagepulver og salt og tilsæt ægge-smør massen. Rør det hele grundigt sammen og tilsæt da mælken. Rør til en cremet dej.
-Vend forsigtigt blåbærrene i dejen så de ikke går for meget i smadder eller farver dejen helt blå.
-Fyld dejen i muffinsforme (fyldes 2/3 op) og drys med lidt sukker på toppen - så bliver de ekstra sprøde.</p>
-
-<p>Bag muffin&apos;erne midt i ovnen i ca 25-27 minutter. Stik i en af dem med en tandstik eller spids kniv for at tjekke om de er færdige. Hvis
-den kommer ud uden dej på er de klar til spisning! Afkøl på bagerist - hvis du altså kan vente!!</p>
-
-<p>Tags: <a href='tag_mad.html'>mad</a>, <a href='tag_kage.html'>kage</a>, <a href='tag_opskrift.html'>opskrift</a></p>
-
-
-
-<!-- text end -->
-<p id='twitter'><a href="http://blog.dalsgaard.net//matildenspitze-blabaermuffins.html#disqus_thread">Comments?</a> &nbsp;
-<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//matildenspitze-blabaermuffins.html"
- data-via="jakobdalsgaard"
->Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-</p>
-]]></description><link>http://blog.dalsgaard.net//matildenspitze-blabaermuffins.html</link>
-<guid>http://blog.dalsgaard.net//./matildenspitze-blabaermuffins.html</guid>
 <dc:creator>Jakob Dalsgaard</dc:creator>
 <pubDate>Thu, 07 Jan 2021 21:37:43 +0100</pubDate></item>
 </channel></rss>
