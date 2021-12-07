@@ -9,7 +9,7 @@
 <meta name='twitter:card' content='summary' />
 <meta name='twitter:site' content='@jakobdalsgaard' />
 <meta name='twitter:title' content='Jakob Dalsgaards blog' />
-<meta name='twitter:description' content=" Æblegrød   August 26, 2021 &mdash;  Jakob Dalsgaard    Nemt at lave; opskriften er inspireret af den her fra Madens Verden -- skaleret en smule  Som i min opskrift på æblemarmelade - høstes to 15 liters spandfulde af æbler, de skylles og skær" />
+<meta name='twitter:description' content=" LK IHC integration with OpenHAB3   December 07, 2021 &mdash;  Jakob Dalsgaard    If you have a fairly old LK IHC controller in your house, then it is not able to use any of the TLS ciphers a recent Java may use. For security reasons these old cipher" />
 </head><body>
 <div id="divbodyholder">
 <div class="headerholder"><div class="header">
@@ -18,6 +18,24 @@
 <div id="description">Anything...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="lk-ihc-integration-with-openhab3.html">
+LK IHC integration with OpenHAB3
+</a></h3>
+<!-- bashblog_timestamp: #202112072137.53# -->
+<div class="subtitle">December 07, 2021 &mdash; 
+Jakob Dalsgaard
+</div>
+<!-- text begin -->
+
+<p>If you have a fairly old LK IHC controller in your house, then it is not able to use any of the TLS ciphers a recent Java may use. For security reasons these old ciphers have been disbled and thus OpenHAB 3 cannot talk to your controller. Usually, however, some old ciphers can be allowed by changing your configuration. On my Debian with Open JDK 11 this is done by editing <code>/etc/java-11-openjdk/security/java.security</code> -- find the line starting with <code>jdk.tls.disabledAlgorithms=</code> and remove TLSv1 from the list. Then restart openhab service by doing <code>sudo systemctl restart openhab.service</code> -- and voilà your OpenHAB 3 should be able to connect to your old LK IHC controller.</p>
+
+<p>Tags: <a href='tag_house.html'>house</a>, <a href='tag_java.html'>java</a>, <a href='tag_security.html'>security</a></p>
+<!-- text end -->
+<p id='twitter'><a href="http://blog.dalsgaard.net//lk-ihc-integration-with-openhab3.html#disqus_thread">Comments?</a> &nbsp;
+<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//lk-ihc-integration-with-openhab3.html"
+ data-via="jakobdalsgaard"
+>Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</p>
 <h3><a class="ablack" href="aeblegrod.html">
 Æblegrød
 </a></h3>
@@ -416,27 +434,6 @@ Jakob Dalsgaard
 <!-- text end -->
 <p id='twitter'><a href="http://blog.dalsgaard.net//oneplus-3t-running-hot.html#disqus_thread">Comments?</a> &nbsp;
 <a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//oneplus-3t-running-hot.html"
- data-via="jakobdalsgaard"
->Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-</p>
-<h3><a class="ablack" href="on-the-subject-of-root-cause-analysis.html">
-On the Subject of Root Cause Analysis
-</a></h3>
-<!-- bashblog_timestamp: #201906181123.07# -->
-<div class="subtitle">June 18, 2019 &mdash; 
-Jakob Dalsgaard
-</div>
-<!-- text begin -->
-
-<p>A little something I brewed together: <a href="https://medium.com/@jakobdalsgaard/on-the-subject-of-root-cause-analysis-e7b2ede46b6e">On the Subject of Root Cause Analysis</a>.</p>
-
-<p>Tags: <a href='tag_computer.html'>computer</a>, <a href='tag_devops.html'>devops</a></p>
-
-
-
-<!-- text end -->
-<p id='twitter'><a href="http://blog.dalsgaard.net//on-the-subject-of-root-cause-analysis.html#disqus_thread">Comments?</a> &nbsp;
-<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//on-the-subject-of-root-cause-analysis.html"
  data-via="jakobdalsgaard"
 >Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 </p>

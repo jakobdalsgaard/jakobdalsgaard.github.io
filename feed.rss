@@ -2,9 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Jakob Dalsgaards blog</title><link>http://blog.dalsgaard.net//index.html</link>
 <description>Anything...</description><language>en</language>
-<lastBuildDate>Thu, 26 Aug 2021 22:31:39 +0200</lastBuildDate>
-<pubDate>Thu, 26 Aug 2021 22:31:39 +0200</pubDate>
+<lastBuildDate>Tue, 07 Dec 2021 21:51:46 +0100</lastBuildDate>
+<pubDate>Tue, 07 Dec 2021 21:51:46 +0100</pubDate>
 <atom:link href="http://blog.dalsgaard.net//feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+LK IHC integration with OpenHAB3
+</title><description><![CDATA[
+
+<p>If you have a fairly old LK IHC controller in your house, then it is not able to use any of the TLS ciphers a recent Java may use. For security reasons these old ciphers have been disbled and thus OpenHAB 3 cannot talk to your controller. Usually, however, some old ciphers can be allowed by changing your configuration. On my Debian with Open JDK 11 this is done by editing <code>/etc/java-11-openjdk/security/java.security</code> -- find the line starting with <code>jdk.tls.disabledAlgorithms=</code> and remove TLSv1 from the list. Then restart openhab service by doing <code>sudo systemctl restart openhab.service</code> -- and voilà your OpenHAB 3 should be able to connect to your old LK IHC controller.</p>
+
+<p>Tags: <a href='tag_house.html'>house</a>, <a href='tag_java.html'>java</a>, <a href='tag_security.html'>security</a></p>
+<!-- text end -->
+<p id='twitter'><a href="http://blog.dalsgaard.net//lk-ihc-integration-with-openhab3.html#disqus_thread">Comments?</a> &nbsp;
+<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//lk-ihc-integration-with-openhab3.html"
+ data-via="jakobdalsgaard"
+>Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</p>
+]]></description><link>http://blog.dalsgaard.net//lk-ihc-integration-with-openhab3.html</link>
+<guid>http://blog.dalsgaard.net//./lk-ihc-integration-with-openhab3.html</guid>
+<dc:creator>Jakob Dalsgaard</dc:creator>
+<pubDate>Tue, 07 Dec 2021 21:37:53 +0100</pubDate></item>
 <item><title>
 Æblegrød
 </title><description><![CDATA[
@@ -461,109 +478,6 @@ Juster smagen med æblecidereddike, sukker og salt til sidst.</p>
 </p>
 ]]></description><link>http://blog.dalsgaard.net//meyers-rodkalssalat.html</link>
 <guid>http://blog.dalsgaard.net//./meyers-rodkalssalat.html</guid>
-<dc:creator>Jakob Dalsgaard</dc:creator>
-<pubDate>Thu, 07 Jan 2021 21:37:43 +0100</pubDate></item>
-<item><title>
-Mega meget lasagne
-</title><description><![CDATA[
-
-<p>Lasagne nok til 12 brødforme... just saying... Husk smør til formene, de skal være smurte!
-Opskriften er temmelig meget en kopi af FXcuisines fantastiske <a href="http://fxcuisine.com/Default.asp?language=2&amp;Display=152&amp;resolution=high">Lasagna from Scratch</a>.</p>
-
-<h2>Lasagneplader</h2>
-
-<p>Ingredienser</p>
-
-<ul>
-<li>500g durum hvedemel</li>
-<li>500g tipo 00 hvedemel</li>
-<li>10 æg</li>
-<li>1 dL olivenolie (eller vand...)</li>
-<li>1 tsk salt</li>
-</ul>
-
-<p>Det er klart nemmest at lave pastadejen i en stor køkkenmaskine, eksempelvis en Kenwood. Hæld al
-melen i røreskålen, derpå æg, olivenolie og salt. Sæt maskinen til at røre langsomt i et par minutter,
-derpå ganske anseeligt hurtigt for at dejen slåes op mod siderne. Hvis dejen ikke samles ordentlig,
-kan man hælde lidt koldt vand i. <em>Lidt</em>.</p>
-
-<p>Pladerne kan med fordel laves i forvejen, rulles ud til tykkelsen 8 på din Marcato Atlas lasagnemaskine,
-koges 10 sekunder i spilkogende vand og hænges til tørre.</p>
-
-<h2>Rag&uacute; Bolognese (Kødsovs....)</h2>
-
-<p>Ingredienser</p>
-
-<ul>
-<li>1kg okse- eller kalvekød</li>
-<li>250g bacon eller pancetta</li>
-<li>1kg gulerødder</li>
-<li>5 dåser flåede tomater</li>
-<li>1 bundt bladselleri</li>
-<li>kyllingelever</li>
-<li>1L kyllingefond</li>
-<li>3dL hvidvin</li>
-<li>&frac12;L fløde</li>
-<li>100g smør</li>
-<li>1 dL olivenolie</li>
-</ul>
-
-<p>Gulerødder skrælles, skæres i tynde strimler, ca. 2-3mm x 2-3mm, derpå i små tern. Bladselleri skæres ligeledes
-i små tern. Sættes til side. Bacon skæres i små tern af nogenlunde samme størrelse. Tag gerne to pander og en
-stor gryde. Panderne bruges til at forberede en lang række af ingredienserne på førend de smides i gryden.</p>
-
-<p>Der forberedes kun små portioner ad gangen på panderne. Smør og olie først, varmes godt op, løg smides på panden, og
-vandet fordampes væk, lad løgene blive klare, ikke brune. Dernæst gulerødder og bladselleri. Lad
-det svitse og blive lidt blødt, skub det lidt til side og rist en smule bacon/pancetta. Ikke for meget, det
-skal ikke koge i egen saft, men få en karamelliseret overflade. Derpå en smule okse/kalvekød og lidt kyllingelever.
-Det ristes nogenlunde tørt. Panden koges af med lidt hvidvin, der koger lidt ind. Derpå en smule kyllingefond,
-der koger lidt ind. Derpå fløde, der koger lidt ind. Denne proces laves med små portioner, der smides i gryden.</p>
-
-<p>Når al kød og alle grøntsager således er processeret, da bringes grydens indhold til kogepunktet. 5 dåser flåede tomater
-tilføjes, og gryden koger i <em>minimum</em> 3 timer. Lad den gerne stå til dagen efter!</p>
-
-<h2>Sauce B&eacute;chamel</h2>
-
-<ul>
-<li>4L sødmælk</li>
-<li>5dL hvedemel</li>
-<li>500g smør</li>
-<li>1 tsk salt</li>
-<li>1 tsk revet muskatnød</li>
-</ul>
-
-<p>Tag en stor gryde, smelt smørret ved lav varme, rør melet i -- det bliver en stor klump.
-Ved lidt højere varme: hæld langsomt mælken i under omrøring. Det bliver en tyk sovs.
-Tilsæt salt og muskatnød og lad sovsen koge svagt i ca. 10 minutter. Sæt til at køle.</p>
-
-<h2>Opbygning af lasagnen</h2>
-
-<p>Ingredienser:</p>
-
-<ul>
-<li>50g smør til at smøre formene.</li>
-<li>300g parmesan</li>
-</ul>
-
-<p>Tag en form, smør den. Start med et lag lasagneplade, derpå en smulle rag&uacute;, b&eacute;chamel og
-revet parmesan. Repet&eacute;r dette til formen er fyldt. Der afsluttes med revet parmesan.</p>
-
-<p>Brødformene kan vikles ind i madfolie, eller lægges i fryseposer og fryses. <em>Eller</em> sættes direkte i ovnen,
-ca. 1 time ved 175&deg;C, med en plade over, så toppen ikke bliver fuldstændig sveden, dernæst en halv time uden
-plade over.</p>
-
-<p>Tags: <a href='tag_mad.html'>mad</a>, <a href='tag_opskrift.html'>opskrift</a>, <a href='tag_italy-ftw.html'>italy-ftw</a></p>
-
-
-
-<!-- text end -->
-<p id='twitter'><a href="http://blog.dalsgaard.net//mega-meget-lasagne.html#disqus_thread">Comments?</a> &nbsp;
-<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//mega-meget-lasagne.html"
- data-via="jakobdalsgaard"
->Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-</p>
-]]></description><link>http://blog.dalsgaard.net//mega-meget-lasagne.html</link>
-<guid>http://blog.dalsgaard.net//./mega-meget-lasagne.html</guid>
 <dc:creator>Jakob Dalsgaard</dc:creator>
 <pubDate>Thu, 07 Jan 2021 21:37:43 +0100</pubDate></item>
 </channel></rss>
