@@ -2,9 +2,57 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Jakob Dalsgaards blog</title><link>http://blog.dalsgaard.net//index.html</link>
 <description>Anything...</description><language>en</language>
-<lastBuildDate>Fri, 31 Dec 2021 11:33:23 +0100</lastBuildDate>
-<pubDate>Fri, 31 Dec 2021 11:33:23 +0100</pubDate>
+<lastBuildDate>Thu, 03 Mar 2022 17:03:29 +0100</lastBuildDate>
+<pubDate>Thu, 03 Mar 2022 17:03:29 +0100</pubDate>
 <atom:link href="http://blog.dalsgaard.net//feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Tomatchutney Grøn
+</title><description><![CDATA[
+
+<p>Her kommer så min helt egen kopi af opskriften på <a href="http://www.slottet-i-smoermosen.dk/index.php/madopskrifter/recipe/9-gron-tomatchutney">Tomatchutney Grøn</a>.</p>
+
+<p>Ingredienser til 4 personer (hvad det så end skal betyde...)</p>
+
+<ul>
+<li>1 kg grønne tomater</li>
+<li>200 g zitauer løg</li>
+<li>5 stk hvidløg</li>
+<li>1 dL rosiner</li>
+<li>1 dL honning</li>
+<li>1 dL farin</li>
+<li>3 dL rørsukker</li>
+<li>1 stk kanestang</li>
+<li>1 tsk hel sort peber</li>
+<li>1 tsk hel koriander</li>
+<li>1 spsk Hele sennepsfrø</li>
+<li>1 tsk salt</li>
+<li>2.5 dL æblecider eddike</li>
+<li>2 stk Chili Caloro, middelstærke</li>
+<li>1 stk Chili kinesisk, meget stærk</li>
+<li>1 stk chili rød, stærk</li>
+</ul>
+
+<p>Skyl og del tomaterne, der må gerne være andre farver imellem.  Pil og hak løgene.
+Skyl, del og tag kernerne ud af chilien og hak dem fint.
+Alle ingredienserne kommes i en gryde, bringes langsomt i kog og lad det hele simre i ca. 30 min. Husk at røre en gang imellem.
+Chutneyen kommes på rene, varme og skyllede glas.
+Lukkes med det samme.
+Smages evt. til med lidt ekstra salt og honning.</p>
+
+<p>Ønskes smagen kraftigere, kan der tilsættes yderligere chili.
+Lad chutneyen trække nogle uger inden den serveres.</p>
+
+<p>Tags: <a href='tag_mad.html'>mad</a>, <a href='tag_opskrift.html'>opskrift</a></p>
+<!-- text end -->
+<p id='twitter'><a href="http://blog.dalsgaard.net//tomatchutney-gron.html#disqus_thread">Comments?</a> &nbsp;
+<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//tomatchutney-gron.html"
+ data-via="jakobdalsgaard"
+>Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</p>
+]]></description><link>http://blog.dalsgaard.net//tomatchutney-gron.html</link>
+<guid>http://blog.dalsgaard.net//./tomatchutney-gron.html</guid>
+<dc:creator>Jakob Dalsgaard</dc:creator>
+<pubDate>Thu, 03 Mar 2022 17:03:24 +0100</pubDate></item>
 <item><title>
 Syltede Grønne Tomater med Chili og Ingefær
 </title><description><![CDATA[
@@ -464,26 +512,6 @@ Oneplus 3T Running Hot
 </p>
 ]]></description><link>http://blog.dalsgaard.net//oneplus-3t-running-hot.html</link>
 <guid>http://blog.dalsgaard.net//./oneplus-3t-running-hot.html</guid>
-<dc:creator>Jakob Dalsgaard</dc:creator>
-<pubDate>Thu, 07 Jan 2021 21:37:43 +0100</pubDate></item>
-<item><title>
-On the Subject of Root Cause Analysis
-</title><description><![CDATA[
-
-<p>A little something I brewed together: <a href="https://medium.com/@jakobdalsgaard/on-the-subject-of-root-cause-analysis-e7b2ede46b6e">On the Subject of Root Cause Analysis</a>.</p>
-
-<p>Tags: <a href='tag_computer.html'>computer</a>, <a href='tag_devops.html'>devops</a></p>
-
-
-
-<!-- text end -->
-<p id='twitter'><a href="http://blog.dalsgaard.net//on-the-subject-of-root-cause-analysis.html#disqus_thread">Comments?</a> &nbsp;
-<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//on-the-subject-of-root-cause-analysis.html"
- data-via="jakobdalsgaard"
->Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-</p>
-]]></description><link>http://blog.dalsgaard.net//on-the-subject-of-root-cause-analysis.html</link>
-<guid>http://blog.dalsgaard.net//./on-the-subject-of-root-cause-analysis.html</guid>
 <dc:creator>Jakob Dalsgaard</dc:creator>
 <pubDate>Thu, 07 Jan 2021 21:37:43 +0100</pubDate></item>
 </channel></rss>
