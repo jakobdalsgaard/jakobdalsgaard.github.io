@@ -12,7 +12,7 @@ login and create applications. You can select 'Create New App', 'My Applications
 ![Dashboard](media/pedestrian-dashboard-resized.png)
 
 Now, when creating an application, you'll be assigned a container in which Mistral attempts to build the application; the web application
-running inside this container will be accessible online through a link like this one: [9d157f4a-bdee-4f7d-8971-3f28e98ba234.pedestrian.site/](https://9d157f4a-bdee-4f7d-8971-3f28e98ba234.pedestrian.site/) 
+running inside this container will be accessible online through a link like this one: [9d157f4a-bdee-4f7d-8971-3f28e98ba234.pedestrian.site](https://9d157f4a-bdee-4f7d-8971-3f28e98ba234.pedestrian.site/) 
 -- this is the link you see on the details page next
 to the application name. 
 
