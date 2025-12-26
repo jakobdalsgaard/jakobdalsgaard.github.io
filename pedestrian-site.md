@@ -4,12 +4,12 @@ This is a short introduction of the Mistral AI powered Django application builde
 This service aims at building a fully functional Django application given a short description of the requirements. Using the service is fairly simple, head
 to the site and login or register:
 
-![Frontpage](media/pedestrian-login.png)
+![Frontpage](media/pedestrian-login-resized.png)
 
 You need to register with a valid email address as you will be sent a validation email; once you have validated your email, you should be able to
 login and create applications. You can select 'Create New App', 'My Applications' or 'Support Tickets' -- as can be seen here:
 
-![Dashboard](media/pedestrian-dashboard.png)
+![Dashboard](media/pedestrian-dashboard-resized.png)
 
 Now, when creating an application, you'll be assigned a container in which Mistral attempts to build the application; the web application
 running inside this container will be accessible online through a link like this one: [9d157f4a-bdee-4f7d-8971-3f28e98ba234.pedestrian.site/](https://9d157f4a-bdee-4f7d-8971-3f28e98ba234.pedestrian.site/) 
