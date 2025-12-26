@@ -2,9 +2,51 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Jakob Dalsgaards blog</title><link>http://blog.dalsgaard.net//index.html</link>
 <description>Anything...</description><language>en</language>
-<lastBuildDate>Sat, 12 Mar 2022 08:20:03 +0100</lastBuildDate>
-<pubDate>Sat, 12 Mar 2022 08:20:03 +0100</pubDate>
+<lastBuildDate>Sat, 27 Dec 2025 00:34:05 +0100</lastBuildDate>
+<pubDate>Sat, 27 Dec 2025 00:34:05 +0100</pubDate>
 <atom:link href="http://blog.dalsgaard.net//feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Pedestrian Site
+</title><description><![CDATA[
+
+<p>This is a short introduction of the Mistral AI powered Django application builder available at <a href="https://pedestrian.site/">pedestrian.site</a>.
+This service aims at building a fully functional Django application given a short description of the requirements. Using the service is fairly simple, head
+to the site and login or register:</p>
+
+<p><img src="media/pedestrian-login.png" alt="Frontpage" title="" /></p>
+
+<p>You need to register with a valid email address as you will be sent a validation email; once you have validated your email, you should be able to
+login and create applications. You can select 'Create New App', 'My Applications' or 'Support Tickets' -- as can be seen here:</p>
+
+<p><img src="media/pedestrian-dashboard.png" alt="Dashboard" title="" /></p>
+
+<p>Now, when creating an application, you'll be assigned a container in which Mistral attempts to build the application; the web application
+running inside this container will be accessible online through a link like this one: <a href="https://9d157f4a-bdee-4f7d-8971-3f28e98ba234.pedestrian.site/">9d157f4a-bdee-4f7d-8971-3f28e98ba234.pedestrian.site/</a> 
+-- this is the link you see on the details page next
+to the application name. </p>
+
+<p><img src="media/pedestrian-app-link.png" alt="Application Link" title="" /></p>
+
+<p>Even if Mistral believes the application generation failed, you might actually have something running. You may continue the conversation
+with Mistral at the bottom of the page.</p>
+
+<p>Right now the tool does not have integration to any revision system; however, you may download the full application by using the 'Download App' button. Also, there is no
+email functionality easily available -- it might come, it might not. You should also be aware that the container assigned to your application is limited in terms of CPU, memory and disk <em>and</em> it will
+be paused after 2 weeks -- this'll give me some time to figure out next steps for this service.</p>
+
+<p>Tags: <a href='tag_computer.html'>computer</a>, <a href='tag_software.html'>software</a>, <a href='tag_ai.html'>ai</a></p>
+
+
+<!-- text end -->
+<p id='twitter'><a href="http://blog.dalsgaard.net//pedestrian-site.html#disqus_thread">Comments?</a> &nbsp;
+<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//pedestrian-site.html"
+ data-via="jakobdalsgaard"
+>Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</p>
+]]></description><link>http://blog.dalsgaard.net//pedestrian-site.html</link>
+<guid>http://blog.dalsgaard.net//./pedestrian-site.html</guid>
+<dc:creator>Jakob Dalsgaard</dc:creator>
+<pubDate>Sat, 27 Dec 2025 00:28:44 +0100</pubDate></item>
 <item><title>
 Tomatchutney Grøn
 </title><description><![CDATA[
@@ -43,6 +85,8 @@ Smages evt. til med lidt ekstra salt og honning.</p>
 Lad chutneyen trække nogle uger inden den serveres.</p>
 
 <p>Tags: <a href='tag_mad.html'>mad</a>, <a href='tag_opskrift.html'>opskrift</a></p>
+
+
 <!-- text end -->
 <p id='twitter'><a href="http://blog.dalsgaard.net//tomatchutney-gron.html#disqus_thread">Comments?</a> &nbsp;
 <a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//tomatchutney-gron.html"
@@ -93,6 +137,8 @@ Skræl ingefæren, og skær den ud i lidt store stykker.</p>
 <p>Brug kun grønne tomater. Røde tomater har en finere hinde, og de kan derfor nemt gå i stykker og gøre lagen grumset.</p>
 
 <p>Tags: <a href='tag_mad.html'>mad</a>, <a href='tag_opskrift.html'>opskrift</a></p>
+
+
 <!-- text end -->
 <p id='twitter'><a href="http://blog.dalsgaard.net//syltede-gronne-tomater-med-chili-og-ingefaer.html#disqus_thread">Comments?</a> &nbsp;
 <a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//syltede-gronne-tomater-med-chili-og-ingefaer.html"
@@ -110,6 +156,8 @@ LK IHC integration with OpenHAB3
 <p>If you have a fairly old LK IHC controller in your house, then it is not able to use any of the TLS ciphers a recent Java may use. For security reasons these old ciphers have been disbled and thus OpenHAB 3 cannot talk to your controller. Usually, however, some old ciphers can be allowed by changing your configuration. On my Debian with Open JDK 11 this is done by editing <code>/etc/java-11-openjdk/security/java.security</code> -- find the line starting with <code>jdk.tls.disabledAlgorithms=</code> and remove TLSv1 from the list. Then restart openhab service by doing <code>sudo systemctl restart openhab.service</code> -- and voilà your OpenHAB 3 should be able to connect to your old LK IHC controller.</p>
 
 <p>Tags: <a href='tag_house.html'>house</a>, <a href='tag_java.html'>java</a>, <a href='tag_security.html'>security</a></p>
+
+
 <!-- text end -->
 <p id='twitter'><a href="http://blog.dalsgaard.net//lk-ihc-integration-with-openhab3.html#disqus_thread">Comments?</a> &nbsp;
 <a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//lk-ihc-integration-with-openhab3.html"
@@ -141,6 +189,8 @@ minutters tid. Brug stavblenderen.</p>
 <p>Glas skoldes og skylles med atamon, æblegrød hældes i glassene, ikke til kanten men lidt under. Låg på. Brug gryden til vandbad for glassene, 30 minutter ved 95ºC.</p>
 
 <p>Tags: <a href='tag_mad.html'>mad</a>, <a href='tag_opskrift.html'>opskrift</a></p>
+
+
 
 <!-- text end -->
 <p id='twitter'><a href="http://blog.dalsgaard.net//aeblegrod.html#disqus_thread">Comments?</a> &nbsp;
@@ -179,6 +229,8 @@ Pickles
 <p>Eddike, suker og salt koges op, grøntsager kommes i gryden og koger cirka en halv time, jævningen hældes i og det koger videre ved svag varme i yderligere en halv time. Hældes på skoldede, atamonskyllde glas.</p>
 
 <p>Tags: <a href='tag_mad.html'>mad</a>, <a href='tag_opskrift.html'>opskrift</a></p>
+
+
 
 <!-- text end -->
 <p id='twitter'><a href="http://blog.dalsgaard.net//pickles.html#disqus_thread">Comments?</a> &nbsp;
@@ -232,6 +284,8 @@ hurtigt, så risikerer man at slå glassene i stykker. Lad glassene stå i det v
 
 <p>Tags: <a href='tag_mad.html'>mad</a>, <a href='tag_opskrift.html'>opskrift</a></p>
 
+
+
 <!-- text end -->
 <p id='twitter'><a href="http://blog.dalsgaard.net//aeblemarmelade.html#disqus_thread">Comments?</a> &nbsp;
 <a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//aeblemarmelade.html"
@@ -277,6 +331,8 @@ evt. kombineres med vanille i sukkeret.</li>
 
 <p>Tags: <a href='tag_mad.html'>mad</a>, <a href='tag_opskrift.html'>opskrift</a></p>
 
+
+
 <!-- text end -->
 <p id='twitter'><a href="http://blog.dalsgaard.net//en-anden-opskrift-pa-is.html#disqus_thread">Comments?</a> &nbsp;
 <a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//en-anden-opskrift-pa-is.html"
@@ -288,25 +344,108 @@ evt. kombineres med vanille i sukkeret.</li>
 <dc:creator>Jakob Dalsgaard</dc:creator>
 <pubDate>Tue, 12 Jan 2021 07:29:21 +0100</pubDate></item>
 <item><title>
-To be, or not to be, DevOps
+Mega meget lasagne
 </title><description><![CDATA[
 
-<p>Yet another article on Linkedin; being a devops is many things:
-<a href="https://www.linkedin.com/pulse/devops-jakob-dalsgaard">To be, or not to be, DevOps</a>.</p>
+<p>Lasagne nok til 6 brødforme... just saying... Husk smør til formene, de skal være smurte!
+Opskriften er temmelig meget en kopi af FXcuisines fantastiske <a href="http://fxcuisine.com/Default.asp?language=2&amp;Display=152&amp;resolution=high">Lasagna from Scratch</a>.</p>
 
-<p>Tags: <a href='tag_computer.html'>computer</a>, <a href='tag_devops.html'>devops</a></p>
+<ul>
+<li>V2, 2022-03-12, Opdatering... nu med bedre smag.</li>
+</ul>
 
+<h2>Lasagneplader</h2>
 
+<p>Ingredienser</p>
+
+<ul>
+<li>800g durum hvedemel</li>
+<li>8 æg</li>
+<li>0,8 dL vand</li>
+<li>1 tsk salt</li>
+</ul>
+
+<p>Det er klart nemmest at lave pastadejen i en stor køkkenmaskine, eksempelvis en Kenwood. Hæld al
+melen i røreskålen, derpå æg, olivenolie og salt. Sæt maskinen til at røre langsomt i et par minutter,
+derpå ganske anseeligt hurtigt for at dejen slåes op mod siderne. Hvis dejen ikke samles ordentlig,
+kan man hælde lidt koldt vand i. <em>Lidt</em>.</p>
+
+<p>Pladerne kan med fordel laves i forvejen, rulles ud til tykkelsen 7 på din Marcato Atlas lasagnemaskine,
+bruges i lasagnen direkte fra maskine.</p>
+
+<h2>Rag&uacute; Bolognese (Kødsovs....)</h2>
+
+<p>Ingredienser</p>
+
+<ul>
+<li>1 kg okse- eller kalvekød</li>
+<li>250 g bacon eller pancetta</li>
+<li>1 kg gulerødder</li>
+<li>1 kg løg</li>
+<li>5 dåser flåede tomater</li>
+<li>1 bundt bladselleri</li>
+<li>kyllingelever</li>
+<li>&frac12; L kyllingefond</li>
+<li>3 dL hvidvin</li>
+<li>&frac12; L fløde</li>
+<li>&frac12; dL olivenolie</li>
+</ul>
+
+<p>Gulerødder skrælles, skæres i tynde strimler, ca. 2-3mm x 2-3mm, derpå i små tern. Bladselleri skæres ligeledes
+i små tern. Sættes til side. Bacon skæres i små tern af nogenlunde samme størrelse. Tag gerne to pander og en
+stor gryde. Panderne bruges til at forberede en lang række af ingredienserne på førend de smides i gryden.</p>
+
+<p>Der forberedes kun små portioner ad gangen på panderne. Smør og olie først, varmes godt op, løg smides på panden, og
+vandet fordampes væk, lad løgene blive klare, ikke brune. Dernæst gulerødder og bladselleri. Lad
+det svitse og blive lidt blødt, skub det lidt til side og rist en smule bacon/pancetta. Ikke for meget, det
+skal ikke koge i egen saft, men få en karamelliseret overflade. Derpå en smule okse/kalvekød og lidt kyllingelever.
+Det ristes nogenlunde tørt. Panden koges af med lidt hvidvin, der koger lidt ind. Derpå en smule kyllingefond,
+der koger lidt ind. Derpå fløde, der koger lidt ind. Denne proces laves med små portioner, der smides i gryden.</p>
+
+<p>Når al kød og alle grøntsager således er processeret, da bringes grydens indhold til kogepunktet. 5 dåser flåede tomater
+tilføjes, og gryden koger i <em>minimum</em> 3 timer. Lad den gerne stå til dagen efter!</p>
+
+<h2>Sauce B&eacute;chamel</h2>
+
+<ul>
+<li>3 L sødmælk</li>
+<li>4d L hvedemel</li>
+<li>400 g smør</li>
+<li>1 tsk salt</li>
+<li>1 tsk revet muskatnød</li>
+</ul>
+
+<p>Tag en stor gryde, smelt smørret ved lav varme, rør melet i -- det bliver en stor klump.
+Ved lidt højere varme: hæld langsomt mælken i under omrøring. Det bliver en tyk sovs.
+Tilsæt salt og muskatnød og lad sovsen koge svagt i ca. 20 minutter. Sæt til at køle.</p>
+
+<h2>Opbygning af lasagnen</h2>
+
+<p>Ingredienser:</p>
+
+<ul>
+<li>50 g smør til at smøre formene.</li>
+<li>400 g parmesan</li>
+</ul>
+
+<p>Tag en form, smør den. Start med et lag lasagneplade, derpå en smulle rag&uacute;, b&eacute;chamel og
+revet parmesan. Repet&eacute;r dette til formen er fyldt. Der afsluttes med revet parmesan.</p>
+
+<p>Brødformene kan vikles ind i madfolie, eller lægges i fryseposer og fryses. <em>Eller</em> sættes direkte i ovnen,
+ca. 45 minutter ved 175&deg;C, med en plade over, så toppen ikke bliver fuldstændig sveden, dernæst en halv time uden
+plade over.</p>
+
+<p>Tags: <a href='tag_mad.html'>mad</a>, <a href='tag_opskrift.html'>opskrift</a>, <a href='tag_italy-ftw.html'>italy-ftw</a></p>
 
 
 <!-- text end -->
-<p id='twitter'><a href="http://blog.dalsgaard.net//to-be-or-not-to-be-devops.html#disqus_thread">Comments?</a> &nbsp;
-<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//to-be-or-not-to-be-devops.html"
+<p id='twitter'><a href="http://blog.dalsgaard.net//mega-meget-lasagne.html#disqus_thread">Comments?</a> &nbsp;
+<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//mega-meget-lasagne.html"
  data-via="jakobdalsgaard"
 >Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 </p>
-]]></description><link>http://blog.dalsgaard.net//to-be-or-not-to-be-devops.html</link>
-<guid>http://blog.dalsgaard.net//./to-be-or-not-to-be-devops.html</guid>
+]]></description><link>http://blog.dalsgaard.net//mega-meget-lasagne.html</link>
+<guid>http://blog.dalsgaard.net//./mega-meget-lasagne.html</guid>
 <dc:creator>Jakob Dalsgaard</dc:creator>
 <pubDate>Thu, 07 Jan 2021 21:37:43 +0100</pubDate></item>
 <item><title>
@@ -482,6 +621,8 @@ WantedBy=multi-user.target
 
 <p>Tags: <a href='tag_computer.html'>computer</a>, <a href='tag_software.html'>software</a></p>
 
+
+
 <!-- text end -->
 <p id='twitter'><a href="http://blog.dalsgaard.net//prometheus-amok.html#disqus_thread">Comments?</a> &nbsp;
 <a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//prometheus-amok.html"
@@ -491,27 +632,5 @@ WantedBy=multi-user.target
 ]]></description><link>http://blog.dalsgaard.net//prometheus-amok.html</link>
 <guid>http://blog.dalsgaard.net//./prometheus-amok.html</guid>
 <dc:creator>Jakob Dalsgaard</dc:creator>
-<pubDate>Thu, 07 Jan 2021 21:37:43 +0100</pubDate></item>
-<item><title>
-Oneplus 3T Running Hot
-</title><description><![CDATA[
-
-<p>I destroy a fair bit of smartphones through mere coexistence. It just happens; most recently, some three weeks ago, the display cracked — <em>behind</em> the screen protector, which was left intact. Not kidding. So, once again, I decided to replace the display; yes, on my own, I kinda got the experience. I seldom change brand or model, so I have a vast collection of more or less compatible spare parts. This time however, I was pretty sure the phone was toast after me "fixing" it. It ran hot, immediately. It would turn off with +60% on the battery, and be hot. Really hot. Also, which is my bad, I knew that I had unplugged the battery with a metal scalpel (for a man with a hammer, all problems are nails...) — with a few sparks to follow. So I was convinced this phone could not be repaired. Nonetheless I engaged in the hopeless quest to resurrect this beast, beknowing that I've previously binned a similar phone showing the same symptoms after many hours of <a href="http://foldoc.org/debugging">debugging</a>. This time, lo and behold, I spotted the error immediately after opening the phone; assembling the phone I had been a bit annoyed that longitudinal wires had connectors to the mainboard that aligned badly — it turns out I had turned the leftmost wire upside down. It's pure rocket science, the end marked 'MAIN' connects to the main board, whilst the end marked 'SUB' connects to the sub board. Not the other way around. Phone now assembled; works as it should. I'm happy.</p>
-
-<p><img src="media/wire-ribbon-oneplus-3t.jpg" alt="Connector" title="" /></p>
-
-<p>Tags: <a href='tag_smartphones.html'>smartphones</a>, <a href='tag_rocket-science.html'>rocket-science</a></p>
-
-
-
-<!-- text end -->
-<p id='twitter'><a href="http://blog.dalsgaard.net//oneplus-3t-running-hot.html#disqus_thread">Comments?</a> &nbsp;
-<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//oneplus-3t-running-hot.html"
- data-via="jakobdalsgaard"
->Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-</p>
-]]></description><link>http://blog.dalsgaard.net//oneplus-3t-running-hot.html</link>
-<guid>http://blog.dalsgaard.net//./oneplus-3t-running-hot.html</guid>
-<dc:creator>Jakob Dalsgaard</dc:creator>
-<pubDate>Thu, 07 Jan 2021 21:37:43 +0100</pubDate></item>
+<pubDate>Wed, 01 Apr 2020 22:53:28 +0200</pubDate></item>
 </channel></rss>
