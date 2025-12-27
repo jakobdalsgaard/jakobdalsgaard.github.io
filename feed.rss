@@ -2,9 +2,60 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Jakob Dalsgaards blog</title><link>http://blog.dalsgaard.net//index.html</link>
 <description>Anything...</description><language>en</language>
-<lastBuildDate>Sat, 27 Dec 2025 00:46:11 +0100</lastBuildDate>
-<pubDate>Sat, 27 Dec 2025 00:46:11 +0100</pubDate>
+<lastBuildDate>Sun, 28 Dec 2025 00:12:03 +0100</lastBuildDate>
+<pubDate>Sun, 28 Dec 2025 00:12:03 +0100</pubDate>
 <atom:link href="http://blog.dalsgaard.net//feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Running my own Mailserver
+</title><description><![CDATA[
+
+<p>I've been running my own mailserver for quite a while, years actually, but buying a new domain along with
+a server at Hetzner, I needed to do a fresh install. And it's been a while since I did that.</p>
+
+<p>The recent years, my go-to mailserver has been <a href="https://stalw.art/">Stalwart</a> -- it comes with basically 
+<em>everything</em> included. Okay, it would be nice if they'd supply Debian packages for a smooth and secure install.
+I've never fancied these <code>curl | bash</code> install schemes; but I gave it a go; downloaded the shell script
+and executed it. Et voilà - you fire up your browser and access the webui.</p>
+
+<p>Configuring Stalwart for you domain is super simple, head straight to Directory -> Domains -- select 'Create domain' and
+enter the domain name. Then it'll actually show you a bunch of DNS records you may add in your
+DNS management console, see here:</p>
+
+<p><img src="media/stalwart-domain-setup-resized.png" alt="Stalwart DNS records" title="" /></p>
+
+<p>This page alone removes a lot of complexity in setting up a proper mailserver. For Stalwart to be able to present this information
+it has already done quite a bit of tedious work for you; try googling 'dkim install guide' and see where that lands you. And yes, I do change bits
+here and there, the SPF record for one, but as a starting point it's really good; and no, none of this 
+information is secret, you can look it up online yourself -- well, the parts that I did put out there :-)</p>
+
+<p>My mailserver was flying within minutes -- then I spent several hours not being able to figure our why mails where unable to be sent or received...
+Then finally, I found this: <a href="https://docs.hetzner.com/cloud/servers/faq/#why-can-i-not-send-any-mails-from-my-server">Hetzner FAQ</a>:</p>
+
+<blockquote>
+  <p>Why can I not send any mails from my server?</p>
+
+<p>Unfortunately, email spammers and scammers like to use cloud hosting providers. And we at Hetzner naturally want to prevent this. 
+That's why we block ports 25 and 465 by default on all cloud servers. This is a very common practice in the cloud hosting industry 
+because it prevents abuse. We want to build trust with our new customers before we unblock these mail ports. Once you have been with us 
+for a month and paid your first invoice, you can create a limit request to unblock these ports for a valid use case. In your request, 
+you can tell us details about your use case. We make decisions on a case-by-case basis.</p>
+</blockquote>
+
+<p>Aha, once I've been with Hetzner for a month, then they'll <em>consider</em> opening port 25 :-)</p>
+
+<p>It all makes sense, running a mailserver is serious business and I will contact Hetzner in a moth.</p>
+
+<p>Tags: <a href='tag_computer.html'>computer</a>, <a href='tag_software.html'>software</a>, <a href='tag_email.html'>email</a></p>
+<!-- text end -->
+<p id='twitter'><a href="http://blog.dalsgaard.net//running-my-own-mailserver.html#disqus_thread">Comments?</a> &nbsp;
+<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//running-my-own-mailserver.html"
+ data-via="jakobdalsgaard"
+>Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</p>
+]]></description><link>http://blog.dalsgaard.net//running-my-own-mailserver.html</link>
+<guid>http://blog.dalsgaard.net//./running-my-own-mailserver.html</guid>
+<dc:creator>Jakob Dalsgaard</dc:creator>
+<pubDate>Sun, 28 Dec 2025 00:11:59 +0100</pubDate></item>
 <item><title>
 Pedestrian Site
 </title><description><![CDATA[
@@ -446,189 +497,4 @@ plade over.</p>
 <guid>http://blog.dalsgaard.net//./mega-meget-lasagne.html</guid>
 <dc:creator>Jakob Dalsgaard</dc:creator>
 <pubDate>Thu, 07 Jan 2021 21:37:43 +0100</pubDate></item>
-<item><title>
-Prometheus Amok
-</title><description><![CDATA[
-
-<p>Got my new setup with a Linux box as router (an old Dell PowerEdge, but with two
-gigabit ports, and it handles gigabit traffic tremendously well, couldn't be
-happier).  Besides the Linux box, I now run a managed switch and an Ubiquiti
-access point. All this equipment can be monitored in very many ways; but I'd
-like the metrics to be gathered in one uniform application, so I installed
-<a href="https://prometheus.io/">Prometheus</a> - a time series database to store all sorts
-of metrics in; I then put <a href="https://grafana.com/">Grafana</a> in front of it --
-whilst Prometheus has a very nice UI itself, Grafana does come with a lot of
-nice features, such as dashboards and alerting.</p>
-
-<h2>The World of Prometheus Exporters</h2>
-
-<h3>Unifi Prometheus Exporter</h3>
-
-<p>To be fetched from here: <a href="http://github.com/mdlayher/unifi">Unifi Scraper</a> — now 
-author recommends a docker; I'm more a fan of running my stuff on a real machine. So
-I opted for a plain normal install on the box.</p>
-
-<pre><code>export SRCDIR=$PWD
-mkdir -p src/github.com/mdlayher
-cd src/github.com/mdlayher
-git clone https://github.com/mdlayher/unifi_exporter.git
-cd unifi_exporter
-go get
-GOPATH=$SRCDIR go build ./cmd/unifi_exporter
-</code></pre>
-
-<p>And voil&aacute; I have the static binary <code>unifi_exporter</code>; copy that one to <code>/usr/local/sbin</code>; then make a
-service unit file:</p>
-
-<pre><code>[Unit]
-Description=Prometheus Unifi Exporter
-
-[Service]
-ExecStart=/usr/local/sbin/unifi_exporter -config.file /etc/prometheus/prometheus-unifi-exporter.yml
-
-[Install]
-WantedBy=multi-user.target
-</code></pre>
-
-<p>Save that in <code>prometheus-unifi-exporter.service</code>, copy to <code>/etc/systemd/system/</code> and do a <code>systemctl daemon-reload</code>.</p>
-
-<p>The yaml config file can look like this:</p>
-
-<pre><code>listen:
-  address: :9130
-  metricspath: /metrics
-unifi:
-  address: https://my.domain.name:9445
-  username: PrometheusUnifiExporter
-  password: DamnPrometheus
-  site:
-  insecure: true
-  timeout: 5s
-</code></pre>
-
-<p>For this go program to accept the Unifi application, I need to install at least a
-self signed certificate in Unifi, and Ubiqiti has not made that proces easy. I found
-it to work this way:</p>
-
-<p>First create a self signed certificate with your designed hostname as CN:</p>
-
-<pre><code># Make self signed certs
-openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365
-</code></pre>
-
-<p>Then convert it to pkcs12 to have something the Unifi java application wants to play with:</p>
-
-<pre><code># pacakge in pkcs12
-openssl pkcs12 -export -in cert.pem -inkey key.pem -out unifi.p12 -name unifi  -caname root
-</code></pre>
-
-<p>Now update the keystore with this very fine pkcs12 certificate:</p>
-
-<pre><code># use keytool to update keystore
-keytool -importkeystore -deststorepass aircontrolenterprise -destkeypass aircontrolenterprise -destkeystore new-keystore -srckeystore unifi.p12 -srcstoretype PKCS12 -srcstorepass temppass -alias ubnt -noprompt
-</code></pre>
-
-<p>I believe <code>keytool</code> can come from just about any java you have lying around. Now shut down your Unifi Controller application, take a backup copy of
-<code>/usr/lib/unifi/data/keystore</code> file, copy <code>new-keystore</code> to <code>/usr/lib/unifi/data/keystore</code> and start your Unifi Controller again and your Unifi
-Controller should be running with a brand new self signed certificate.</p>
-
-<p>Now the prometheus unifi exporter service can be installed by doing <code>systemctl start prometheus-unifi-exporter</code>.</p>
-
-<h3>Openhab Exporter</h3>
-
-<p>I run openhab2, so obviously I needed an exporter for that too -- found this one: https://github.com/baaym/openhab2-prometheus-exporter -- and
-it looked fine, installed it in <code>/opt/openhab2-exporter</code> did the relevant gunicorn install:</p>
-
-<pre><code>sudo apt install python3-gunicorn
-</code></pre>
-
-<p>Make sure you change line 7 in the python script to reflect your openhab setup, the line looks like this <code>url = urllib.request.urlopen('http://...</code>
--- the address there should match your openhab2 configuration.
-Then did a systemctl module file by the name of <code>/etc/systemd/system/openhab2-exporter.service</code> -- with contents:</p>
-
-<pre><code>[Unit]
-Description=OpenHAB2 Prometheus exporter
-After=openhab2.service
-
-[Service]
-WorkingDirectory=/opt/openhab2-exporter
-ExecStart=/usr/bin/gunicorn3 -w 4 -b 127.0.0.1:9195 openhab2-exporter:app
-Restart=on-failure
-
-[Install]
-WantedBy=multi-user.target
-Alias=openhab2-exporter.service
-</code></pre>
-
-<p>Then <code>sudo systemctl daemon-reload</code> and <code>sudo systemctl start openhab2-exporter</code> -- and adding this configuration to prometheus.yml:</p>
-
-<pre><code>  - job_name: 'openhab2_exporter'
-    scrape_interval: 10s
-    scheme: http
-    static_configs:
-      - targets:
-        - 'localhost:9195'
-</code></pre>
-
-<p>A restart of prometheus and it's data is available.</p>
-
-<h3>SNMP Exporter</h3>
-
-<p>Well.. SNMP is not <em>that</em> easy to understand, imho. But this project <a href="https://github.com/prometheus/snmp_exporter">Prometheus SNMP Exporter</a>
-does a fairly good job of easing the trouble. Got it installed and running. Did a unit file <code>prometheus-snmp-exporter.service</code>:</p>
-
-<pre><code>[Unit]
-Description=Prometheus exporter for SNMP-enabled devices
-Documentation=https://github.com/prometheus/snmp_exporter
-After=network.target
-
-[Service]
-User=prometheus
-EnvironmentFile=/etc/default/prometheus-snmp-exporter
-ExecStart=/usr/bin/prometheus-snmp-exporter $ARGS
-ExecReload=/bin/kill -HUP $MAINPID
-
-[Install]
-WantedBy=multi-user.target
-</code></pre>
-
-<p>And the obligatory <code>sudo systemctl daemon-reload</code> and <code>sudo systemctl start prometheus-snmp-exporter</code> -- and the prometheus.yml configuration:</p>
-
-<pre><code>  - job_name: 'snmp'
-    static_configs:
-      - targets:
-        - openmesh1.lan
-        - nanohd1.lan
-    metrics_path: /snmp
-    params:
-      module: [if_mib]
-    relabel_configs:
-      - source_labels: [__address__]
-        target_label: __param_target
-      - source_labels: [__param_target]
-        target_label: instance
-      - target_label: __address__
-        replacement: 127.0.0.1:9116  # The SNMP exporter's real hostname:port.
-</code></pre>
-
-<p>Then, after restarting prometheus, the data is available.</p>
-
-<h1>Grafana</h1>
-
-<p>Please do install grafana <code>sudo apt install grafana</code> -- you'll love it -- add prometheus as data source and be amazed.</p>
-
-<p>Tags: <a href='tag_computer.html'>computer</a>, <a href='tag_software.html'>software</a></p>
-
-
-
-<!-- text end -->
-<p id='twitter'><a href="http://blog.dalsgaard.net//prometheus-amok.html#disqus_thread">Comments?</a> &nbsp;
-<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//prometheus-amok.html"
- data-via="jakobdalsgaard"
->Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-</p>
-]]></description><link>http://blog.dalsgaard.net//prometheus-amok.html</link>
-<guid>http://blog.dalsgaard.net//./prometheus-amok.html</guid>
-<dc:creator>Jakob Dalsgaard</dc:creator>
-<pubDate>Wed, 01 Apr 2020 22:53:28 +0200</pubDate></item>
 </channel></rss>

@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="main.css" type="text/css" />
+<link rel="stylesheet" href="blog.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="Subscribe to this page..." href="feed.rss" />
+<title>Jakob Dalsgaards blog &mdash; Posts tagged "email"</title>
+<meta name='twitter:card' content='summary' />
+<meta name='twitter:site' content='@jakobdalsgaard' />
+<meta name='twitter:title' content='Jakob Dalsgaards blog &mdash; Posts tagged "email"' />
+<meta name='twitter:description' content=" Running my own Mailserver   December 28, 2025 &mdash;  Jakob Dalsgaard    I've been running my own mailserver for quite a while, years actually, but buying a new domain along with a server at Hetzner, I needed to do a fresh install. And it's been a " />
+</head><body>
+<div id="divbodyholder">
+<div class="headerholder"><div class="header">
+<div id="title">
+<h1 class="nomargin"><a class="ablack" href="http://blog.dalsgaard.net//index.html">Jakob Dalsgaards blog</a></h1>
+<div id="description">Anything...</div>
+</div></div></div>
+<div id="divbody"><div class="content">
+<h3><a class="ablack" href="running-my-own-mailserver.html">
+Running my own Mailserver
+</a></h3>
+<!-- bashblog_timestamp: #202512280011.59# -->
+<div class="subtitle">December 28, 2025 &mdash; 
+Jakob Dalsgaard
+</div>
+<!-- text begin -->
+
+<p>I've been running my own mailserver for quite a while, years actually, but buying a new domain along with
+a server at Hetzner, I needed to do a fresh install. And it's been a while since I did that.</p>
+
+<p>The recent years, my go-to mailserver has been <a href="https://stalw.art/">Stalwart</a> -- it comes with basically 
+<em>everything</em> included. Okay, it would be nice if they'd supply Debian packages for a smooth and secure install.
+I've never fancied these <code>curl | bash</code> install schemes; but I gave it a go; downloaded the shell script
+and executed it. Et voilà - you fire up your browser and access the webui.</p>
+
+<p>Configuring Stalwart for you domain is super simple, head straight to Directory -> Domains -- select 'Create domain' and
+enter the domain name. Then it'll actually show you a bunch of DNS records you may add in your
+DNS management console, see here:</p>
+
+<p><img src="media/stalwart-domain-setup-resized.png" alt="Stalwart DNS records" title="" /></p>
+
+<p>This page alone removes a lot of complexity in setting up a proper mailserver. For Stalwart to be able to present this information
+it has already done quite a bit of tedious work for you; try googling 'dkim install guide' and see where that lands you. And yes, I do change bits
+here and there, the SPF record for one, but as a starting point it's really good; and no, none of this 
+information is secret, you can look it up online yourself -- well, the parts that I did put out there :-)</p>
+
+<p>My mailserver was flying within minutes -- then I spent several hours not being able to figure our why mails where unable to be sent or received...
+Then finally, I found this: <a href="https://docs.hetzner.com/cloud/servers/faq/#why-can-i-not-send-any-mails-from-my-server">Hetzner FAQ</a>:</p>
+
+<blockquote>
+  <p>Why can I not send any mails from my server?</p>
+
+<p>Unfortunately, email spammers and scammers like to use cloud hosting providers. And we at Hetzner naturally want to prevent this. 
+That's why we block ports 25 and 465 by default on all cloud servers. This is a very common practice in the cloud hosting industry 
+because it prevents abuse. We want to build trust with our new customers before we unblock these mail ports. Once you have been with us 
+for a month and paid your first invoice, you can create a limit request to unblock these ports for a valid use case. In your request, 
+you can tell us details about your use case. We make decisions on a case-by-case basis.</p>
+</blockquote>
+
+<p>Aha, once I've been with Hetzner for a month, then they'll <em>consider</em> opening port 25 :-)</p>
+
+<p>It all makes sense, running a mailserver is serious business and I will contact Hetzner in a moth.</p>
+
+<p>Tags: <a href='tag_computer.html'>computer</a>, <a href='tag_software.html'>software</a>, <a href='tag_email.html'>email</a></p>
+<!-- text end -->
+<p id='twitter'><a href="http://blog.dalsgaard.net//running-my-own-mailserver.html#disqus_thread">Comments?</a> &nbsp;
+<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//running-my-own-mailserver.html"
+ data-via="jakobdalsgaard"
+>Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</p>
+</div>
+<div id="footer">CC by-nc-nd <a href="https://twitter.com/jakobdalsgaard">Jakob Dalsgaard</a> &mdash; <a href="mailto:jakob@#64;dalsgaard.#46;net">jakob@#64;dalsgaard.#46;net</a><br/>
+Generated with <a href="https://github.com/cfenollosa/bashblog">bashblog</a>, a single bash script to easily create blogs like this one</div>
+</div></div>
+<script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'jakob-dalsgaard-blog'; // required: replace example with your forum shortname
+
+        /* * * DONT EDIT BELOW THIS LINE * * */
+        (function () {
+        var s = document.createElement("script"); s.async = true;
+        s.type = "text/javascript";
+        s.src = "//" + disqus_shortname + ".disqus.com/count.js";
+        (document.getElementsByTagName("HEAD")[0] || document.getElementsByTagName("BODY")[0]).appendChild(s);
+    }());
+    </script>
+</body></html>
