@@ -2,8 +2,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Jakob Dalsgaards blog</title><link>http://blog.dalsgaard.net//index.html</link>
 <description>Anything...</description><language>en</language>
-<lastBuildDate>Sun, 28 Dec 2025 00:12:03 +0100</lastBuildDate>
-<pubDate>Sun, 28 Dec 2025 00:12:03 +0100</pubDate>
+<lastBuildDate>Sun, 28 Dec 2025 09:25:52 +0100</lastBuildDate>
+<pubDate>Sun, 28 Dec 2025 09:25:52 +0100</pubDate>
 <atom:link href="http://blog.dalsgaard.net//feed.rss" rel="self" type="application/rss+xml" />
 <item><title>
 Running my own Mailserver
@@ -43,7 +43,8 @@ you can tell us details about your use case. We make decisions on a case-by-case
 
 <p>Aha, once I've been with Hetzner for a month, then they'll <em>consider</em> opening port 25 :-)</p>
 
-<p>It all makes sense, running a mailserver is serious business and I will contact Hetzner in a moth.</p>
+<p>It all makes sense, running a mailserver is serious business and I will contact Hetzner in a moth. For now I'll take comfort in knowing that my 
+nftables stills are okay :-)</p>
 
 <p>Tags: <a href='tag_computer.html'>computer</a>, <a href='tag_software.html'>software</a>, <a href='tag_email.html'>email</a></p>
 <!-- text end -->

@@ -32,7 +32,8 @@ Then finally, I found this: [Hetzner FAQ](https://docs.hetzner.com/cloud/servers
 
 Aha, once I've been with Hetzner for a month, then they'll _consider_ opening port 25 :-)
 
-It all makes sense, running a mailserver is serious business and I will contact Hetzner in a moth.
+It all makes sense, running a mailserver is serious business and I will contact Hetzner in a moth. For now I'll take comfort in knowing that my 
+nftables stills are okay :-)
 
 
 Tags: computer, software, email
