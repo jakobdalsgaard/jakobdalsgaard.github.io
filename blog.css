@@ -26,4 +26,6 @@ pre {
     display: block;
     word-wrap: break-word;
 }
-
+div.content p img {
+	width: 100%;
+}
