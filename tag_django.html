@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="main.css" type="text/css" />
+<link rel="stylesheet" href="blog.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="Subscribe to this page..." href="feed.rss" />
+<title>Jakob Dalsgaards blog &mdash; Posts tagged "django"</title>
+<meta name='twitter:card' content='summary' />
+<meta name='twitter:site' content='@jakobdalsgaard' />
+<meta name='twitter:title' content='Jakob Dalsgaards blog &mdash; Posts tagged "django"' />
+<meta name='twitter:description' content=" Hosting my Django Site elsewhere   January 12, 2026 &mdash;  Jakob Dalsgaard    If you build your website using pedestrian.site -- then one of the benefits of the extremely simple architecture your application has, is that you can move it  elsehwere" />
+</head><body>
+<div id="divbodyholder">
+<div class="headerholder"><div class="header">
+<div id="title">
+<h1 class="nomargin"><a class="ablack" href="http://blog.dalsgaard.net//index.html">Jakob Dalsgaards blog</a></h1>
+<div id="description">Anything...</div>
+</div></div></div>
+<div id="divbody"><div class="content">
+<h3><a class="ablack" href="hosting-my-django-site-elsewhere.html">
+Hosting my Django Site elsewhere
+</a></h3>
+<!-- bashblog_timestamp: #202601121418.20# -->
+<div class="subtitle">January 12, 2026 &mdash; 
+Jakob Dalsgaard
+</div>
+<!-- text begin -->
+
+<p>If you build your website using <a href="https://pedestrian.site/">pedestrian.site</a> -- then one of the
+benefits of the extremely simple architecture your application has, is that you can move it 
+elsehwere extremely easy. It is supposed to be a self-contained Python Django application with
+very little requirements on infrastructure. Now, obviously, if you wish to run your application
+for many, many thousands of users -- these architectural choices might need a revisit; fixing
+that is not too hard though :-)</p>
+
+<h1>Step 1, Create a webapplication</h1>
+
+<p>I created an application with this prompt:</p>
+
+<blockquote>
+  <p>Create an application where users can register, login -- then they should put in their home address, 
+please do an openstreetmap preview of the location - once done, they should be able to register dogs
+passing by their house.</p>
+</blockquote>
+
+<p>It can be seen here: <a href="https://e1e82234-ce2b-4b8b-9a4c-d6312a0ad007.pedestrian.site/">e1e82234-ce2b-4b8b-9a4c-d6312a0ad007.pedestrian.site/</a>.
+It's really simple. When you create your own, do test it online, and tell Mistral AI to fix whatever is
+not working or just wrong.</p>
+
+<h1>Step 2, Downloading..</h1>
+
+<p>If you log in to pedestrian.site and 'view details' on your application, you will see a button
+called 'Download App'. If you click that one, you will receive a zip-file containing your
+application. Do that. I did that with my application; please follow these steps to run it from
+your laptop (example should work for Mac and Linux):</p>
+
+<pre><code>$ unzip -q Dogs_at_my_House.zip
+$ cd Dogs_at_my_House
+$ python3 -m venv venv
+$ source venv/bin/activate
+(venv) $ pip3 install -r requirements.txt
+</code></pre>
+
+<p>At this point, you should edit the <code>settings.py</code> file located in the project subdirectory, in my case <code>dogwatch/settings.py</code> - the following
+settings need to change:</p>
+
+<pre><code>HOSTNAME
+LOGGING / handlers / file / filename
+</code></pre>
+
+<p>Eventually you might consider flipping 'DEBUG' to 'False', as running it with 'True' can expose details about your application
+that you would not want to expose. With this, you can run the application by doing:</p>
+
+<pre><code>(venv) $ python3 manage.py runserver
+</code></pre>
+
+<h1>Step 3, Further Considerations</h1>
+
+<p>Now, you might want to change certain things to harden this application and provide a more solid infrastructure, this could be:</p>
+
+<ul>
+<li>Using a reverse proxy to handle certificates and thus TLS traffic</li>
+<li>Installing a relational database and not use SQLite</li>
+<li>Have it run by systemd/launchd</li>
+<li>Fronting it with a CDN</li>
+</ul>
+
+<p>All this is not hard to do; the Django framework and the community around Django provides plenty of documentation. Your case might
+differ ever so slightly from the tutorials, so do not be afraid to reach out.</p>
+
+<p>Tags: <a href='tag_python.html'>python</a>, <a href='tag_django.html'>django</a>, <a href='tag_software.html'>software</a></p>
+<!-- text end -->
+<p id='twitter'><a href="http://blog.dalsgaard.net//hosting-my-django-site-elsewhere.html#disqus_thread">Comments?</a> &nbsp;
+<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//hosting-my-django-site-elsewhere.html"
+ data-via="jakobdalsgaard"
+>Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</p>
+</div>
+<div id="footer">CC by-nc-nd <a href="https://twitter.com/jakobdalsgaard">Jakob Dalsgaard</a> &mdash; <a href="mailto:jakob@#64;dalsgaard.#46;net">jakob@#64;dalsgaard.#46;net</a><br/>
+Generated with <a href="https://github.com/cfenollosa/bashblog">bashblog</a>, a single bash script to easily create blogs like this one</div>
+</div></div>
+<script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'jakob-dalsgaard-blog'; // required: replace example with your forum shortname
+
+        /* * * DONT EDIT BELOW THIS LINE * * */
+        (function () {
+        var s = document.createElement("script"); s.async = true;
+        s.type = "text/javascript";
+        s.src = "//" + disqus_shortname + ".disqus.com/count.js";
+        (document.getElementsByTagName("HEAD")[0] || document.getElementsByTagName("BODY")[0]).appendChild(s);
+    }());
+    </script>
+</body></html>

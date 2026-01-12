@@ -2,9 +2,86 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Jakob Dalsgaards blog</title><link>http://blog.dalsgaard.net//index.html</link>
 <description>Anything...</description><language>en</language>
-<lastBuildDate>Sun, 28 Dec 2025 09:25:52 +0100</lastBuildDate>
-<pubDate>Sun, 28 Dec 2025 09:25:52 +0100</pubDate>
+<lastBuildDate>Mon, 12 Jan 2026 14:36:49 +0100</lastBuildDate>
+<pubDate>Mon, 12 Jan 2026 14:36:49 +0100</pubDate>
 <atom:link href="http://blog.dalsgaard.net//feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Hosting my Django Site elsewhere
+</title><description><![CDATA[
+
+<p>If you build your website using <a href="https://pedestrian.site/">pedestrian.site</a> -- then one of the
+benefits of the extremely simple architecture your application has, is that you can move it 
+elsehwere extremely easy. It is supposed to be a self-contained Python Django application with
+very little requirements on infrastructure. Now, obviously, if you wish to run your application
+for many, many thousands of users -- these architectural choices might need a revisit; fixing
+that is not too hard though :-)</p>
+
+<h1>Step 1, Create a webapplication</h1>
+
+<p>I created an application with this prompt:</p>
+
+<blockquote>
+  <p>Create an application where users can register, login -- then they should put in their home address, 
+please do an openstreetmap preview of the location - once done, they should be able to register dogs
+passing by their house.</p>
+</blockquote>
+
+<p>It can be seen here: <a href="https://e1e82234-ce2b-4b8b-9a4c-d6312a0ad007.pedestrian.site/">e1e82234-ce2b-4b8b-9a4c-d6312a0ad007.pedestrian.site/</a>.
+It's really simple. When you create your own, do test it online, and tell Mistral AI to fix whatever is
+not working or just wrong.</p>
+
+<h1>Step 2, Downloading..</h1>
+
+<p>If you log in to pedestrian.site and 'view details' on your application, you will see a button
+called 'Download App'. If you click that one, you will receive a zip-file containing your
+application. Do that. I did that with my application; please follow these steps to run it from
+your laptop (example should work for Mac and Linux):</p>
+
+<pre><code>$ unzip -q Dogs_at_my_House.zip
+$ cd Dogs_at_my_House
+$ python3 -m venv venv
+$ source venv/bin/activate
+(venv) $ pip3 install -r requirements.txt
+</code></pre>
+
+<p>At this point, you should edit the <code>settings.py</code> file located in the project subdirectory, in my case <code>dogwatch/settings.py</code> - the following
+settings need to change:</p>
+
+<pre><code>HOSTNAME
+LOGGING / handlers / file / filename
+</code></pre>
+
+<p>Eventually you might consider flipping 'DEBUG' to 'False', as running it with 'True' can expose details about your application
+that you would not want to expose. With this, you can run the application by doing:</p>
+
+<pre><code>(venv) $ python3 manage.py runserver
+</code></pre>
+
+<h1>Step 3, Further Considerations</h1>
+
+<p>Now, you might want to change certain things to harden this application and provide a more solid infrastructure, this could be:</p>
+
+<ul>
+<li>Using a reverse proxy to handle certificates and thus TLS traffic</li>
+<li>Installing a relational database and not use SQLite</li>
+<li>Have it run by systemd/launchd</li>
+<li>Fronting it with a CDN</li>
+</ul>
+
+<p>All this is not hard to do; the Django framework and the community around Django provides plenty of documentation. Your case might
+differ ever so slightly from the tutorials, so do not be afraid to reach out.</p>
+
+<p>Tags: <a href='tag_python.html'>python</a>, <a href='tag_django.html'>django</a>, <a href='tag_software.html'>software</a></p>
+<!-- text end -->
+<p id='twitter'><a href="http://blog.dalsgaard.net//hosting-my-django-site-elsewhere.html#disqus_thread">Comments?</a> &nbsp;
+<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//hosting-my-django-site-elsewhere.html"
+ data-via="jakobdalsgaard"
+>Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</p>
+]]></description><link>http://blog.dalsgaard.net//hosting-my-django-site-elsewhere.html</link>
+<guid>http://blog.dalsgaard.net//./hosting-my-django-site-elsewhere.html</guid>
+<dc:creator>Jakob Dalsgaard</dc:creator>
+<pubDate>Mon, 12 Jan 2026 14:18:20 +0100</pubDate></item>
 <item><title>
 Running my own Mailserver
 </title><description><![CDATA[
@@ -393,109 +470,4 @@ evt. kombineres med vanille i sukkeret.</li>
 <guid>http://blog.dalsgaard.net//./en-anden-opskrift-pa-is.html</guid>
 <dc:creator>Jakob Dalsgaard</dc:creator>
 <pubDate>Tue, 12 Jan 2021 07:29:21 +0100</pubDate></item>
-<item><title>
-Mega meget lasagne
-</title><description><![CDATA[
-
-<p>Lasagne nok til 6 brødforme... just saying... Husk smør til formene, de skal være smurte!
-Opskriften er temmelig meget en kopi af FXcuisines fantastiske <a href="http://fxcuisine.com/Default.asp?language=2&amp;Display=152&amp;resolution=high">Lasagna from Scratch</a>.</p>
-
-<ul>
-<li>V2, 2022-03-12, Opdatering... nu med bedre smag.</li>
-</ul>
-
-<h2>Lasagneplader</h2>
-
-<p>Ingredienser</p>
-
-<ul>
-<li>800g durum hvedemel</li>
-<li>8 æg</li>
-<li>0,8 dL vand</li>
-<li>1 tsk salt</li>
-</ul>
-
-<p>Det er klart nemmest at lave pastadejen i en stor køkkenmaskine, eksempelvis en Kenwood. Hæld al
-melen i røreskålen, derpå æg, olivenolie og salt. Sæt maskinen til at røre langsomt i et par minutter,
-derpå ganske anseeligt hurtigt for at dejen slåes op mod siderne. Hvis dejen ikke samles ordentlig,
-kan man hælde lidt koldt vand i. <em>Lidt</em>.</p>
-
-<p>Pladerne kan med fordel laves i forvejen, rulles ud til tykkelsen 7 på din Marcato Atlas lasagnemaskine,
-bruges i lasagnen direkte fra maskine.</p>
-
-<h2>Rag&uacute; Bolognese (Kødsovs....)</h2>
-
-<p>Ingredienser</p>
-
-<ul>
-<li>1 kg okse- eller kalvekød</li>
-<li>250 g bacon eller pancetta</li>
-<li>1 kg gulerødder</li>
-<li>1 kg løg</li>
-<li>5 dåser flåede tomater</li>
-<li>1 bundt bladselleri</li>
-<li>kyllingelever</li>
-<li>&frac12; L kyllingefond</li>
-<li>3 dL hvidvin</li>
-<li>&frac12; L fløde</li>
-<li>&frac12; dL olivenolie</li>
-</ul>
-
-<p>Gulerødder skrælles, skæres i tynde strimler, ca. 2-3mm x 2-3mm, derpå i små tern. Bladselleri skæres ligeledes
-i små tern. Sættes til side. Bacon skæres i små tern af nogenlunde samme størrelse. Tag gerne to pander og en
-stor gryde. Panderne bruges til at forberede en lang række af ingredienserne på førend de smides i gryden.</p>
-
-<p>Der forberedes kun små portioner ad gangen på panderne. Smør og olie først, varmes godt op, løg smides på panden, og
-vandet fordampes væk, lad løgene blive klare, ikke brune. Dernæst gulerødder og bladselleri. Lad
-det svitse og blive lidt blødt, skub det lidt til side og rist en smule bacon/pancetta. Ikke for meget, det
-skal ikke koge i egen saft, men få en karamelliseret overflade. Derpå en smule okse/kalvekød og lidt kyllingelever.
-Det ristes nogenlunde tørt. Panden koges af med lidt hvidvin, der koger lidt ind. Derpå en smule kyllingefond,
-der koger lidt ind. Derpå fløde, der koger lidt ind. Denne proces laves med små portioner, der smides i gryden.</p>
-
-<p>Når al kød og alle grøntsager således er processeret, da bringes grydens indhold til kogepunktet. 5 dåser flåede tomater
-tilføjes, og gryden koger i <em>minimum</em> 3 timer. Lad den gerne stå til dagen efter!</p>
-
-<h2>Sauce B&eacute;chamel</h2>
-
-<ul>
-<li>3 L sødmælk</li>
-<li>4d L hvedemel</li>
-<li>400 g smør</li>
-<li>1 tsk salt</li>
-<li>1 tsk revet muskatnød</li>
-</ul>
-
-<p>Tag en stor gryde, smelt smørret ved lav varme, rør melet i -- det bliver en stor klump.
-Ved lidt højere varme: hæld langsomt mælken i under omrøring. Det bliver en tyk sovs.
-Tilsæt salt og muskatnød og lad sovsen koge svagt i ca. 20 minutter. Sæt til at køle.</p>
-
-<h2>Opbygning af lasagnen</h2>
-
-<p>Ingredienser:</p>
-
-<ul>
-<li>50 g smør til at smøre formene.</li>
-<li>400 g parmesan</li>
-</ul>
-
-<p>Tag en form, smør den. Start med et lag lasagneplade, derpå en smulle rag&uacute;, b&eacute;chamel og
-revet parmesan. Repet&eacute;r dette til formen er fyldt. Der afsluttes med revet parmesan.</p>
-
-<p>Brødformene kan vikles ind i madfolie, eller lægges i fryseposer og fryses. <em>Eller</em> sættes direkte i ovnen,
-ca. 45 minutter ved 175&deg;C, med en plade over, så toppen ikke bliver fuldstændig sveden, dernæst en halv time uden
-plade over.</p>
-
-<p>Tags: <a href='tag_mad.html'>mad</a>, <a href='tag_opskrift.html'>opskrift</a>, <a href='tag_italy-ftw.html'>italy-ftw</a></p>
-
-
-<!-- text end -->
-<p id='twitter'><a href="http://blog.dalsgaard.net//mega-meget-lasagne.html#disqus_thread">Comments?</a> &nbsp;
-<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//mega-meget-lasagne.html"
- data-via="jakobdalsgaard"
->Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-</p>
-]]></description><link>http://blog.dalsgaard.net//mega-meget-lasagne.html</link>
-<guid>http://blog.dalsgaard.net//./mega-meget-lasagne.html</guid>
-<dc:creator>Jakob Dalsgaard</dc:creator>
-<pubDate>Thu, 07 Jan 2021 21:37:43 +0100</pubDate></item>
 </channel></rss>
