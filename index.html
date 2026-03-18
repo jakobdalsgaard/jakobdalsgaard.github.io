@@ -9,7 +9,7 @@
 <meta name='twitter:card' content='summary' />
 <meta name='twitter:site' content='@jakobdalsgaard' />
 <meta name='twitter:title' content='Jakob Dalsgaards blog' />
-<meta name='twitter:description' content=" Hosting my Django Site elsewhere   January 12, 2026 &mdash;  Jakob Dalsgaard    If you build your website using pedestrian.site -- then one of the benefits of the extremely simple architecture your application has, is that you can move it  elsehwere" />
+<meta name='twitter:description' content=" Journalctl Niceties   March 18, 2026 &mdash;  Jakob Dalsgaard    Part of the systemd solution is the log manager journalctl -- which takes a while to get used to. I does provide some nifty features though.  You can list the times the machine has boo" />
 </head><body>
 <div id="divbodyholder">
 <div class="headerholder"><div class="header">
@@ -18,6 +18,56 @@
 <div id="description">Anything...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="journalctl-niceties.html">
+Journalctl Niceties
+</a></h3>
+<!-- bashblog_timestamp: #202603180841.58# -->
+<div class="subtitle">March 18, 2026 &mdash; 
+Jakob Dalsgaard
+</div>
+<!-- text begin -->
+
+<p>Part of the systemd solution is the log manager journalctl -- which takes
+a while to get used to. I does provide some nifty features though.</p>
+
+<p>You can list the times the machine has booted, with unique identifiers per boot:</p>
+
+<pre><code>journalctl --list-boots
+</code></pre>
+
+<p>Add an <code>-n X</code> to only list the last X boots; the last two boots on my machine right now
+is thus:</p>
+
+<pre><code>IDX BOOT ID                          FIRST ENTRY                 LAST ENTRY                 
+ -1 5fdf88e99fc443368952110898c387d8 Tue 2026-03-17 07:47:16 CET Wed 2026-03-18 08:10:19 CET
+  0 4a374ebd43fc4260a02fcdb38f9d0b67 Wed 2026-03-18 08:11:31 CET Wed 2026-03-18 08:19:18 CET
+</code></pre>
+
+<p>Then, using the index you can get the system logs from just before the last boot by doing:</p>
+
+<pre><code>journalctl -b -1 -e
+</code></pre>
+
+<p>You may add the <code>-p err</code> flag to only get error level, and perhaps <code>-k</code> to only get kernel logs.</p>
+
+<p>For ordinary applications (units) the <code>-u</code> parameter selects the unit -- specifying <code>--follow</code> mimics
+the use of <code>tail</code> on ordinary log files -- and finally <code>--since='10 min ago'</code> lets you <em>not</em> get logs
+since the beginning of time :-)</p>
+
+<p>Example:</p>
+
+<pre><code>journalctl -u nginx --since='10 min ago' --follow
+</code></pre>
+
+<p>Will give you the last 10 minutes of the nginx log and tail for new log lines. Nify.</p>
+
+<p>Tags: <a href='tag_computer.html'>computer</a>, <a href='tag_debian.html'>debian</a>, <a href='tag_linux.html'>linux</a></p>
+<!-- text end -->
+<p id='twitter'><a href="http://blog.dalsgaard.net//journalctl-niceties.html#disqus_thread">Comments?</a> &nbsp;
+<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//journalctl-niceties.html"
+ data-via="jakobdalsgaard"
+>Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</p>
 <h3><a class="ablack" href="hosting-my-django-site-elsewhere.html">
 Hosting my Django Site elsewhere
 </a></h3>
@@ -349,49 +399,10 @@ minutters tid. Brug stavblenderen.</p>
  data-via="jakobdalsgaard"
 >Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 </p>
-<h3><a class="ablack" href="pickles.html">
-Pickles
-</a></h3>
-<!-- bashblog_timestamp: #202108192236.14# -->
-<div class="subtitle">August 19, 2021 &mdash; 
-Jakob Dalsgaard
-</div>
-<!-- text begin -->
-
-<p>En god voksen portion pickles, inspireret af en opskrift fra <a href="https://danishthings.com/da/pickles-hjemmelavede-senneps-pickles/">danish things</a>:</p>
-
-<ul>
-<li>4-4,5 kg grøntsager, snittet fint, f.eks. gulerødder, blomkål, squash, gulerødder, løg. En gylden regel fastlår at hvis pickles skal bruges til remoulade, så skal der være agurk i.</li>
-<li>1,2 liter eddike</li>
-<li>800 gram sukker</li>
-<li>2 spsk salt</li>
-</ul>
-
-<p>Jævning af:</p>
-
-<ul>
-<li>100 gram mel</li>
-<li>4 deciliter vand</li>
-<li>4 spsk sennepspulver</li>
-<li>2 spsk karry</li>
-<li>2 spsk gurkemeje</li>
-<li>1 spsk paprika</li>
-</ul>
-
-<p>Eddike, suker og salt koges op, grøntsager kommes i gryden og koger cirka en halv time, jævningen hældes i og det koger videre ved svag varme i yderligere en halv time. Hældes på skoldede, atamonskyllde glas.</p>
-
-<p>Tags: <a href='tag_mad.html'>mad</a>, <a href='tag_opskrift.html'>opskrift</a></p>
-
-
-
-<!-- text end -->
-<p id='twitter'><a href="http://blog.dalsgaard.net//pickles.html#disqus_thread">Comments?</a> &nbsp;
-<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//pickles.html"
- data-via="jakobdalsgaard"
->Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-</p>
 <div id="all_posts"><a href="all_posts.html">View more posts</a> &mdash; <a href="all_tags.html">All tags</a> &mdash; <a href="feed.rss">Subscribe</a></div>
 </div>
+<div id="footer">CC by-nc-nd <a href="https://twitter.com/jakobdalsgaard">Jakob Dalsgaard</a> &mdash; <a href="mailto:jakob@#64;dalsgaard.#46;net">jakob@#64;dalsgaard.#46;net</a><br/>
+Generated with <a href="https://github.com/cfenollosa/bashblog">bashblog</a>, a single bash script to easily create blogs like this one</div>
 <div id="footer">CC by-nc-nd <a href="https://twitter.com/jakobdalsgaard">Jakob Dalsgaard</a> &mdash; <a href="mailto:jakob@#64;dalsgaard.#46;net">jakob@#64;dalsgaard.#46;net</a><br/>
 Generated with <a href="https://github.com/cfenollosa/bashblog">bashblog</a>, a single bash script to easily create blogs like this one</div>
 </div></div>

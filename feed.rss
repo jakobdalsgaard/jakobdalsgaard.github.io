@@ -2,9 +2,58 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Jakob Dalsgaards blog</title><link>http://blog.dalsgaard.net//index.html</link>
 <description>Anything...</description><language>en</language>
-<lastBuildDate>Mon, 12 Jan 2026 14:36:49 +0100</lastBuildDate>
-<pubDate>Mon, 12 Jan 2026 14:36:49 +0100</pubDate>
+<lastBuildDate>Wed, 18 Mar 2026 08:42:00 +0100</lastBuildDate>
+<pubDate>Wed, 18 Mar 2026 08:42:00 +0100</pubDate>
 <atom:link href="http://blog.dalsgaard.net//feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Journalctl Niceties
+</title><description><![CDATA[
+
+<p>Part of the systemd solution is the log manager journalctl -- which takes
+a while to get used to. I does provide some nifty features though.</p>
+
+<p>You can list the times the machine has booted, with unique identifiers per boot:</p>
+
+<pre><code>journalctl --list-boots
+</code></pre>
+
+<p>Add an <code>-n X</code> to only list the last X boots; the last two boots on my machine right now
+is thus:</p>
+
+<pre><code>IDX BOOT ID                          FIRST ENTRY                 LAST ENTRY                 
+ -1 5fdf88e99fc443368952110898c387d8 Tue 2026-03-17 07:47:16 CET Wed 2026-03-18 08:10:19 CET
+  0 4a374ebd43fc4260a02fcdb38f9d0b67 Wed 2026-03-18 08:11:31 CET Wed 2026-03-18 08:19:18 CET
+</code></pre>
+
+<p>Then, using the index you can get the system logs from just before the last boot by doing:</p>
+
+<pre><code>journalctl -b -1 -e
+</code></pre>
+
+<p>You may add the <code>-p err</code> flag to only get error level, and perhaps <code>-k</code> to only get kernel logs.</p>
+
+<p>For ordinary applications (units) the <code>-u</code> parameter selects the unit -- specifying <code>--follow</code> mimics
+the use of <code>tail</code> on ordinary log files -- and finally <code>--since='10 min ago'</code> lets you <em>not</em> get logs
+since the beginning of time :-)</p>
+
+<p>Example:</p>
+
+<pre><code>journalctl -u nginx --since='10 min ago' --follow
+</code></pre>
+
+<p>Will give you the last 10 minutes of the nginx log and tail for new log lines. Nify.</p>
+
+<p>Tags: <a href='tag_computer.html'>computer</a>, <a href='tag_debian.html'>debian</a>, <a href='tag_linux.html'>linux</a></p>
+<!-- text end -->
+<p id='twitter'><a href="http://blog.dalsgaard.net//journalctl-niceties.html#disqus_thread">Comments?</a> &nbsp;
+<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//journalctl-niceties.html"
+ data-via="jakobdalsgaard"
+>Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</p>
+]]></description><link>http://blog.dalsgaard.net//journalctl-niceties.html</link>
+<guid>http://blog.dalsgaard.net//./journalctl-niceties.html</guid>
+<dc:creator>Jakob Dalsgaard</dc:creator>
+<pubDate>Wed, 18 Mar 2026 08:41:58 +0100</pubDate></item>
 <item><title>
 Hosting my Django Site elsewhere
 </title><description><![CDATA[
@@ -423,51 +472,4 @@ hurtigt, så risikerer man at slå glassene i stykker. Lad glassene stå i det v
 <guid>http://blog.dalsgaard.net//./aeblemarmelade.html</guid>
 <dc:creator>Jakob Dalsgaard</dc:creator>
 <pubDate>Wed, 18 Aug 2021 21:51:09 +0200</pubDate></item>
-<item><title>
-En anden opskrift på is
-</title><description><![CDATA[
-
-<p>Udover min opskrift på <a href="/gelato-di-vaniglia.html">gelato</a> kommer her en nem opskrift på
-en 'custard' lignende, cremet is.</p>
-
-<p>Ingredienser:</p>
-
-<ul>
-<li>6 æggeblommer</li>
-<li>2,5 dL sukker</li>
-<li>5 dL sødmælk</li>
-<li>5 dL fløde</li>
-</ul>
-
-<p>I en skål piskes æggeblommer og sukker indtil sukkeret er godt opløst og blandingen bliver
-markant lysere. Sødmælken varmes i en gryde til den næsten koger. Cirka en fjerdedel af den
-varme mælk hældes over i skålen med æggeblommer og sukker mens der piskes - blandingen piskes
-godt igennem og hældes tilbage i gryden. Indholdet i gryden varmes op under omrøring til 75ºC.
-Blandingen sættes i køleskabet til den er blevet godt kold - mindst to timer - fløden piskes i
-og blandingen kan hældes i ismaskinen.</p>
-
-<p>Det var så grundopskriften - helt uden smag sat til. Her kommer en række varianter:</p>
-
-<ul>
-<li><em>Vanilleis</em> - 2 tsk vanillesukker eller en stang vanille blandes i sukkeret.</li>
-<li><em>Pink Panter</em> - 1/2 glas Amarena kirsebær blendes med fløden og 50 g hakket mørk chokolade
-blandes i isen lige før ismaskinen har rørt den færdig.</li>
-<li><em>Click Mix</em> - 2 dL Click Mix blandes i isen lige før ismaskinen har rørt den færdig, kan 
-evt. kombineres med vanille i sukkeret.</li>
-</ul>
-
-<p>Tags: <a href='tag_mad.html'>mad</a>, <a href='tag_opskrift.html'>opskrift</a></p>
-
-
-
-<!-- text end -->
-<p id='twitter'><a href="http://blog.dalsgaard.net//en-anden-opskrift-pa-is.html#disqus_thread">Comments?</a> &nbsp;
-<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//en-anden-opskrift-pa-is.html"
- data-via="jakobdalsgaard"
->Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-</p>
-]]></description><link>http://blog.dalsgaard.net//en-anden-opskrift-pa-is.html</link>
-<guid>http://blog.dalsgaard.net//./en-anden-opskrift-pa-is.html</guid>
-<dc:creator>Jakob Dalsgaard</dc:creator>
-<pubDate>Tue, 12 Jan 2021 07:29:21 +0100</pubDate></item>
 </channel></rss>

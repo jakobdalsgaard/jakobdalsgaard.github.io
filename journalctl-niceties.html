@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="main.css" type="text/css" />
+<link rel="stylesheet" href="blog.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="Subscribe to this page..." href="feed.rss" />
+<title>Journalctl Niceties</title>
+<meta name='twitter:card' content='summary' />
+<meta name='twitter:site' content='@jakobdalsgaard' />
+<meta name='twitter:title' content='Journalctl Niceties' />
+<meta name='twitter:description' content=" Part of the systemd solution is the log manager journalctl -- which takes a while to get used to. I does provide some nifty features though.  You can list the times the machine has booted, with unique identifiers per boot:  journalctl --list-boots  " />
+</head><body>
+<div id="divbodyholder">
+<div class="headerholder"><div class="header">
+<div id="title">
+<h1 class="nomargin"><a class="ablack" href="http://blog.dalsgaard.net//index.html">Jakob Dalsgaards blog</a></h1>
+<div id="description">Anything...</div>
+</div></div></div>
+<div id="divbody"><div class="content">
+<!-- entry begin -->
+<h3><a class="ablack" href="journalctl-niceties.html">
+Journalctl Niceties
+</a></h3>
+<!-- bashblog_timestamp: #202603180841.58# -->
+<div class="subtitle">March 18, 2026 &mdash; 
+Jakob Dalsgaard
+</div>
+<!-- text begin -->
+
+<p>Part of the systemd solution is the log manager journalctl -- which takes
+a while to get used to. I does provide some nifty features though.</p>
+
+<p>You can list the times the machine has booted, with unique identifiers per boot:</p>
+
+<pre><code>journalctl --list-boots
+</code></pre>
+
+<p>Add an <code>-n X</code> to only list the last X boots; the last two boots on my machine right now
+is thus:</p>
+
+<pre><code>IDX BOOT ID                          FIRST ENTRY                 LAST ENTRY                 
+ -1 5fdf88e99fc443368952110898c387d8 Tue 2026-03-17 07:47:16 CET Wed 2026-03-18 08:10:19 CET
+  0 4a374ebd43fc4260a02fcdb38f9d0b67 Wed 2026-03-18 08:11:31 CET Wed 2026-03-18 08:19:18 CET
+</code></pre>
+
+<p>Then, using the index you can get the system logs from just before the last boot by doing:</p>
+
+<pre><code>journalctl -b -1 -e
+</code></pre>
+
+<p>You may add the <code>-p err</code> flag to only get error level, and perhaps <code>-k</code> to only get kernel logs.</p>
+
+<p>For ordinary applications (units) the <code>-u</code> parameter selects the unit -- specifying <code>--follow</code> mimics
+the use of <code>tail</code> on ordinary log files -- and finally <code>--since='10 min ago'</code> lets you <em>not</em> get logs
+since the beginning of time :-)</p>
+
+<p>Example:</p>
+
+<pre><code>journalctl -u nginx --since='10 min ago' --follow
+</code></pre>
+
+<p>Will give you the last 10 minutes of the nginx log and tail for new log lines. Nify.</p>
+
+<p>Tags: <a href='tag_computer.html'>computer</a>, <a href='tag_debian.html'>debian</a>, <a href='tag_linux.html'>linux</a></p>
+<!-- text end -->
+<p id='twitter'><a href="http://blog.dalsgaard.net//journalctl-niceties.html#disqus_thread">Comments?</a> &nbsp;
+<a href="https://twitter.com/share" class="twitter-share-button" data-text="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;" data-url="http://blog.dalsgaard.net//journalctl-niceties.html"
+ data-via="jakobdalsgaard"
+>Tweet</a>	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</p>
+<!-- entry end -->
+</div>
+<div id="disqus_thread"></div>
+            <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+               var disqus_shortname = 'jakob-dalsgaard-blog'; // required: replace example with your forum shortname
+
+            /* * * DONT EDIT BELOW THIS LINE * * */
+            (function() {
+            var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
+            dsq.src = "//" + disqus_shortname + ".disqus.com/embed.js";
+            (document.getElementsByTagName("head")[0] || document.getElementsByTagName("body")[0]).appendChild(dsq);
+            })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+<div id="footer">CC by-nc-nd <a href="https://twitter.com/jakobdalsgaard">Jakob Dalsgaard</a> &mdash; <a href="mailto:jakob@#64;dalsgaard.#46;net">jakob@#64;dalsgaard.#46;net</a><br/>
+Generated with <a href="https://github.com/cfenollosa/bashblog">bashblog</a>, a single bash script to easily create blogs like this one</div>
+<div id="footer">CC by-nc-nd <a href="https://twitter.com/jakobdalsgaard">Jakob Dalsgaard</a> &mdash; <a href="mailto:jakob@#64;dalsgaard.#46;net">jakob@#64;dalsgaard.#46;net</a><br/>
+Generated with <a href="https://github.com/cfenollosa/bashblog">bashblog</a>, a single bash script to easily create blogs like this one</div>
+</div></div>
+<script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'jakob-dalsgaard-blog'; // required: replace example with your forum shortname
+
+        /* * * DONT EDIT BELOW THIS LINE * * */
+        (function () {
+        var s = document.createElement("script"); s.async = true;
+        s.type = "text/javascript";
+        s.src = "//" + disqus_shortname + ".disqus.com/count.js";
+        (document.getElementsByTagName("HEAD")[0] || document.getElementsByTagName("BODY")[0]).appendChild(s);
+    }());
+    </script>
+</body></html>
